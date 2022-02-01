@@ -1,4 +1,4 @@
-#include <mlx.h>
+#include "./mlx/mlx.h"
 #include <unistd.h>
 
 
@@ -26,6 +26,8 @@ void    ft_putchar(char c)
 
 int     deal_key(int key, void *param)
 {
+    (void)key;
+    (void)param;
     ft_putchar('X');
     return (0);
 }
@@ -68,7 +70,7 @@ int main()
        mlx_loop_hook ( void *mlx_ptr, int (*funct_ptr)(), void *param );*/
     //to draw in a window :
     //man /usr/share/man/man3/mlx_pixel_put.1
-    mlx_key_hook(win_ptr, deal_key, (void *)0);
+   mlx_key_hook(win_ptr, deal_key, (void *)0);
     mlx_loop(mlx_ptr);
 
     
