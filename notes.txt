@@ -2,5 +2,29 @@ https://harm-smits.github.io/42docs/libs/minilibx/getting_started.html
 
 https://elearning.intra.42.fr/notions/minilibx/subnotions
 
+https://github.com/qst0/ft_libgfx#getting-started-with-fractol-ft_fractal
 
 man /usr/share/man/man3/mlx.1    pour le man 
+
+gcc -Wall -Werror -Wextra -Lmlx -lmlx -framework OpenGL -framework AppKit minilibx.c
+
+
+Before we start with this, we must understand that the bytes are not aligned, this means that the line_length differs from the actual window width. We therefore should ALWAYS calculate the memory offset using the line length set by mlx_get_data_addr.
+We can calculate it very easily by using the following formula:
+int offset = (y * line_length + x * (bits_per_pixel / 8));
+
+
+
+
+
+
+
+Pour les nombres imaginaires :
+
+ax^2 + bx + c = 0
+
+
+mandelbrot
+f(x) = z² + c
+
+#define RANGE_CHANGE(x,a,b,min,max) (((b)-(a))*((x)-(min))/((max)-(min)))+(a)
