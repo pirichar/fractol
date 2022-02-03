@@ -19,6 +19,14 @@
 to use MinilibX functions, you'll need to link you software with the MinilibX library, and several system frameworks:
 -lmlx -framewrork OpenGl -framework AppKit
 You may also need to specify the path to the MinilibX library, using the -L flag*/
+
+
+typedef struct s_mlx_ptr
+{
+    void    *mlx_ptr;
+    void    *win_ptr;
+}          t_mlx_ptr;
+
 void    ft_putchar(char c)
 {
     write(1, &c, 1);
@@ -45,7 +53,7 @@ int     print_rectangle(int key, void *param)
 }
 
 int main()
-{
+{   
     void    *mlx_ptr;
     void    *win_ptr;
     //mlx init renvoie un void étoile qui est l'identifiant de la connection au serveur graphique
