@@ -4,21 +4,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "keys.h"
-
-
-#define COLOR_10 0xFFFFFF
-#define COLOR_9 0xd9ffcc
-#define COLOR_8 0xb3ff99
-#define COLOR_7 0x8cff66
-#define COLOR_6 0x66ff33
-#define COLOR_5 0x40ff00
-#define COLOR_4 0x33cc00
-#define COLOR_3 0x269900
-#define COLOR_2 0x1a6600
-#define COLOR_1 0x0d3300
-#define COLOR_0 0x000000
-
-
+#include "colors.h"
 
 typedef struct s_mlx
 {
@@ -85,8 +71,6 @@ void    print_mandle(int i, int A, int B, t_mlx *mlx)
 }
 int     mandlebroth(t_mlx *mlx)
 {
-	//here a and b represent my min and max value
-	//by changing them from 2 and -2 to smaller value i can zoom in my set
 	clearscreen(mlx);
 	int A,B;
 	double a,b,i,x,y,t;
@@ -150,8 +134,8 @@ int     keypress(int key, t_mlx *mlx)
 	}
 	if(key == KEY_Z)
 	{
-		mlx->min_val = mlx->min_val - 0.1;
-		mlx->max_val = mlx->max_val + 0.1;
+		// mlx->min_val = mlx->min_val - 0.1;
+		// mlx->max_val = mlx->max_val + 0.1;
 		mlx->n+=100;
 		printf("This is min_val %f\n and this is max_val %f\n", mlx->min_val,mlx->max_val);
 		mandlebroth(mlx);
@@ -159,12 +143,24 @@ int     keypress(int key, t_mlx *mlx)
 	}
 	if(key == KEY_X)
 	{
-		mlx->min_val = mlx->min_val + 0.1;
-		mlx->max_val = mlx->max_val - 0.1;
+		// mlx->min_val = mlx->min_val + 0.1;
+		// mlx->max_val = mlx->max_val - 0.1;
 		mlx->n-=100;
 		printf("This is min_val %f\n and this is max_val %f\n", mlx->min_val,mlx->max_val);
 		mandlebroth(mlx);
 		printf("Zommed in\n");
+	}
+	if(key == KEY_V)
+	{
+		mlx->min_val = mlx->min_val + 0.1;
+		mlx->max_val = mlx->max_val + 0.1;
+		mandlebroth(mlx);
+	}
+	if(key == KEY_B)
+	{
+		mlx->min_val = mlx->min_val - 0.1;
+		mlx->max_val = mlx->max_val - 0.1;
+		mandlebroth(mlx);
 	}
 	if (key == KEY_ESC)
 	{

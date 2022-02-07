@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 13:04:58 by pirichar          #+#    #+#             */
-/*   Updated: 2022/01/31 13:05:00 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/07 13:52:42 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,18 @@
 
 //Reset
 # define RESET "\e[0m"
+
+//COLOR NUMBERS
+# define COLOR_10 0xFFFFFF
+# define COLOR_9 0xd9ffcc
+# define COLOR_8 0xb3ff99
+# define COLOR_7 0x8cff66
+# define COLOR_6 0x66ff33
+# define COLOR_5 0x40ff00
+# define COLOR_4 0x33cc00
+# define COLOR_3 0x269900
+# define COLOR_2 0x1a6600
+# define COLOR_1 0x0d3300
+# define COLOR_0 0x000000
 
 #endif
