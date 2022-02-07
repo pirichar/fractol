@@ -28,3 +28,26 @@ mandelbrot
 f(x) = z² + c
 
 #define RANGE_CHANGE(x,a,b,min,max) (((b)-(a))*((x)-(min))/((max)-(min)))+(a)
+
+
+
+//First thing to do to link to the graphical processor
+//void    *mlx_init();
+
+//mlx_new_window = manage window
+
+//mlx_pixel_put = draw inside window
+
+//mlx_new_image = manipulate images
+
+//mlx_loop =  handle keyboard or mouse events
+
+//for colors
+//https://www.w3schools.com/colors/colors_picker.asp
+
+/*linking Minilibx on MACOS
+to use MinilibX functions, you'll need to link you software with the MinilibX library, and several system frameworks:
+-lmlx -framewrork OpenGl -framework AppKit
+You may also need to specify the path to the MinilibX library, using the -L flag*/
+
+//should I include the fractal related stuff in this struct or should I create an other one ??
