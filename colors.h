@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 13:04:58 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/07 16:10:10 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/07 17:32:03 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,8 @@
 //Reset
 # define RESET "\e[0m"
 
-//COLOR NUMBERS
-# define COLOR_10 0xFFFFFF
+//GREEN FROM BLACK TO WHITE
+# define COLOR_max 0xFFFFFF
 # define COLOR_9 0xd9ffcc
 # define COLOR_8 0xb3ff99
 # define COLOR_7 0x8cff66
@@ -96,7 +96,34 @@
 # define COLOR_3 0x269900
 # define COLOR_2 0x1a6600
 # define COLOR_1 0x0d3300
-# define COLOR_0 0x000000
-# define COLOR_BG 0x00cc00
+# define COLOR_min 0x000000
+
+//BLUE PALET
+# define COLOR_20 0xFFFFFF
+# define COLOR_19 0xCCCFFF
+# define COLOR_18 0x9999FF
+# define COLOR_17 0x6666FF
+# define COLOR_16 0x3333FF
+# define COLOR_15 0x0000FF
+# define COLOR_14 0x0000CC
+# define COLOR_13 0x000099
+# define COLOR_12 0x000066
+# define COLOR_11 0x000033
+# define COLOR_00 0x000000
+
+//RED PALET
+# define COLOR_30 0xFFFFFF
+# define COLOR_29 0xFFCCCC
+# define COLOR_28 0xFF9999
+# define COLOR_27 0xFF6666
+# define COLOR_26 0xFF3333
+# define COLOR_25 0xFF0000
+# define COLOR_24 0xCC0000
+# define COLOR_23 0x990000
+# define COLOR_22 0x660000
+# define COLOR_21 0x330000
+# define COLOR_000 0x000000
+
+
 
 #endif

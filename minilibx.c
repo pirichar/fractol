@@ -6,21 +6,29 @@
 #include "keys.h"
 #include "colors.h"
 
-typedef struct	s_data {
+typedef struct s_color_pal
+{
+	int	clr_0;
+	int clr_1;
+	int clr_2;
+	int clr_3;
+	int clr_4;
+	int clr_5;
+	int clr_6;
+	int clr_7;
+	int clr_8;
+	int clr_9;
+	int clr_10;
+}			t_color_pal;
+typedef struct	s_data 
+{
 	void	*img;
 	char	*addr;
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
-}				t_data;
+}			t_data;
 
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
-{
-	char	*dst;
-
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
-}
 typedef struct s_mlx
 {
 	void	*mlx_ptr;
@@ -34,7 +42,17 @@ typedef struct s_mlx
 	int		offset_x;
 	int		offset_y;
 	t_data	img;
+	t_color_pal	col;
+
 }			t_mlx;
+
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+{
+	char	*dst;
+
+	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+	*(unsigned int*)dst = color;
+}
 
 void    ft_putchar(char c)
 {
@@ -63,31 +81,31 @@ void    clearscreen(t_mlx *mlx)
 void    print_mandle(int i, int A, int B, t_mlx *mlx)
 {
 	if(i > 1 && i <= 10)
-		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr,A+mlx->offset_x, B+mlx->offset_y,COLOR_0);
+		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr,A+mlx->offset_x, B+mlx->offset_y,mlx->col.clr_0);
 	if(i > 10 && i <= 20)
-		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr,A+mlx->offset_x, B+mlx->offset_y,COLOR_1);
+		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr,A+mlx->offset_x, B+mlx->offset_y,mlx->col.clr_1);
 	if(i > 20 && i <= 30)
-		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr,A+mlx->offset_x, B+mlx->offset_y,COLOR_2);
+		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr,A+mlx->offset_x, B+mlx->offset_y,mlx->col.clr_2);
 	if(i > 30 && i <= 40)
-		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr,A+mlx->offset_x, B+mlx->offset_y,COLOR_3);
+		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr,A+mlx->offset_x, B+mlx->offset_y,mlx->col.clr_3);
 	if(i > 40 && i <= 50)
-		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr,A+mlx->offset_x, B+mlx->offset_y,COLOR_4);
+		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr,A+mlx->offset_x, B+mlx->offset_y,mlx->col.clr_4);
 	if(i > 50 && i <= 60)
-		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr,A+mlx->offset_x, B+mlx->offset_y,COLOR_5);
+		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr,A+mlx->offset_x, B+mlx->offset_y,mlx->col.clr_5);
 	if(i > 60 && i <= 70)
-		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr,A+mlx->offset_x, B+mlx->offset_y,COLOR_6);
+		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr,A+mlx->offset_x, B+mlx->offset_y,mlx->col.clr_6);
 	if(i > 70 && i <= 80)
-		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr,A+mlx->offset_x, B+mlx->offset_y,COLOR_7);
+		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr,A+mlx->offset_x, B+mlx->offset_y,mlx->col.clr_7);
 	if(i > 80 && i <= 90)
-		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr,A+mlx->offset_x, B+mlx->offset_y,COLOR_8);
+		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr,A+mlx->offset_x, B+mlx->offset_y,mlx->col.clr_8);
 	if(i > 90 && i < 100)
-		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr,A+mlx->offset_x, B+mlx->offset_y,COLOR_9);
+		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr,A+mlx->offset_x, B+mlx->offset_y,mlx->col.clr_9);
 	if(i==mlx->max_iteration)
 	// {
 	// 	my_mlx_pixel_put(&mlx->img,A+mlx->offset_x,B+mlx->offset_y,COLOR_10);
 	// 	mlx_put_image_to_window(mlx->mlx_ptr,mlx->win_ptr,mlx->img.img,0,0);
 	// }
-		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr,A+mlx->offset_x, B+mlx->offset_y,COLOR_10);
+		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr,A+mlx->offset_x, B+mlx->offset_y,mlx->col.clr_10);
 }
 int     mandlebroth(t_mlx *mlx)
 {
@@ -117,21 +135,63 @@ int     mandlebroth(t_mlx *mlx)
 	printf("This is min_val %f\n and this is max_val %f\n", mlx->min_val,mlx->max_val);
 	return (0);
 }
+void	mandle_green(t_mlx *mlx)
+{
+	mlx->col.clr_0 = COLOR_min;
+	mlx->col.clr_2 = COLOR_2;
+	mlx->col.clr_3 = COLOR_3;
+	mlx->col.clr_4 = COLOR_4;
+	mlx->col.clr_5 = COLOR_5;
+	mlx->col.clr_6 = COLOR_6;
+	mlx->col.clr_7 = COLOR_7;
+	mlx->col.clr_8 = COLOR_8;
+	mlx->col.clr_9 = COLOR_9;
+	mlx->col.clr_10 = COLOR_max;
+}
 
+void	mandle_blue(t_mlx *mlx)
+{
+	mlx->col.clr_0 = COLOR_min;
+	mlx->col.clr_2 = COLOR_12;
+	mlx->col.clr_3 = COLOR_13;
+	mlx->col.clr_4 = COLOR_14;
+	mlx->col.clr_5 = COLOR_15;
+	mlx->col.clr_6 = COLOR_16;
+	mlx->col.clr_7 = COLOR_17;
+	mlx->col.clr_8 = COLOR_18;
+	mlx->col.clr_9 = COLOR_19;
+	mlx->col.clr_10 = COLOR_max;
+}
+void	mandle_red(t_mlx *mlx)
+{
+	mlx->col.clr_0 = COLOR_min;
+	mlx->col.clr_2 = COLOR_22;
+	mlx->col.clr_3 = COLOR_23;
+	mlx->col.clr_4 = COLOR_24;
+	mlx->col.clr_5 = COLOR_25;
+	mlx->col.clr_6 = COLOR_26;
+	mlx->col.clr_7 = COLOR_27;
+	mlx->col.clr_8 = COLOR_28;
+	mlx->col.clr_9 = COLOR_29;
+	mlx->col.clr_10 = COLOR_max;
+}
+void	init_mandle(t_mlx *mlx)
+{
+	mlx->min_val=-2,
+	mlx->max_val=2;
+	mlx->n=30;
+	mlx->offset_x = 450;
+	mlx->offset_y = 300;
+	mlx->max_iteration=100;
+	mandle_green(mlx);
+	mandlebroth(mlx);
+}
 int     keypress(int key, t_mlx *mlx)
 {
-	if(key == KEY_C)
+	if (key == KEY_C)
 			clearscreen(mlx);
-	if(key == KEY_M)
-	{
-		mlx->min_val=-2,
-		mlx->max_val=2;
-		mlx->n=30;
-		mlx->offset_x = 450;
-		mlx->offset_y = 300;
-		mlx->max_iteration=100;
-		mandlebroth(mlx);
-	}
+	if (key == KEY_M)
+		init_mandle(mlx);
 	if (key == KEY_W)
 	{
 		mlx->offset_y -= 100;
@@ -154,35 +214,17 @@ int     keypress(int key, t_mlx *mlx)
 	}
 	if(key == KEY_Z)
 	{
-		// mlx->min_val = mlx->min_val - 0.1;
-		// mlx->max_val = mlx->max_val + 0.1;
 		mlx->n = mlx->n + 30;
 		mlx->offset_x -= 30;
 		mlx->offset_y -= 55;
-		printf("This is min_val %f\n and this is max_val %f\n", mlx->min_val,mlx->max_val);
 		mandlebroth(mlx);
-		printf("Zommed in\n");
 	}
 	if(key == KEY_X)
 	{
-		// mlx->min_val = mlx->min_val + 0.1;
-		// mlx->max_val = mlx->max_val - 0.1;
 		mlx->n-=100;
 		printf("This is min_val %f\n and this is max_val %f\n", mlx->min_val,mlx->max_val);
 		mandlebroth(mlx);
 		printf("Zommed in\n");
-	}
-	if(key == KEY_V)
-	{
-		mlx->min_val = mlx->min_val + 0.1;
-		mlx->max_val = mlx->max_val + 0.1;
-		mandlebroth(mlx);
-	}
-	if(key == KEY_B)
-	{
-		mlx->min_val = mlx->min_val - 0.1;
-		mlx->max_val = mlx->max_val - 0.1;
-		mandlebroth(mlx);
 	}
 	if(key == KEY_I)
 	{
@@ -199,6 +241,21 @@ int     keypress(int key, t_mlx *mlx)
 		mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
 		exit (0);
 	}
+	if(key == KEY_B)
+	{
+		mandle_blue(mlx);
+		mandlebroth(mlx);
+	}
+	if(key == KEY_R)
+	{
+		mandle_red(mlx);
+		mandlebroth(mlx);
+	}
+	if(key == KEY_G)
+	{
+		mandle_green(mlx);
+		mandlebroth(mlx);
+	}
 	return (0);
 }
 
@@ -211,34 +268,11 @@ int main()
 	mlx.win_y = 720;
 	//mlx init renvoie un void étoile qui est l'identifiant de la connection au serveur graphique
 	mlx.mlx_ptr = mlx_init();
-	//for the mlx_new_window man
-	//man /usr/share/man/man3/mlx_new_window.1
-	//void *mlx_new_window(void *mlx_ptr, int size_x, int size_y, char *title)
-	//int   mlx_clear_window(void *mlx_ptr, void *win_ptr);
-	//int   mlx_destroy_window(void *mlx_ptr, void *win_ptr);
-	// MLX new window renvoie aussi un void /toile qui est l'identifiant de la nouvelle fenêtre
-	// Cet identifiant est suceptible d'être utilisé par la suite par exemple pour dessiner dedans
 	mlx.win_ptr = mlx_new_window(mlx.mlx_ptr, mlx.win_x,mlx.win_y, "mlx 42");
 
 	mlx.img.img = mlx_new_image(mlx.mlx_ptr,mlx.win_x,mlx.win_y);
 	mlx.img.addr = mlx_get_data_addr(mlx.img.img, &mlx.img.bits_per_pixel, &mlx.img.line_length, &mlx.img.endian);
-	//Cette fonction est en charge de dessiner et d'ouvrir la fenetre
-	//Elle s'occupera aussi de gerer les evenements genre clic souris;bouger souris; clic clavier
-	/*  int mlx_loop ( void *mlx_ptr );
-
-	   int  mlx_key_hook ( void *win_ptr, int (*funct_ptr)(), void *param );
-	   int  mlx_mouse_hook ( void *win_ptr, int (*funct_ptr)(), void *param );
-	   int  mlx_expose_hook ( void *win_ptr, int (*funct_ptr)(), void *param );
-	   int  mlx_loop_hook ( void *mlx_ptr, int (*funct_ptr)(), void *param );*/
-		//to draw in a window :
-	//man /usr/share/man/man3/mlx_pixel_put.1
 	mlx_key_hook(mlx.win_ptr, keypress, &mlx);
-	// for(int i = 50;i<100;i++)
-	//         {
-	//            for(int j = 50;j < 100;j++)
-	//                mlx_pixel_put(mlx.mlx_ptr, mlx.win_ptr,i, j,0x66ff99);
-	//         }
-
 	mlx_loop(mlx.mlx_ptr);
 
 }
