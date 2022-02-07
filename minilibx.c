@@ -6,6 +6,21 @@
 #include "keys.h"
 #include "colors.h"
 
+typedef struct	s_data {
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}				t_data;
+
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+{
+	char	*dst;
+
+	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+	*(unsigned int*)dst = color;
+}
 typedef struct s_mlx
 {
 	void	*mlx_ptr;
@@ -18,6 +33,7 @@ typedef struct s_mlx
 	double	n;
 	int		offset_x;
 	int		offset_y;
+	t_data	img;
 }			t_mlx;
 
 void    ft_putchar(char c)
@@ -46,27 +62,31 @@ void    clearscreen(t_mlx *mlx)
 
 void    print_mandle(int i, int A, int B, t_mlx *mlx)
 {
-	if(i == 0)
+	if(i > 1 && i <= 10)
 		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr,A+mlx->offset_x, B+mlx->offset_y,COLOR_0);
-	if(i == 10)
+	if(i > 10 && i <= 20)
 		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr,A+mlx->offset_x, B+mlx->offset_y,COLOR_1);
-	if(i == 20)
+	if(i > 20 && i <= 30)
 		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr,A+mlx->offset_x, B+mlx->offset_y,COLOR_2);
-	if(i == 30)
+	if(i > 30 && i <= 40)
 		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr,A+mlx->offset_x, B+mlx->offset_y,COLOR_3);
-	if(i == 40)
+	if(i > 40 && i <= 50)
 		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr,A+mlx->offset_x, B+mlx->offset_y,COLOR_4);
-	if(i == 50)
+	if(i > 50 && i <= 60)
 		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr,A+mlx->offset_x, B+mlx->offset_y,COLOR_5);
-	if(i == 60)
+	if(i > 60 && i <= 70)
 		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr,A+mlx->offset_x, B+mlx->offset_y,COLOR_6);
-	if(i == 70)
+	if(i > 70 && i <= 80)
 		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr,A+mlx->offset_x, B+mlx->offset_y,COLOR_7);
-	if(i == 80)
+	if(i > 80 && i <= 90)
 		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr,A+mlx->offset_x, B+mlx->offset_y,COLOR_8);
-	if(i == 90)
+	if(i > 90 && i < 100)
 		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr,A+mlx->offset_x, B+mlx->offset_y,COLOR_9);
 	if(i==mlx->max_iteration)
+	// {
+	// 	my_mlx_pixel_put(&mlx->img,A+mlx->offset_x,B+mlx->offset_y,COLOR_10);
+	// 	mlx_put_image_to_window(mlx->mlx_ptr,mlx->win_ptr,mlx->img.img,0,0);
+	// }
 		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr,A+mlx->offset_x, B+mlx->offset_y,COLOR_10);
 }
 int     mandlebroth(t_mlx *mlx)
@@ -74,7 +94,6 @@ int     mandlebroth(t_mlx *mlx)
 	clearscreen(mlx);
 	int A,B;
 	double a,b,i,x,y,t;
-	mlx->max_iteration=1000;
 	for(B=0;B<=4*mlx->n;B++)
 	{
 		b=mlx->max_val-(B/mlx->n);
@@ -107,9 +126,10 @@ int     keypress(int key, t_mlx *mlx)
 	{
 		mlx->min_val=-2,
 		mlx->max_val=2;
-		mlx->n=15;
-		mlx->offset_x = 100;
-		mlx->offset_y = 100;
+		mlx->n=30;
+		mlx->offset_x = 450;
+		mlx->offset_y = 300;
+		mlx->max_iteration=100;
 		mandlebroth(mlx);
 	}
 	if (key == KEY_W)
@@ -136,7 +156,9 @@ int     keypress(int key, t_mlx *mlx)
 	{
 		// mlx->min_val = mlx->min_val - 0.1;
 		// mlx->max_val = mlx->max_val + 0.1;
-		mlx->n+=100;
+		mlx->n = mlx->n + 30;
+		mlx->offset_x -= 30;
+		mlx->offset_y -= 55;
 		printf("This is min_val %f\n and this is max_val %f\n", mlx->min_val,mlx->max_val);
 		mandlebroth(mlx);
 		printf("Zommed in\n");
@@ -160,6 +182,16 @@ int     keypress(int key, t_mlx *mlx)
 	{
 		mlx->min_val = mlx->min_val - 0.1;
 		mlx->max_val = mlx->max_val - 0.1;
+		mandlebroth(mlx);
+	}
+	if(key == KEY_I)
+	{
+		mlx->max_iteration +=100;
+		mandlebroth(mlx);
+	}	
+	if(key == KEY_O)
+	{
+		mlx->max_iteration -=100;
 		mandlebroth(mlx);
 	}
 	if (key == KEY_ESC)
@@ -187,6 +219,9 @@ int main()
 	// MLX new window renvoie aussi un void /toile qui est l'identifiant de la nouvelle fenêtre
 	// Cet identifiant est suceptible d'être utilisé par la suite par exemple pour dessiner dedans
 	mlx.win_ptr = mlx_new_window(mlx.mlx_ptr, mlx.win_x,mlx.win_y, "mlx 42");
+
+	mlx.img.img = mlx_new_image(mlx.mlx_ptr,mlx.win_x,mlx.win_y);
+	mlx.img.addr = mlx_get_data_addr(mlx.img.img, &mlx.img.bits_per_pixel, &mlx.img.line_length, &mlx.img.endian);
 	//Cette fonction est en charge de dessiner et d'ouvrir la fenetre
 	//Elle s'occupera aussi de gerer les evenements genre clic souris;bouger souris; clic clavier
 	/*  int mlx_loop ( void *mlx_ptr );

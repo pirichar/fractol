@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 13:04:58 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/07 13:52:42 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/07 16:10:10 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,5 +97,6 @@
 # define COLOR_2 0x1a6600
 # define COLOR_1 0x0d3300
 # define COLOR_0 0x000000
+# define COLOR_BG 0x00cc00
 
 #endif
