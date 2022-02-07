@@ -24,12 +24,14 @@
 #define KEY_T 0x11
 #define KEY_U 0x20
 #define KEY_V 0x9
+#define KEY_X 0x7
 #define KEY_Y 0x10
 #define KEY_Z 0x6
 #define KEY_CTRL 0x100
 #define KEY_OPT 0x105
 #define KEY_CMD 0x103
 #define KEY_ESC 0x35
+#define KEY_SPA 0x31
 
 #define KEY_0 0x10
 #define KEY_1 0x12
