@@ -72,13 +72,13 @@ int     keypress(int key, t_mlx *mlx)
 	//iteration +
 	if(key == KEY_I)
 	{
-		mlx->max_i +=50;
+		mlx->max_i +=10;
 		mandlebroth(mlx);
 	}	
 	//iteration -
 	if(key == KEY_O)
 	{
-		mlx->max_i -=50;
+		mlx->max_i -=10;
 		mandlebroth(mlx);
 	}
 	if (key == KEY_ESC)
@@ -87,22 +87,28 @@ int     keypress(int key, t_mlx *mlx)
 		exit (0);
 	}
 	//colors
-	if(key == KEY_B)
+	if(key == KEY_1)
 	{
 		printf("Life should be bluer\n");
 		mandle_blue(mlx);
 		mandlebroth(mlx);
 	}
-	if(key == KEY_R)
+	if(key == KEY_2)
 	{
 		printf("Life should be RED RED RED\n");
 		mandle_red(mlx);
 		mandlebroth(mlx);
 	}
-	if(key == KEY_G)
+	if(key == KEY_3)
 	{
 		printf("Life with the green\n");
 		mandle_green(mlx);
+		mandlebroth(mlx);
+	}
+	if(key == KEY_4)
+	{
+		printf("Life with the green\n");
+		mandle_black(mlx);
 		mandlebroth(mlx);
 	}
 	if(key == KEY_UP)
@@ -115,11 +121,6 @@ int     keypress(int key, t_mlx *mlx)
 	{
 		mlx->min_val -= 0.25;
 		mlx->max_val += 0.25;
-		mandlebroth(mlx);
-	}
-	if(key == KEY_G)
-	{
-		mandle_green(mlx);
 		mandlebroth(mlx);
 	}
 	return (0);

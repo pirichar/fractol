@@ -9,7 +9,7 @@ int     main(void)
 		srand(24);
 		while(1)
 		{
-			r1=(4.0*rand())/RAND_MAX)-2.0;
+			r1=(4.0*rand()/RAND_MAX)-2.0;
 			r2=(2.0*rand()/RAND_MAX)-1.0;
 			s = 0;
 			printf("Julia Set of %lf %lf\n",r1,r2);
