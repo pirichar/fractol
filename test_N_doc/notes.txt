@@ -15,8 +15,8 @@ int offset = (y * line_length + x * (bits_per_pixel / 8));
 
 
 
-
-
+A WAY TO DETERMINE THE IDEAL ITERATION 
+https://math.stackexchange.com/questions/16970/a-way-to-determine-the-ideal-number-of-maximum-iterations-for-an-arbitrary-zoom
 
 
 Pour les nombres imaginaires :
@@ -51,3 +51,4 @@ to use MinilibX functions, you'll need to link you software with the MinilibX li
 You may also need to specify the path to the MinilibX library, using the -L flag*/
 
 //should I include the fractal related stuff in this struct or should I create an other one ??
+

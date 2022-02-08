@@ -1,0 +1,3 @@
+1- finir le .h et séparer les fonctions de mandelbrot dans un autre fichier
+2- coder le fractal de julia 
+3- 

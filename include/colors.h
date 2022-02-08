@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 13:04:58 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/07 17:32:03 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/08 09:32:47 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,8 @@
 # define RESET "\e[0m"
 
 //GREEN FROM BLACK TO WHITE
-# define COLOR_max 0xFFFFFF
+//FFFFFF IS WHITE 00000000 IS BLACK
+# define COLOR_white 0xFFFFFF
 # define COLOR_9 0xd9ffcc
 # define COLOR_8 0xb3ff99
 # define COLOR_7 0x8cff66
@@ -96,7 +97,7 @@
 # define COLOR_3 0x269900
 # define COLOR_2 0x1a6600
 # define COLOR_1 0x0d3300
-# define COLOR_min 0x000000
+# define COLOR_black 0x000000
 
 //BLUE PALET
 # define COLOR_20 0xFFFFFF
@@ -123,6 +124,19 @@
 # define COLOR_22 0x660000
 # define COLOR_21 0x330000
 # define COLOR_000 0x000000
+
+//RED BLACK PALET
+# define COLOR_40 0xFFFFFF
+# define COLOR_39 0xE6E6E6
+# define COLOR_38 0xCCCCCC
+# define COLOR_37 0xB3B3B3
+# define COLOR_36 0x999999
+# define COLOR_35 0x808080
+# define COLOR_34 0x666666
+# define COLOR_33 0x4D4D4D
+# define COLOR_32 0x333333
+# define COLOR_31 0x1A1A1A
+# define COLOR_0000 0x000000
 
 
 

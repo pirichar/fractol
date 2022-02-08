@@ -32,6 +32,8 @@
 #define KEY_CMD 0x103
 #define KEY_ESC 0x35
 #define KEY_SPA 0x31
+#define KEY_UP 0x7E
+#define KEY_DOWN 0x7D
 
 #define KEY_0 0x10
 #define KEY_1 0x12
