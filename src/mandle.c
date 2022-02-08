@@ -18,16 +18,14 @@ int     mandlebroth(t_mlx *mlx)
 				t=x;
 				x=(x*x)-(y*y)+a;
 				y=(2*t*y)+b;
-				if ((x*x)+(y*y)>4)
+				if ((x*x)+(y*y)>16)
 					break;
 			}
 			print_mandle(i,A,B,mlx);
 		}
 	}
-	ft_putstring("Mandelbroth\n");
-	printf("This is min_val %f\n and this is max_val %f\n", mlx->min_val,mlx->max_val);
-	printf("This is max iteration %d\n", mlx->max_i);
-	printf("This is n %f\n", mlx->n);
+	printf("Mandelbroth\nThis is min_val %f\n and this is max_val %f\n", mlx->min_val,mlx->max_val);
+	printf("This is max iteration %d\nThis is n %f\n", mlx->max_i,mlx->n);
 	return (0);
 }
 void	mandle_green(t_mlx *mlx)
@@ -91,6 +89,8 @@ void	init_mandle(t_mlx *mlx)
 {
 	mlx->min_val=-2.5,
 	mlx->max_val=2.5;
+	// mlx->min_val=.25,
+	// mlx->max_val=0.05;
 	mlx->n=30;
 	mlx->offset_x = 600;
 	mlx->offset_y = 350;

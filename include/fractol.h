@@ -20,6 +20,7 @@ typedef struct s_color_pal
 	int clr_90;
 	int clr_white;
 }			t_color_pal;
+
 typedef struct	s_data 
 {
 	void	*img;
@@ -51,6 +52,7 @@ void    ft_putstring(char *str);
 void    clearscreen(t_mlx *mlx);
 void    print_mandle(int i, int A, int B, t_mlx *mlx);
 void    rev_print_mandle(int i, int A, int B, t_mlx *mlx);
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 
 //mandle.c
 int     mandlebroth(t_mlx *mlx);

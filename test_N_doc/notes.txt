@@ -45,6 +45,8 @@ f(x) = z² + c
 //for colors
 //https://www.w3schools.com/colors/colors_picker.asp
 
+
+
 /*linking Minilibx on MACOS
 to use MinilibX functions, you'll need to link you software with the MinilibX library, and several system frameworks:
 -lmlx -framewrork OpenGl -framework AppKit
@@ -52,3 +54,5 @@ You may also need to specify the path to the MinilibX library, using the -L flag
 
 //should I include the fractal related stuff in this struct or should I create an other one ??
 
+FOR JULIA
+https://www.youtube.com/watch?v=KwUJwHwXCbo
