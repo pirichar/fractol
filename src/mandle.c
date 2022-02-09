@@ -1,4 +1,19 @@
 #include "../include/fractol.h"
+/* Here the mandelbrot set will be contained in the square 
+* (2,-2) (2,2)
+* (-2,-2) (-2,2)
+* -2 is min_val 2 is max_val below
+* The variable i is my iteration up to max_i 
+* Max_i is my max iteration which takes care of details
+* The variable n decide the size of the fractal
+* It affects the lenghts of both loops
+* It also affect the mandelbrot loop
+* Complexe Squaring:
+* (A+iB)^2
+* =(A+iB)(A+iB)
+* =(AA)+(AB)I+(AB)i-BB
+* =(AA-BB)+(2AB)i
+*/
 
 int     mandlebroth(t_mlx *mlx)
 {
