@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 10:47:58 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/08 13:43:37 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/09 09:18:24 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void    print_mandle(int i, int A, int B, t_mlx *mlx)
 	if(i > (float)mlx->max_i * 900 / 100 && i <= (float)mlx->max_i * 100 / 100)
 		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr,A+mlx->offset_x, B+mlx->offset_y,mlx->col.clr_90);
 	if(i==mlx->max_i)
-		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr,A+mlx->offset_x, B+mlx->offset_y,mlx->col.clr_white);
+		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr,A+mlx->offset_x, B+mlx->offset_y,mlx->col.clr_black);
 	// {
 	// 	my_mlx_pixel_put(&mlx->img,A+mlx->offset_x,B+mlx->offset_y,mlx->col.clr_white);
 	// 	mlx_put_image_to_window(mlx->mlx_ptr,mlx->win_ptr,mlx->img.img,0,0);
@@ -45,7 +45,7 @@ void    print_mandle(int i, int A, int B, t_mlx *mlx)
 void    rev_print_mandle(int i, int A, int B, t_mlx *mlx)
 {
 	if(i > 0 && i <= (float)mlx->max_i * 10 / 100)
-		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr,A+mlx->offset_x, B+mlx->offset_y,mlx->col.clr_white);
+		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr,A+mlx->offset_x, B+mlx->offset_y,mlx->col.clr_black);
 	if(i > (float)mlx->max_i * 10 / 100 && i <= (float)mlx->max_i * 20 / 100)
 		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr,A+mlx->offset_x, B+mlx->offset_y,mlx->col.clr_90);
 	if(i > (float)mlx->max_i * 20 / 100 && i <= (float)mlx->max_i * 30 / 100)
