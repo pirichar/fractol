@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 10:47:58 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/10 13:51:32 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/10 16:36:07 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void    print_mandle(int i, int A, int B, t_mlx *mlx)
 		my_mlx_pixel_put(&mlx->img,A+mlx->offset_x,B+mlx->offset_y,mlx->col.clr_80);
 	if(i > (float)mlx->max_i * 900 / 100 && i <= (float)mlx->max_i * 100 / 100)
 		my_mlx_pixel_put(&mlx->img,A+mlx->offset_x,B+mlx->offset_y,mlx->col.clr_90);
-	if(i==mlx->max_i)
+	if(i == mlx->max_i)
 		my_mlx_pixel_put(&mlx->img,A+mlx->offset_x,B+mlx->offset_y,mlx->col.clr_black);
 }
 

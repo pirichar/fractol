@@ -18,24 +18,24 @@
 int     mandlebroth(t_mlx *mlx)
 {
 	clearscreen(mlx);
-	int A,B;
-	long double a,b,i,x,y,t;
-	for(B=0;B<=4*mlx->n;B++)
+	int A,B,i;
+	long double a,b,x,y,t;
+	for(B=0;B<=mlx->win_x;B++)
 	{
-		b=mlx->max_val-(B/mlx->n);
-		for(A=0;A<=4*mlx->n;A++)
+		b=(((float)4.0 * (B - mlx->win_y))) / (mlx->win_y) - (float)0.0;
+		for(A=0;A<=mlx->win_y;A++)
 		{
-			a=mlx->min_val+(A/mlx->n); 
-			x=0;
-			y=0;
-			for(i=1;i<mlx->max_i;i++)
-			{
-				t=x;
-				x=(x*x)-(y*y)+a;
-				y=(2*t*y)+b;
-				if ((x*x)+(y*y)>4)
-					break;
-			}
+			a=(((float)4.0 * (A - mlx->win_x))) / (mlx->win_x) - (float)0.0;
+			    x=0.0;
+                y=0.0;
+                for(i=1;i<=1000;i++)
+                {
+                    t= ((x*x) - (y*y)) + b;
+                    y= (((float)2.0 * x)*y) + a;
+                    x = t;
+                    if(((x*x)+(y*y)) > (float)4.0)
+                        break;
+                }
 			print_mandle(i,A,B,mlx);
 		}
 	}

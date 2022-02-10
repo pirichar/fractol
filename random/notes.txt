@@ -56,3 +56,10 @@ You may also need to specify the path to the MinilibX library, using the -L flag
 
 FOR JULIA
 https://www.youtube.com/watch?v=KwUJwHwXCbo
+
+
+
+
+Pour le zoom :
+
+*0.09 et * 0.01
