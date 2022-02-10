@@ -19,7 +19,7 @@ int     mandlebroth(t_mlx *mlx)
 {
 	clearscreen(mlx);
 	int A,B;
-	double a,b,i,x,y,t;
+	long double a,b,i,x,y,t;
 	for(B=0;B<=4*mlx->n;B++)
 	{
 		b=mlx->max_val-(B/mlx->n);
@@ -33,14 +33,16 @@ int     mandlebroth(t_mlx *mlx)
 				t=x;
 				x=(x*x)-(y*y)+a;
 				y=(2*t*y)+b;
-				if ((x*x)+(y*y)>16)
+				if ((x*x)+(y*y)>4)
 					break;
 			}
 			print_mandle(i,A,B,mlx);
 		}
 	}
+	mlx_put_image_to_window(mlx->mlx_ptr,mlx->win_ptr,mlx->img.img,0,0);
 	printf("Mandelbroth\nThis is min_val %f\n and this is max_val %f\n", mlx->min_val,mlx->max_val);
 	printf("This is max iteration %d\nThis is n %f\n", mlx->max_i,mlx->n);
+	printf("This is offset_x %d\nThis is offset_y %d\n", mlx->offset_x, mlx->offset_y);
 	return (0);
 }
 void	mandle_green(t_mlx *mlx)
@@ -104,12 +106,10 @@ void	init_mandle(t_mlx *mlx)
 {
 	mlx->min_val=-2.5,
 	mlx->max_val=2.5;
-	// mlx->min_val=.25,
-	// mlx->max_val=0.05;
-	mlx->n=30;
+	mlx->n=100;
 	mlx->offset_x = 600;
 	mlx->offset_y = 350;
-	mlx->max_i=30;
+	mlx->max_i=60;
 	mandle_black(mlx);
 	mandlebroth(mlx);
 }

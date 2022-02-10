@@ -6,7 +6,7 @@
 #    By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 11:00:22 by pirichar          #+#    #+#              #
-#    Updated: 2022/02/08 13:33:49 by pirichar         ###   ########.fr        #
+#    Updated: 2022/02/10 13:22:53 by pirichar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ OBJS		= $(addprefix $(OBJ)/, $(OFILES))
 HEADERS		= $(addprefix $(INC)/, $(HFILES))
 
 CC			= gcc
-CFLAGS		= -Wall -Werror -Wextra 
+CFLAGS		= -Wall -Werror -Wextra -g
 RM			= rm -rf
 
 $(OBJ)/%.o:	$(SRC)/%.c
@@ -35,7 +35,7 @@ $(OBJ)/%.o:	$(SRC)/%.c
 
 
 $(NAME):	$(OBJ) $(OBJS)
-			$(CC) $(OBJS) -Lmlx -lmlx -framework OpenGL -framework AppKit  -o $(NAME)
+			$(CC) $(OBJS) -lmlx -framework OpenGL -framework AppKit  -o $(NAME)
 
 $(OBJ):
 			@mkdir -p $(OBJ)

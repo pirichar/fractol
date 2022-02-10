@@ -1,13 +1,5 @@
 #include "../include/fractol.h"
 
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
-{
-	char	*dst;
-
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
-}
-
 void    ft_putchar(char c)
 {
 	write(1, &c, 1);
@@ -59,6 +51,8 @@ int     keypress(int key, t_mlx *mlx)
 		mlx->n = mlx->n + 30;
 		mlx->offset_x -= 30;
 		mlx->offset_y -= 55;
+		// mlx->min_val = mlx->min_val * 0.1;
+		// mlx->max_val = mlx->max_val * 1.1;
 		mandlebroth(mlx);
 	}
 	//zoom out
@@ -131,8 +125,8 @@ int main()
 {   
 	t_mlx mlx;
 
-	mlx.win_x = 1440;
-	mlx.win_y = 875;
+	mlx.win_x = 1920;
+	mlx.win_y = 1080;
 	//mlx init renvoie un void étoile qui est l'identifiant de la connection au serveur graphique
 	mlx.mlx_ptr = mlx_init();
 	mlx.win_ptr = mlx_new_window(mlx.mlx_ptr, mlx.win_x,mlx.win_y, "fract-OL");
@@ -141,5 +135,4 @@ int main()
 	mlx.img.addr = mlx_get_data_addr(mlx.img.img, &mlx.img.bits_per_pixel, &mlx.img.line_length, &mlx.img.endian);
 	mlx_key_hook(mlx.win_ptr, keypress, &mlx);
 	mlx_loop(mlx.mlx_ptr);
-
 }
