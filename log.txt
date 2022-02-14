@@ -1,0 +1,773 @@
+2e
+Mandelbrot
+This is min_val -2.450000
+ and this is max_val 1.050000
+This is max iteration 60
+This is n 360.000000
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 10
+This is mlx state m
+6
+Mandelbrot
+This is min_val -2.450000
+ and this is max_val 0.780000
+This is max iteration 60
+This is n 540.000000
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 10
+This is mlx state m
+6
+Mandelbrot
+This is min_val -2.450000
+ and this is max_val 0.579429
+This is max iteration 60
+This is n 810.000000
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 10
+This is mlx state m
+6
+Mandelbrot
+This is min_val -2.450000
+ and this is max_val 0.430433
+This is max iteration 60
+This is n 1215.000000
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 10
+This is mlx state m
+7e
+d
+Mandelbrot
+This is min_val -2.450000
+ and this is max_val 0.330433
+This is max iteration 60
+This is n 1215.000000
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 10
+This is mlx state m
+d
+Mandelbrot
+This is min_val -2.450000
+ and this is max_val 0.230433
+This is max iteration 60
+This is n 1215.000000
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 10
+This is mlx state m
+0
+Mandelbrot
+This is min_val -2.350000
+ and this is max_val 0.230433
+This is max iteration 60
+This is n 1215.000000
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 10
+This is mlx state m
+0
+Mandelbrot
+This is min_val -2.250000
+ and this is max_val 0.230433
+This is max iteration 60
+This is n 1215.000000
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 10
+This is mlx state m
+0
+Mandelbrot
+This is min_val -2.150000
+ and this is max_val 0.230433
+This is max iteration 60
+This is n 1215.000000
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 10
+This is mlx state m
+1
+Mandelbrot
+This is min_val -2.150000
+ and this is max_val 0.330433
+This is max iteration 60
+This is n 1215.000000
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 10
+This is mlx state m
+6
+Mandelbrot
+This is min_val -2.150000
+ and this is max_val 0.245464
+This is max iteration 60
+This is n 1822.500000
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 10
+This is mlx state m
+6
+Mandelbrot
+This is min_val -2.150000
+ and this is max_val 0.182345
+This is max iteration 60
+This is n 2733.750000
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 10
+This is mlx state m
+6
+Mandelbrot
+This is min_val -2.150000
+ and this is max_val 0.135456
+This is max iteration 60
+This is n 4100.625000
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 10
+This is mlx state m
+d
+Mandelbrot
+This is min_val -2.150000
+ and this is max_val 0.035456
+This is max iteration 60
+This is n 4100.625000
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 10
+This is mlx state m
+0
+Mandelbrot
+This is min_val -2.050000
+ and this is max_val 0.035456
+This is max iteration 60
+This is n 4100.625000
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 10
+This is mlx state m
+0
+Mandelbrot
+This is min_val -1.950000
+ and this is max_val 0.035456
+This is max iteration 60
+This is n 4100.625000
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 10
+This is mlx state m
+0
+Mandelbrot
+This is min_val -1.850000
+ and this is max_val 0.035456
+This is max iteration 60
+This is n 4100.625000
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 10
+This is mlx state m
+1
+Mandelbrot
+This is min_val -1.850000
+ and this is max_val 0.135456
+This is max iteration 60
+This is n 4100.625000
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 10
+This is mlx state m
+2
+Mandelbrot
+This is min_val -1.950000
+ and this is max_val 0.135456
+This is max iteration 60
+This is n 4100.625000
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 10
+This is mlx state m
+d
+Mandelbrot
+This is min_val -1.950000
+ and this is max_val 0.035456
+This is max iteration 60
+This is n 4100.625000
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 10
+This is mlx state m
+18
+1
+Mandelbrot
+This is min_val -1.950000
+ and this is max_val 0.045456
+This is max iteration 60
+This is n 4100.625000
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 100
+This is mlx state m
+1
+Mandelbrot
+This is min_val -1.950000
+ and this is max_val 0.055456
+This is max iteration 60
+This is n 4100.625000
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 100
+This is mlx state m
+1
+Mandelbrot
+This is min_val -1.950000
+ and this is max_val 0.065456
+This is max iteration 60
+This is n 4100.625000
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 100
+This is mlx state m
+1
+Mandelbrot
+This is min_val -1.950000
+ and this is max_val 0.075456
+This is max iteration 60
+This is n 4100.625000
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 100
+This is mlx state m
+0
+Mandelbrot
+This is min_val -1.940000
+ and this is max_val 0.075456
+This is max iteration 60
+This is n 4100.625000
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 100
+This is mlx state m
+0
+Mandelbrot
+This is min_val -1.930000
+ and this is max_val 0.075456
+This is max iteration 60
+This is n 4100.625000
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 100
+This is mlx state m
+0
+Mandelbrot
+This is min_val -1.920000
+ and this is max_val 0.075456
+This is max iteration 60
+This is n 4100.625000
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 100
+This is mlx state m
+0
+Mandelbrot
+This is min_val -1.910000
+ and this is max_val 0.075456
+This is max iteration 60
+This is n 4100.625000
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 100
+This is mlx state m
+6
+Mandelbrot
+This is min_val -1.910000
+ and this is max_val 0.056053
+This is max iteration 60
+This is n 6150.937500
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 100
+This is mlx state m
+6
+Mandelbrot
+This is min_val -1.910000
+ and this is max_val 0.041639
+This is max iteration 60
+This is n 9226.406250
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 100
+This is mlx state m
+0
+Mandelbrot
+This is min_val -1.900000
+ and this is max_val 0.041639
+This is max iteration 60
+This is n 9226.406250
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 100
+This is mlx state m
+0
+Mandelbrot
+This is min_val -1.890000
+ and this is max_val 0.041639
+This is max iteration 60
+This is n 9226.406250
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 100
+This is mlx state m
+6
+Mandelbrot
+This is min_val -1.890000
+ and this is max_val 0.030932
+This is max iteration 60
+This is n 13839.609375
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 100
+This is mlx state m
+6
+Mandelbrot
+This is min_val -1.890000
+ and this is max_val 0.022978
+This is max iteration 60
+This is n 20759.414062
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 100
+This is mlx state m
+6
+Mandelbrot
+This is min_val -1.890000
+ and this is max_val 0.017070
+This is max iteration 60
+This is n 31139.121094
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 100
+This is mlx state m
+6
+Mandelbrot
+This is min_val -1.890000
+ and this is max_val 0.012680
+This is max iteration 60
+This is n 46708.681641
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 100
+This is mlx state m
+6
+Mandelbrot
+This is min_val -1.890000
+ and this is max_val 0.009420
+This is max iteration 60
+This is n 70063.022461
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 100
+This is mlx state m
+6
+Mandelbrot
+This is min_val -1.890000
+ and this is max_val 0.006997
+This is max iteration 60
+This is n 105094.533691
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 100
+This is mlx state m
+d
+Mandelbrot
+This is min_val -1.890000
+ and this is max_val -0.003003
+This is max iteration 60
+This is n 105094.533691
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 100
+This is mlx state m
+1
+Mandelbrot
+This is min_val -1.890000
+ and this is max_val 0.006997
+This is max iteration 60
+This is n 105094.533691
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 100
+This is mlx state m
+18
+d
+Mandelbrot
+This is min_val -1.890000
+ and this is max_val 0.005997
+This is max iteration 60
+This is n 105094.533691
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 1000
+This is mlx state m
+d
+Mandelbrot
+This is min_val -1.890000
+ and this is max_val 0.004997
+This is max iteration 60
+This is n 105094.533691
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 1000
+This is mlx state m
+6
+Mandelbrot
+This is min_val -1.890000
+ and this is max_val 0.003712
+This is max iteration 60
+This is n 157641.800537
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 1000
+This is mlx state m
+d
+Mandelbrot
+This is min_val -1.890000
+ and this is max_val 0.002712
+This is max iteration 60
+This is n 157641.800537
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 1000
+This is mlx state m
+d
+Mandelbrot
+This is min_val -1.890000
+ and this is max_val 0.001712
+This is max iteration 60
+This is n 157641.800537
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 1000
+This is mlx state m
+6
+Mandelbrot
+This is min_val -1.890000
+ and this is max_val 0.001272
+This is max iteration 60
+This is n 236462.700806
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 1000
+This is mlx state m
+6
+Mandelbrot
+This is min_val -1.890000
+ and this is max_val 0.000945
+This is max iteration 60
+This is n 354694.051208
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 1000
+This is mlx state m
+6
+Mandelbrot
+This is min_val -1.890000
+ and this is max_val 0.000702
+This is max iteration 60
+This is n 532041.076813
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 1000
+This is mlx state m
+6
+Mandelbrot
+This is min_val -1.890000
+ and this is max_val 0.000521
+This is max iteration 60
+This is n 798061.615219
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 1000
+This is mlx state m
+6
+Mandelbrot
+This is min_val -1.890000
+ and this is max_val 0.000387
+This is max iteration 60
+This is n 1197092.422829
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 1000
+This is mlx state m
+6
+Mandelbrot
+This is min_val -1.890000
+ and this is max_val 0.000288
+This is max iteration 60
+This is n 1795638.634243
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 1000
+This is mlx state m
+6
+Mandelbrot
+This is min_val -1.890000
+ and this is max_val 0.000214
+This is max iteration 60
+This is n 2693457.951365
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 1000
+This is mlx state m
+22
+Mandelbrot
+This is min_val -1.890000
+ and this is max_val 0.000214
+This is max iteration 70
+This is n 2693457.951365
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 1000
+This is mlx state m
+22
+Mandelbrot
+This is min_val -1.890000
+ and this is max_val 0.000214
+This is max iteration 80
+This is n 2693457.951365
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 1000
+This is mlx state m
+22
+Mandelbrot
+This is min_val -1.890000
+ and this is max_val 0.000214
+This is max iteration 90
+This is n 2693457.951365
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 1000
+This is mlx state m
+6
+Mandelbrot
+This is min_val -1.890000
+ and this is max_val 0.000159
+This is max iteration 90
+This is n 4040186.927047
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 1000
+This is mlx state m
+6
+Mandelbrot
+This is min_val -1.890000
+ and this is max_val 0.000118
+This is max iteration 90
+This is n 6060280.390570
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 1000
+This is mlx state m
+6
+Mandelbrot
+This is min_val -1.890000
+ and this is max_val 0.000088
+This is max iteration 90
+This is n 9090420.585855
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 1000
+This is mlx state m
+d
+Mandelbrot
+This is min_val -1.890000
+ and this is max_val -0.000912
+This is max iteration 90
+This is n 9090420.585855
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 1000
+This is mlx state m
+1
+Mandelbrot
+This is min_val -1.890000
+ and this is max_val 0.000088
+This is max iteration 90
+This is n 9090420.585855
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 1000
+This is mlx state m
+18
+d
+Mandelbrot
+This is min_val -1.890000
+ and this is max_val -0.000012
+This is max iteration 90
+This is n 9090420.585855
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 10000
+This is mlx state m
+d
+Mandelbrot
+This is min_val -1.890000
+ and this is max_val -0.000112
+This is max iteration 90
+This is n 9090420.585855
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 10000
+This is mlx state m
+1
+Mandelbrot
+This is min_val -1.890000
+ and this is max_val -0.000012
+This is max iteration 90
+This is n 9090420.585855
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 10000
+This is mlx state m
+1
+Mandelbrot
+This is min_val -1.890000
+ and this is max_val 0.000088
+This is max iteration 90
+This is n 9090420.585855
+This is win_x 1280
+This is win_y 720
+This is A 1281
+This is B 721
+This is base 10000
+This is mlx state m
+35

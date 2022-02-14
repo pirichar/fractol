@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 13:04:58 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/08 09:32:47 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/13 11:25:29 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,9 @@
 //Reset
 # define RESET "\e[0m"
 
+//HEX COLORS 
+ 
+//https://www.w3schools.com/colors/colors_picker.asp
 //GREEN FROM BLACK TO WHITE
 //FFFFFF IS WHITE 00000000 IS BLACK
 # define COLOR_white 0xFFFFFF

@@ -11,7 +11,7 @@
 #define KEY_G 0x5
 #define KEY_H 0x4
 #define KEY_I 0x22
-#define KEY_J 0x06
+#define KEY_J 0x26
 #define KEY_K 0x28
 #define KEY_L 0x25
 #define KEY_M 0x2E
@@ -34,6 +34,10 @@
 #define KEY_SPA 0x31
 #define KEY_UP 0x7E
 #define KEY_DOWN 0x7D
+#define KEY_LEFT 0x7b
+#define KEY_RIGHT 0x7c
+#define KEY_MINUS 0x1b
+#define KEY_PLUS 0x18
 
 #define KEY_0 0x10
 #define KEY_1 0x12

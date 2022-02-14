@@ -19,8 +19,8 @@ int     main(void)
 				for(A=0;A<=4*n;A++)
 				{
 					a=-2+(A/n);
-					x=0;
-					y=0;
+					x=a;
+					y=b;
 					for(i=1;i<100;i++)
 					{
 						t=x;

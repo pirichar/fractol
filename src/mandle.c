@@ -20,10 +20,10 @@ int     mandlebroth(t_mlx *mlx)
 	clearscreen(mlx);
 	int A,B;
 	long double a,b,i,x,y,t;
-	for(B=0;B<=4*mlx->n;B++)
+	for(B=0;B<=mlx->win_y;B++)
 	{
 		b=mlx->max_val-(B/mlx->n);
-		for(A=0;A<=4*mlx->n;A++)
+		for(A=0;A<=mlx->win_x;A++)
 		{
 			a=mlx->min_val+(A/mlx->n); 
 			x=0;
@@ -40,9 +40,11 @@ int     mandlebroth(t_mlx *mlx)
 		}
 	}
 	mlx_put_image_to_window(mlx->mlx_ptr,mlx->win_ptr,mlx->img.img,0,0);
-	printf("Mandelbroth\nThis is min_val %f\n and this is max_val %f\n", mlx->min_val,mlx->max_val);
+	printf("Mandelbrot\nThis is min_val %f\n and this is max_val %f\n", mlx->min_val,mlx->max_val);
 	printf("This is max iteration %d\nThis is n %f\n", mlx->max_i,mlx->n);
-	printf("This is offset_x %d\nThis is offset_y %d\n", mlx->offset_x, mlx->offset_y);
+	printf("This is win_x %d\nThis is win_y %d\n", mlx->win_x,mlx->win_y);
+	printf("This is A %d\nThis is B %d\n", A,B);
+	printf("This is base %d\nThis is mlx state %c\n",mlx->zoom_base,mlx->state);
 	return (0);
 }
 void	mandle_green(t_mlx *mlx)
@@ -104,11 +106,12 @@ void	mandle_black(t_mlx *mlx)
 
 void	init_mandle(t_mlx *mlx)
 {
-	mlx->min_val=-2.5,
-	mlx->max_val=2.5;
-	mlx->n=30;
-	mlx->offset_x = 600;
-	mlx->offset_y = 350;
+	mlx->min_val=-2.45,
+	mlx->max_val=1.05;
+	mlx->n=mlx->win_y / 2;
+	mlx->zoom_base = 10;
+	//is this dangerous to do this this way ? 
+	mlx->state = 'm';
 	mlx->max_i=60;
 	mandle_black(mlx);
 	mandlebroth(mlx);

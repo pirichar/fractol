@@ -36,12 +36,14 @@ typedef struct s_mlx
 	void	*win_ptr;
 	int		win_x;
 	int		win_y;
+	char	state; 
 	double	min_val;
 	double	max_val;
+	double	c1;
+	double	c2;
 	int		max_i;
 	double	n;
-	int		offset_x;
-	int		offset_y;
+	int		zoom_base;
 	t_data	img;
 	t_color_pal	col;
 
@@ -53,11 +55,16 @@ void    clearscreen(t_mlx *mlx);
 void    print_mandle(int i, int A, int B, t_mlx *mlx);
 void    rev_print_mandle(int i, int A, int B, t_mlx *mlx);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+int		ft_strcmp(char *s1, char*s2);
 
 //mandle.c
-int     mandlebroth(t_mlx *mlx);
+int		mandlebroth(t_mlx *mlx);
 void	mandle_green(t_mlx *mlx);
 void	mandle_blue(t_mlx *mlx);
 void	mandle_red(t_mlx *mlx);
 void	init_mandle(t_mlx *mlx);
 void	mandle_black(t_mlx *mlx);
+
+//julia.c
+int		julia_set(t_mlx *mlx);
+void	init_julia(t_mlx *mlx);
