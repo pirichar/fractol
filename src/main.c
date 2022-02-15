@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 10:05:55 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/15 11:45:50 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/15 14:43:11 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,28 @@ int	keypress(int key, t_mlx *mlx)
 	printf("%x\n",key);
 	if (key == KEY_M)
 		init_mandle(mlx);
-	if (key == KEY_C)
-		clearscreen(mlx);
-	if(key == KEY_Z || key == KEY_X || key == KEY_MINUS || key == KEY_PLUS || key == KEY_L )
-		chose_zoom(key, mlx);
-	if(key == KEY_I || key == KEY_O)
-		change_iterations(key, mlx);
+	if(key == KEY_J)
+		init_julia(mlx);
 	if (key == KEY_ESC)
 	{
 		mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
 		exit (0);
+	}	
+	if (mlx->f_state == 'j' || mlx->f_state == 'm')
+	{
+		if (key == KEY_C)
+			reset_screen(mlx);
+		if(key == KEY_Z || key == KEY_X || key == KEY_MINUS || key == KEY_PLUS || key == KEY_L )
+			chose_zoom(key, mlx);
+		if(key == KEY_I || key == KEY_O)
+			change_iterations(key, mlx);
+		if (key == KEY_1 || key == KEY_2 || key == KEY_3 || key == KEY_4 || key == KEY_5 || key == KEY_P)
+			chose_color(key, mlx);
+		if (key == KEY_DOWN || key == KEY_RIGHT || key == KEY_UP || key == KEY_LEFT)
+			fractal_movement(key, mlx);
+		if(key == KEY_W || key == KEY_S|| key == KEY_A || key == KEY_D)
+			julia_modif(key, mlx);
 	}
-	if (key == KEY_1 || key == KEY_2 || key == KEY_3 || key == KEY_4 || key == KEY_5 || key == KEY_P)
-		chose_color(key, mlx);
-	if (key == KEY_DOWN || key == KEY_RIGHT || key == KEY_UP || key == KEY_LEFT)
-		fractal_movement(key, mlx);
-	if(key == KEY_J)
-		init_julia(mlx);
-	if(key == KEY_W || key == KEY_S|| key == KEY_A || key == KEY_D)
-		julia_modif(key, mlx);
 	return (0);
 }
 

@@ -56,8 +56,8 @@ typedef struct s_mlx
 void	ft_putchar(char c);
 void    ft_putstring(char *str);
 void    clearscreen(t_mlx *mlx);
+void    reset_screen(t_mlx *mlx);
 void    print_mandle(int i, int A, int B, t_mlx *mlx);
-void    rev_print_mandle(int i, int A, int B, t_mlx *mlx);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int		ft_strcmp(char *s1, char*s2);
 

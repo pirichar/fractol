@@ -6,19 +6,11 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 10:05:08 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/15 11:42:32 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/15 11:51:17 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
-
-
-// I would like to implement a kind of  a lock mechanism
-// So when I press L i lock my zoom 
-// I could implement another function before zoom_in_out
-// I could createa a new z_state in my struct 
-// If z state is at L i go to the locked in middle zoom function
-// Else I go to this one
 
 void	chose_color(int key, t_mlx *mlx)
 {

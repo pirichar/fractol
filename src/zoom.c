@@ -7,7 +7,7 @@ void	chose_zoom(int key, t_mlx *mlx)
 	{
 		if (mlx->z_state == 'o')
 			mlx->z_state = 'l';
-		if (mlx->z_state == 'l')
+		else
 			mlx->z_state = 'o';
 	}
 	if (mlx->z_state == 'l')
