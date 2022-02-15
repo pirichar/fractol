@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 08:13:29 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/15 10:10:14 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/15 11:24:56 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	mandle_black(t_mlx *mlx)
 
 void	mandle_funk(t_mlx *mlx)
 {
-	mlx->col.clr_black = COLOR_black;
+	mlx->col.clr_black = NEON_LT_PUR;
 	mlx->col.clr_10 = NEON_RE;
 	mlx->col.clr_20 = NEON_OR;
 	mlx->col.clr_30 = NEON_YE;
@@ -85,5 +85,5 @@ void	mandle_funk(t_mlx *mlx)
 	mlx->col.clr_70 = NEON_LT_BL;
 	mlx->col.clr_80 = NEON_LT_PUR;
 	mlx->col.clr_90 = NEON_PUR;
-	mlx->col.clr_white = COLOR_white;
+	mlx->col.clr_white = NEON_LT_PUR;
 }

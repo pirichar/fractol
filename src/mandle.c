@@ -6,13 +6,17 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 09:26:15 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/15 10:11:55 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/15 11:43:29 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
 
-/* Complexe Squaring:
+/*
+"The" Mandelbrot set is the set obtained from the quadratic recurrence equation
+ z_(n+1)=z_n^2+C 
+
+Complexe Squaring:
 * (A+iB)^2
 * =(A+iB)(A+iB)
 * =(AA)+(AB)I+(AB)i-BB
@@ -27,6 +31,7 @@ void	print_info_mandle(t_mlx *mlx, int a, int b)
 	printf("This is A %d\nThis is B %d\n", a, b);
 	printf("This is base %d\nThis is mlx state %c\n", mlx->zoom_base,
 		mlx->f_state);
+	printf("This is z_state %c\n", mlx->z_state);
 }
 
 static int	calculate_mandle(t_mlx *mlx)
@@ -76,6 +81,7 @@ int	mandlebroth(t_mlx *mlx)
 
 void	init_mandle(t_mlx *mlx)
 {
+	mlx->z_state = 'o';
 	mlx->min_val = -2.45;
 	mlx->max_val = 1.05;
 	mlx->n = mlx->win_y / 2;

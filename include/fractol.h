@@ -38,6 +38,7 @@ typedef struct s_mlx
 	int		win_y;
 	char	f_state;
 	char	c_state;
+	char	z_state;
 	double	min_val;
 	double	max_val;
 	double	c1;
@@ -76,6 +77,9 @@ void	chose_color(int key, t_mlx *mlx);
 void	change_iterations(int key, t_mlx *mlx);
 void	fractal_movement(int key, t_mlx *mlx);
 void	julia_modif(int key, t_mlx *mlx);
+void	chose_zoom(int key, t_mlx *mlx);
+void	zoom_locked(int key, t_mlx *mlx);
+
 
 //julia.c
 int		julia_set(t_mlx *mlx);
