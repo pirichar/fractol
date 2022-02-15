@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 13:04:58 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/13 11:25:29 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/14 17:16:26 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,8 @@
 # define RESET "\e[0m"
 
 //HEX COLORS 
- 
 //https://www.w3schools.com/colors/colors_picker.asp
+
 //GREEN FROM BLACK TO WHITE
 //FFFFFF IS WHITE 00000000 IS BLACK
 # define COLOR_white 0xFFFFFF
@@ -128,7 +128,7 @@
 # define COLOR_21 0x330000
 # define COLOR_000 0x000000
 
-//RED BLACK PALET
+//BLACK PALET
 # define COLOR_40 0xFFFFFF
 # define COLOR_39 0xE6E6E6
 # define COLOR_38 0xCCCCCC
@@ -141,6 +141,19 @@
 # define COLOR_31 0x1A1A1A
 # define COLOR_0000 0x000000
 
+
+//NEON PALET
+# define NEON_WHITE	0xFFFFFF
+# define NEON_RE 0xfe0000
+# define NEON_OR 0xff7400
+# define NEON_YE 0xfdfe02
+# define NEON_GR 0xf0bff01
+# define NEON_LT_GR 0x74ee15
+# define NEON_BL 0x011efe
+# define NEON_LT_BL 0x4deeea
+# define NEON_PUR 0xfe00f6
+# define NEON_LT_PUR 0xf000ff
+# define NEON_BLACK 0x000000
 
 
 #endif

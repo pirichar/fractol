@@ -1,50 +1,82 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   julia.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/15 08:31:26 by pirichar          #+#    #+#             */
+/*   Updated: 2022/02/15 10:10:39 by pirichar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/fractol.h"
 
-int     julia_set(t_mlx *mlx)
+static void	print_info_julia(t_mlx *mlx, int a, int b)
 {
-	clearscreen(mlx);
-	int A,B;
-	double a,b,i,x,y,t;
-	for(B=0;B<=mlx->win_y;B++)
+	printf("Julia's Set\nThis is min_val %f\n and this is max_val %f\n",
+		mlx->min_val, mlx->max_val);
+	printf("This is max iteration %d\nThis is n %f\n", mlx->max_i, mlx->n);
+	printf("This is win_x %d\nThis is win_y %d\n", mlx->win_x, mlx->win_y);
+	printf("This is A %d\nThis is B %d\n", a, b);
+	printf("This is base %d\n", mlx->zoom_base);
+}
+
+static int	calculate_julia(t_mlx *mlx)
+{
+	double	x;
+	double	y;
+	double	t;
+	int		i;
+
+	i = 1;
+	x = mlx->a;
+	y = mlx->b;
+	while (i++ < mlx->max_i)
 	{
-		b=mlx->max_val-(B/mlx->n);
-		for(A=0;A<=mlx->win_x;A++)
+		t = x;
+		x = (x * x) - (y * y) + mlx->c1;
+		y = (2 * t * y) + mlx->c2;
+		if ((x * x) +(y * y) > 4)
+			break ;
+	}
+	return (i);
+}
+
+int	julia_set(t_mlx *mlx)
+{
+	int	a;
+	int	b;
+	int	i;
+
+	clearscreen(mlx);
+	b = 0;
+	while (b++ <= mlx->win_y)
+	{
+		mlx->b = mlx->max_val - (b / mlx->n);
+		a = 0;
+		while (a++ <= mlx->win_x)
 		{
-			a=mlx->min_val+(A/mlx->n); 
-			x=a;
-			y=b;
-			for(i=1;i<mlx->max_i;i++)
-			{
-				t=x;
-				x=(x*x)-(y*y)+mlx->c1;
-				y=(2*t*y)+mlx->c2;
-				if ((x*x)+(y*y)>4)
-					break;
-			}
-			print_mandle(i,A,B,mlx);
+			mlx->a = mlx->min_val + (a / mlx->n);
+			i = calculate_julia(mlx);
+			print_mandle(i, a, b, mlx);
 		}
 	}
-	mlx_put_image_to_window(mlx->mlx_ptr,mlx->win_ptr,mlx->img.img,0,0);
-	printf("Julia's Set\nThis is min_val %f\n and this is max_val %f\n", mlx->min_val,mlx->max_val);
-	printf("This is max iteration %d\nThis is n %f\n", mlx->max_i,mlx->n);
-	printf("This is win_x %d\nThis is win_y %d\n", mlx->win_x,mlx->win_y);
-	printf("This is A %d\nThis is B %d\n", A,B);
-	printf("This is base %d\n",mlx->zoom_base);
+	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img.img, 0, 0);
+	print_info_julia(mlx, a, b);
 	return (0);
 }
 
 void	init_julia(t_mlx *mlx)
 {
-	mlx->min_val=-1.882566,
-	mlx->max_val=1.094675;
-	mlx->n=338;
+	mlx->min_val = -1.882566;
+	mlx->max_val = 1.094675;
+	mlx->n = 338;
 	mlx->zoom_base = 16;
-	mlx->state = 'j';
+	mlx->f_state = 'j';
 	mlx->c1 = -0.787545;
 	mlx->c2 = -0.134741;
-	// mlx->offset_x = 600;
-	// mlx->offset_y = 350;
-	mlx->max_i=60;
+	mlx->max_i = 60;
 	mandle_black(mlx);
 	julia_set(mlx);
 }

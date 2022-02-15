@@ -36,7 +36,8 @@ typedef struct s_mlx
 	void	*win_ptr;
 	int		win_x;
 	int		win_y;
-	char	state; 
+	char	f_state;
+	char	c_state;
 	double	min_val;
 	double	max_val;
 	double	c1;
@@ -44,6 +45,8 @@ typedef struct s_mlx
 	int		max_i;
 	double	n;
 	int		zoom_base;
+	double	a;
+	double	b;
 	t_data	img;
 	t_color_pal	col;
 
@@ -64,6 +67,15 @@ void	mandle_blue(t_mlx *mlx);
 void	mandle_red(t_mlx *mlx);
 void	init_mandle(t_mlx *mlx);
 void	mandle_black(t_mlx *mlx);
+void	mandle_funk(t_mlx *mlx);
+void	shift_palet(t_mlx *mlx);
+
+//keypress functions
+void	zoom_in_out(int key, t_mlx *mlx);
+void	chose_color(int key, t_mlx *mlx);
+void	change_iterations(int key, t_mlx *mlx);
+void	fractal_movement(int key, t_mlx *mlx);
+void	julia_modif(int key, t_mlx *mlx);
 
 //julia.c
 int		julia_set(t_mlx *mlx);
