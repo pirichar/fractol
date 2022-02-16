@@ -6,19 +6,21 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 08:31:26 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/15 10:10:39 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/16 14:22:58 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
 
-static void	print_info_julia(t_mlx *mlx, int a, int b)
+static void	print_info_julia(t_mlx *mlx)
 {
 	printf("Julia's Set\nThis is min_val %f\n and this is max_val %f\n",
 		mlx->min_val, mlx->max_val);
 	printf("This is max iteration %d\nThis is n %f\n", mlx->max_i, mlx->n);
 	printf("This is win_x %d\nThis is win_y %d\n", mlx->win_x, mlx->win_y);
-	printf("This is A %d\nThis is B %d\n", a, b);
+	printf("This is mouse_x %d\n This is mouse_y%d\n", mlx->mouse.x_pos, mlx->mouse.y_pos);
+	printf("This is mlx->mouse.move = %d\n", mlx->mouse.move);
+	printf("This is mlx->c1%f\nThis is mlx->c2 %f\n", mlx->c1, mlx->c2);
 	printf("This is base %d\n", mlx->zoom_base);
 }
 
@@ -63,7 +65,7 @@ int	julia_set(t_mlx *mlx)
 		}
 	}
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img.img, 0, 0);
-	print_info_julia(mlx, a, b);
+	print_info_julia(mlx);
 	return (0);
 }
 
@@ -77,6 +79,7 @@ void	init_julia(t_mlx *mlx)
 	mlx->c1 = -0.787545;
 	mlx->c2 = -0.134741;
 	mlx->max_i = 60;
+	mlx->mouse.move = 0;
 	mandle_black(mlx);
 	julia_set(mlx);
 }

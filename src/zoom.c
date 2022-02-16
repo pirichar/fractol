@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   zoom.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/16 08:43:13 by pirichar          #+#    #+#             */
+/*   Updated: 2022/02/16 13:18:50 by pirichar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../include/fractol.h"
 
@@ -21,8 +32,8 @@ void	zoom_locked(int key, t_mlx *mlx)
 	if (key == KEY_Z)
 	{
 		mlx->n = mlx->n * 1.3;
-		mlx->max_val = mlx->max_val / 1.3;
-		mlx->min_val = mlx->min_val / 1.3;
+		mlx->max_val = mlx->mouse.x_pos * (mlx->max_val / 1.3);
+		mlx->min_val = mlx->mouse.x_pos  * (mlx->min_val / 1.3);
 		mlx->zoom_base = mlx->zoom_base * 1.3;
 	}
 	if (key == KEY_X)
@@ -36,10 +47,7 @@ void	zoom_locked(int key, t_mlx *mlx)
 		mlx->zoom_base = mlx->zoom_base * 10;
 	if (key == KEY_MINUS)
 		mlx->zoom_base = mlx->zoom_base / 10;
-	if (mlx->f_state == 'm')
-		mandlebroth(mlx);
-	else
-		julia_set(mlx);
+	refresh_mandle(mlx);
 }
 
 void	zoom_in_out(int key, t_mlx *mlx)
@@ -59,11 +67,8 @@ void	zoom_in_out(int key, t_mlx *mlx)
 		mlx->zoom_base = mlx->zoom_base / 1.3;
 	}
 	if (key == KEY_PLUS)
-		mlx->zoom_base = mlx->zoom_base * 10;
+		mlx->zoom_base = mlx->zoom_base * 1.50;
 	if (key == KEY_MINUS)
-		mlx->zoom_base = mlx->zoom_base / 10;
-	if (mlx->f_state == 'm')
-		mandlebroth(mlx);
-	else
-		julia_set(mlx);
+		mlx->zoom_base = mlx->zoom_base * 0.50;
+	refresh_mandle(mlx);
 }

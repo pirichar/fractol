@@ -30,6 +30,14 @@ typedef struct	s_data
 	int		endian;
 }			t_data;
 
+typedef struct s_mouse
+{
+	double x;
+	double y;
+	int move;
+	int x_pos;
+	int y_pos;
+} t_mouse;
 typedef struct s_mlx
 {
 	void	*mlx_ptr;
@@ -50,14 +58,19 @@ typedef struct s_mlx
 	double	b;
 	t_data	img;
 	t_color_pal	col;
-
+	double	range;
+	double	midpoint_x;
+	double	midpoint_y;
+	t_mouse mouse;
 }			t_mlx;
+
+
 
 void	ft_putchar(char c);
 void    ft_putstring(char *str);
 void    clearscreen(t_mlx *mlx);
 void    reset_screen(t_mlx *mlx);
-void    print_mandle(int i, int A, int B, t_mlx *mlx);
+void    print_mandle(int i, int a, int b, t_mlx *mlx);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int		ft_strcmp(char *s1, char*s2);
 
@@ -79,8 +92,17 @@ void	fractal_movement(int key, t_mlx *mlx);
 void	julia_modif(int key, t_mlx *mlx);
 void	chose_zoom(int key, t_mlx *mlx);
 void	zoom_locked(int key, t_mlx *mlx);
-
+void	refresh_mandle(t_mlx *mlx);
+int	mouse_mover(int x, int y, t_mlx *mlx);
 
 //julia.c
 int		julia_set(t_mlx *mlx);
 void	init_julia(t_mlx *mlx);
+
+//burning ship
+int		burningship(t_mlx *mlx);
+void	init_ship(t_mlx *mlx);
+
+//Sierpinski 
+void	init_sierpinski(t_mlx *mlx);
+int sierpinski(t_mlx *mlx);
