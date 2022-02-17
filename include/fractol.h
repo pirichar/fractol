@@ -89,11 +89,15 @@ void	zoom_in_out(int key, t_mlx *mlx);
 void	chose_color(int key, t_mlx *mlx);
 void	change_iterations(int key, t_mlx *mlx);
 void	fractal_movement(int key, t_mlx *mlx);
-void	julia_modif(int key, t_mlx *mlx);
+void	param_modif(int key, t_mlx *mlx);
 void	chose_zoom(int key, t_mlx *mlx);
 void	zoom_locked(int key, t_mlx *mlx);
 void	refresh_mandle(t_mlx *mlx);
-int	mouse_mover(int x, int y, t_mlx *mlx);
+int		mouse_mover(int x, int y, t_mlx *mlx);
+int		mousehook(int key,int x, int y, t_mlx *mlx);
+int		keypress(int key, t_mlx *mlx);
+void	init_fractals(int key, t_mlx *mlx);
+void	modif_fractals(int key, t_mlx *mlx);
 
 //julia.c
 int		julia_set(t_mlx *mlx);
@@ -105,4 +109,4 @@ void	init_ship(t_mlx *mlx);
 
 //Sierpinski 
 void	init_sierpinski(t_mlx *mlx);
-int sierpinski(t_mlx *mlx);
+int		sierpinski(t_mlx *mlx);

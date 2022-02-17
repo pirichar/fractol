@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 09:26:15 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/16 10:09:06 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/17 13:26:52 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	print_info_ship(t_mlx *mlx)
 	printf("This is base %d\nThis is mlx f_state %c\n", mlx->zoom_base,
 		mlx->f_state);
 	printf("This is midpoint.x %f\n This is midpoint.y %f\n", mlx->midpoint_x, mlx->midpoint_y);
-	printf("This is z_state %c\n", mlx->z_state);
+	printf("This is z_state %c\nThis is n%f\n", mlx->z_state, mlx->n);
 }
 
 static int	calculate_ship(t_mlx *mlx)
@@ -73,16 +73,19 @@ static int	calculate_ship(t_mlx *mlx)
 	double	x;
 	double	y;
 	int		i;
+	int		t;
 
 	x = 0;
 	y = 0;
 	i = 1;
-	while (i++ < mlx->max_i)
+	while (i < mlx->max_i)
 	{
-		x = (x * x) - (y * y) - mlx->a;
-		y = (2 * fabs(x*y)) - mlx->b;
-		if ((x * x) + (y * y) > 10)
+		t = x;
+		x = (x * x) - (y * y) + mlx->a;
+		y = (2 * fabs(t * y)) + mlx->b;
+		if ((x * x) + (y * y) > 4)
 			break ;
+		i++;
 	}
 	return (i);
 }
@@ -98,13 +101,13 @@ int	burningship(t_mlx *mlx)
 	b = 0;
 	while (b++ < mlx->win_y)
 	{
-		mlx->b = mlx->midpoint_y + 2 * mlx->range * (b /(double)mlx->n - 0.5);
-		// mlx->b = mlx->max_val - (b / mlx->n);
+		// mlx->b = (mlx->midpoint_y + 2) * mlx->range * (b /(double)mlx->n - 0.5);
+		mlx->b = mlx->max_val - (b / mlx->n);
 		a = 0;
 		while (a++ < mlx->win_x)
 		{
-			mlx->a = mlx->midpoint_x + 2 * mlx->range * (a /(double)mlx->n - 0.5);
-			// mlx->a = mlx->min_val + (a / mlx->n);
+			// mlx->a = (mlx->midpoint_x + 2) * mlx->range * (a /(double)mlx->n - 0.5);
+			mlx->a = mlx->min_val + (a / mlx->n);
 			i = calculate_ship(mlx);
 			print_mandle(i, a, b, mlx);
 		}
@@ -123,10 +126,11 @@ void	init_ship(t_mlx *mlx)
 	mlx->midpoint_y = 0.03;
 	mlx->min_val = -2.45;
 	mlx->max_val = 1.05;
-	mlx->n = mlx->win_y / 2;
+	mlx->n = mlx->win_x / 2;
+	// mlx->n = 4000;
 	mlx->zoom_base = 10;
 	mlx->f_state = 'b';
-	mlx->max_i = 40;
+	mlx->max_i = 64;
 	mandle_black(mlx);
 	burningship(mlx);
 }

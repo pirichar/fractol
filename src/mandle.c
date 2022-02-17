@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 09:26:15 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/16 14:28:12 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/17 12:20:17 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,30 +60,6 @@ static int	calculate_mandle(t_mlx *mlx)
 	return (i);
 }
 
-// int	mandlebroth(t_mlx *mlx)
-// {
-// 	int	a;
-// 	int	b;
-// 	int	i;
-// 	clearscreen(mlx);
-// 	b = 0;
-// 	while (b++ < mlx->win_y)
-// 	{
-// 		// mlx->b = mlx->max_val - (b / mlx->n);
-// 		mlx->b = (mlx->mouse.x_pos - mlx->win_x) / ((long double)mlx->win_y * 2) + 0.25;
-// 		a = 0;
-// 		while (a++ < mlx->win_x)
-// 		{
-// 			// mlx->a = mlx->min_val + (a / mlx->n);
-// 			mlx->b = (mlx->mouse.y_pos - mlx->win_y) / ((long double)mlx->win_x) + 0.5;
-// 			i = calculate_mandle(mlx);
-// 			print_mandle(i, a, b, mlx);
-// 		}
-// 	}
-// 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img.img, 0, 0);
-// 	print_info_mandle(mlx);
-// 	return (0);
-// }
 int	mandlebroth(t_mlx *mlx)
 {
 	int	a;

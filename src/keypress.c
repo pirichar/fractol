@@ -1,55 +1,65 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keypress_actions.c                                 :+:      :+:    :+:   */
+/*   keypress.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 10:05:08 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/16 14:00:03 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/17 11:40:09 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
 
-void	refresh_mandle(t_mlx *mlx)
+int	keypress(int key, t_mlx *mlx)
 {
-	if (mlx->f_state == 'm')
-		mandlebroth(mlx);
-	else if (mlx->f_state == 'j')
-		julia_set(mlx);
-	else if (mlx->f_state == 'b')
-		burningship(mlx);
-	else if (mlx->f_state == 's')
-		sierpinski(mlx);
-	else 
-		return ;
+	printf("%x\n", key);
+	if (key == KEY_M || key == KEY_J || key == KEY_B || key == KEY_T)
+		init_fractals(key, mlx);
+	if (key == KEY_ESC)
+	{
+		mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
+		exit (0);
+	}	
+	if (mlx->f_state == 'j' || mlx->f_state == 'm'
+		|| mlx->f_state == 's' || mlx->f_state == 'b')
+	{
+		modif_fractals(key, mlx);
+	}
+	return (0);
 }
 
-void	chose_color(int key, t_mlx *mlx)
+void	modif_fractals(int key, t_mlx *mlx)
 {
-	if (key == KEY_1)
-		mandle_blue(mlx);
-	if (key == KEY_2)
-		mandle_red(mlx);
-	if (key == KEY_3)
-		mandle_green(mlx);
-	if (key == KEY_4)
-		mandle_black(mlx);
-	if (key == KEY_5)
-		mandle_funk(mlx);
-	if (key == KEY_P)
-		shift_palet(mlx);
-	refresh_mandle(mlx);
+	if (key == KEY_C)
+		reset_screen(mlx);
+	if (key == KEY_Z || key == KEY_X || key == KEY_MINUS
+		|| key == KEY_PLUS || key == KEY_L)
+		chose_zoom(key, mlx);
+	if (key == KEY_I || key == KEY_O)
+		change_iterations(key, mlx);
+	if (key == KEY_1 || key == KEY_2 || key == KEY_3
+		|| key == KEY_4 || key == KEY_5 || key == KEY_P)
+		chose_color(key, mlx);
+	if (key == KEY_DOWN || key == KEY_RIGHT
+		|| key == KEY_UP || key == KEY_LEFT)
+		fractal_movement(key, mlx);
+	if (key == KEY_W || key == KEY_S || key == KEY_A
+		|| key == KEY_D || key == KEY_N)
+		param_modif(key, mlx);
 }
 
-void	change_iterations(int key, t_mlx *mlx)
+void	init_fractals(int key, t_mlx *mlx)
 {
-	if (key == KEY_I)
-		mlx->max_i = mlx->max_i * 1.3;
-	if (key == KEY_O)
-		mlx->max_i = mlx->max_i / 1.3;
-	refresh_mandle(mlx);
+	if (key == KEY_M)
+		init_mandle(mlx);
+	if (key == KEY_J)
+		init_julia(mlx);
+	if (key == KEY_B)
+		init_ship(mlx);
+	if (key == KEY_T)
+		init_sierpinski(mlx);
 }
 
 void	fractal_movement(int key, t_mlx *mlx)
@@ -65,7 +75,7 @@ void	fractal_movement(int key, t_mlx *mlx)
 	refresh_mandle(mlx);
 }
 
-void	julia_modif(int key, t_mlx *mlx)
+void	param_modif(int key, t_mlx *mlx)
 {
 	if (mlx->f_state == 'b')
 	{
@@ -99,5 +109,4 @@ void	julia_modif(int key, t_mlx *mlx)
 		}
 		julia_set(mlx);
 	}
-
 }

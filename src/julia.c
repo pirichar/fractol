@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 08:31:26 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/16 14:22:58 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/17 08:14:26 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ static void	print_info_julia(t_mlx *mlx)
 		mlx->min_val, mlx->max_val);
 	printf("This is max iteration %d\nThis is n %f\n", mlx->max_i, mlx->n);
 	printf("This is win_x %d\nThis is win_y %d\n", mlx->win_x, mlx->win_y);
-	printf("This is mouse_x %d\n This is mouse_y%d\n", mlx->mouse.x_pos, mlx->mouse.y_pos);
+	printf("This is mouse_x %d\n This is mouse_y%d\n",
+		mlx->mouse.x_pos, mlx->mouse.y_pos);
 	printf("This is mlx->mouse.move = %d\n", mlx->mouse.move);
 	printf("This is mlx->c1%f\nThis is mlx->c2 %f\n", mlx->c1, mlx->c2);
 	printf("This is base %d\n", mlx->zoom_base);

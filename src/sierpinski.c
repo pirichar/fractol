@@ -20,10 +20,11 @@ int sierpinski(t_mlx *mlx)
         // printing space till
         // the value of y
 		i = 0;
-        while (i++ < y) 
+        while (i < y) 
 		{
 			mlx_pixel_put(mlx->mlx_ptr,mlx->win_ptr,x,y,mlx->col.clr_black);
             // printf(" ");
+			i++;
         }
  
         // printing '*'
