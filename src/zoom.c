@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 08:43:13 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/23 09:50:26 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/23 10:43:03 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	chose_zoom(int key, t_mlx *mlx)
 		mlx->zoom_base = mlx->zoom_base * 0.5;
 	refresh_mandle(mlx);
 }
+
 void	zoom_in_out(int key, t_mlx *mlx)
 {
 	if (key == KEY_Z)
@@ -66,4 +67,3 @@ void	zoom_locked(int key, t_mlx *mlx)
 			mlx->zoom_base = mlx->zoom_base * 0.1;
 	}
 }
-

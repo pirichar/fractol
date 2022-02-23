@@ -6,19 +6,18 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 13:58:08 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/21 14:11:36 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/23 10:44:30 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../include/fractol.h"
 
-int ft_strlen(const char *str)
+int	ft_strlen(const char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(str[i])
+	while (str[i])
 		i++;
 	return (i);
 }

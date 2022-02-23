@@ -6,17 +6,17 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 10:05:08 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/23 09:28:27 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/23 10:51:38 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
 
-int		keypress(int key, t_mlx *mlx)
+int	keypress(int key, t_mlx *mlx)
 {
 	printf("THIS IS KEY %x\n", key);
 	if (key == KEY_RTN)
-		init_first_fractal(mlx);		
+		init_first_fractal(mlx);
 	if (key == KEY_H)
 	{
 		if (mlx->m_state == 'n')
@@ -66,8 +66,6 @@ void	init_fractals(int key, t_mlx *mlx)
 		init_julia(mlx);
 	if (key == KEY_B)
 		init_ship(mlx);
-	if (key == KEY_T)
-		init_sierpinski(mlx);
 }
 
 void	fractal_movement(int key, t_mlx *mlx)
@@ -85,18 +83,6 @@ void	fractal_movement(int key, t_mlx *mlx)
 
 void	param_modif(int key, t_mlx *mlx)
 {
-	if (mlx->f_state == 'b')
-	{
-		if (key == KEY_W)
-			mlx->midpoint_y = mlx->midpoint_y + 1;
-		if (key == KEY_S)
-			mlx->midpoint_y = mlx->midpoint_y - 1;
-		if (key == KEY_A)
-			mlx->midpoint_x = mlx->midpoint_x + 1;
-		if (key == KEY_D)
-			mlx->midpoint_x = mlx->midpoint_x - 1;
-		burningship(mlx);
-	}
 	if (mlx->f_state == 'j')
 	{
 		if (key == KEY_W)

@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 14:32:17 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/23 09:46:13 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/23 10:38:32 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,37 +20,39 @@ char	*strjoin_free(char *s1, char *s2)
 	free(s2);
 	return (str);
 }
+
 void	display_info(t_mlx *mlx)
 {
 	char	*str;
+
 	str = "TO OPEN OR CLOSE HELP MENU PRESS H";
-	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 20, 10, mlx->col.clr_wh, str);
+	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 20, 10, mlx->col.w, str);
 }
+
 void	show_menu(t_mlx *mlx)
 {
 	display_info(mlx);
-	char	*str;
-	if(mlx->m_state == 'o')
+	if (mlx->m_state == 'o')
 	{
-		str = "ARROWS | WASD - MOVE FRACTAL";
-		mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 30, 30, mlx->col.clr_wh, str);
-		str = "RETURN - INIT FRACTALS";
-		mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 30, 50, mlx->col.clr_wh, str);
-		str = "Z or X or Mouse wheel - ZOOM IN OR OUT";
-		mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 30, 70, mlx->col.clr_wh, str);
-		str = "I or O - INCREASE/DECREASE ITERATIONS";
-		mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 30, 90, mlx->col.clr_wh, str);
-		str = "N - Activate mouse movement in Julia";
-		mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 30, 110, mlx->col.clr_wh, str);
-		str = "WASD - PLAY WITH JULIA";
-		mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 30, 130, mlx->col.clr_wh, str);
-		str = "1 to 5 - CHANGE COLOR";
-		mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 30, 150, mlx->col.clr_wh, str);
-		str = "P - ROTATE COLOR PALETTE";
-		mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 30, 170, mlx->col.clr_wh, str);
-		str = "PLUS OR MINUS - ARROW SENSITIVITY";
-		mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 30, 190, mlx->col.clr_wh, str);
-		str = "ESC - EXIT PROGRAM";
-		mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 30, 210, mlx->col.clr_wh, str);
+		mlx->s = "ARROWS | WASD - MOVE FRACTAL";
+		mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 30, 30, mlx->col.w, mlx->s);
+		mlx->s = "RETURN - INIT FRACTALS";
+		mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 30, 50, mlx->col.w, mlx->s);
+		mlx->s = "Z or X or Mouse wheel - ZOOM IN OR OUT";
+		mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 30, 70, mlx->col.w, mlx->s);
+		mlx->s = "I or O - INCREASE/DECREASE ITERATIONS";
+		mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 30, 90, mlx->col.w, mlx->s);
+		mlx->s = "N - Activate mouse movement in Julia";
+		mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 30, 110, mlx->col.w, mlx->s);
+		mlx->s = "WASD - PLAY WITH JULIA";
+		mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 30, 130, mlx->col.w, mlx->s);
+		mlx->s = "1 to 5 - CHANGE COLOR";
+		mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 30, 150, mlx->col.w, mlx->s);
+		mlx->s = "P - ROTATE COLOR PALETTE";
+		mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 30, 170, mlx->col.w, mlx->s);
+		mlx->s = "PLUS OR MINUS - ARROW SENSITIVITY";
+		mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 30, 190, mlx->col.w, mlx->s);
+		mlx->s = "ESC - EXIT PROGRAM";
+		mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 30, 210, mlx->col.w, mlx->s);
 	}
 }

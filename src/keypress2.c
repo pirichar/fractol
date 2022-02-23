@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 12:58:38 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/22 17:28:05 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/23 10:52:23 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ void	refresh_mandle(t_mlx *mlx)
 		julia_set(mlx);
 	else if (mlx->f_state == 'b')
 		burningship(mlx);
-	else if (mlx->f_state == 's')
-		sierpinski(mlx);
 	else
 		return ;
 }
@@ -63,6 +61,21 @@ void	init_first_fractal(t_mlx *mlx)
 		init_julia(mlx);
 	// if (key == KEY_B)
 	// 	init_ship(mlx);
-	// if (key == KEY_T)
-	// 	init_sierpinski(mlx);
+}
+
+void	shift_palet(t_mlx *mlx)
+{
+	int	tmp;
+
+	tmp = mlx->col.a;
+	mlx->col.a = mlx->col.b;
+	mlx->col.b = mlx->col.c;
+	mlx->col.c = mlx->col.d;
+	mlx->col.d = mlx->col.e;
+	mlx->col.e = mlx->col.f;
+	mlx->col.f = mlx->col.g;
+	mlx->col.g = mlx->col.h;
+	mlx->col.h = mlx->col.i;
+	mlx->col.i = mlx->col.w;
+	mlx->col.w = tmp;
 }

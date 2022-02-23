@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clr_pallet.c                                       :+:      :+:    :+:   */
+/*   pallet.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 08:13:29 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/21 14:35:39 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/23 10:34:12 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,75 +15,75 @@
 //maybe create a state for the color in the struct so I know how to init itppp
 void	mandle_green(t_mlx *mlx)
 {
-	mlx->col.clr_black = COLOR_black;
-	mlx->col.clr_10 = COLOR_1;
-	mlx->col.clr_20 = COLOR_2;
-	mlx->col.clr_30 = COLOR_3;
-	mlx->col.clr_40 = COLOR_4;
-	mlx->col.clr_50 = COLOR_5;
-	mlx->col.clr_60 = COLOR_6;
-	mlx->col.clr_70 = COLOR_7;
-	mlx->col.clr_80 = COLOR_8;
-	mlx->col.clr_90 = COLOR_9;
-	mlx->col.clr_wh = COLOR_white;
+	mlx->col.black = COLOR_black;
+	mlx->col.a = COLOR_1;
+	mlx->col.b = COLOR_2;
+	mlx->col.c = COLOR_3;
+	mlx->col.d = COLOR_4;
+	mlx->col.e = COLOR_5;
+	mlx->col.f = COLOR_6;
+	mlx->col.g = COLOR_7;
+	mlx->col.h = COLOR_8;
+	mlx->col.i = COLOR_9;
+	mlx->col.w = COLOR_white;
 }
 
 void	mandle_blue(t_mlx *mlx)
 {
-	mlx->col.clr_black = COLOR_black;
-	mlx->col.clr_10 = COLOR_11;
-	mlx->col.clr_20 = COLOR_12;
-	mlx->col.clr_30 = COLOR_13;
-	mlx->col.clr_40 = COLOR_14;
-	mlx->col.clr_50 = COLOR_15;
-	mlx->col.clr_60 = COLOR_16;
-	mlx->col.clr_70 = COLOR_17;
-	mlx->col.clr_80 = COLOR_18;
-	mlx->col.clr_90 = COLOR_19;
-	mlx->col.clr_wh = COLOR_white;
+	mlx->col.black = COLOR_black;
+	mlx->col.a = COLOR_11;
+	mlx->col.b = COLOR_12;
+	mlx->col.c = COLOR_13;
+	mlx->col.d = COLOR_14;
+	mlx->col.e = COLOR_15;
+	mlx->col.f = COLOR_16;
+	mlx->col.g = COLOR_17;
+	mlx->col.h = COLOR_18;
+	mlx->col.i = COLOR_19;
+	mlx->col.w = COLOR_white;
 }
 
 void	mandle_red(t_mlx *mlx)
 {
-	mlx->col.clr_black = COLOR_black;
-	mlx->col.clr_10 = COLOR_21;
-	mlx->col.clr_20 = COLOR_22;
-	mlx->col.clr_30 = COLOR_23;
-	mlx->col.clr_40 = COLOR_24;
-	mlx->col.clr_50 = COLOR_25;
-	mlx->col.clr_60 = COLOR_26;
-	mlx->col.clr_70 = COLOR_27;
-	mlx->col.clr_80 = COLOR_28;
-	mlx->col.clr_90 = COLOR_29;
-	mlx->col.clr_wh = COLOR_white;
+	mlx->col.black = COLOR_black;
+	mlx->col.a = COLOR_21;
+	mlx->col.b = COLOR_22;
+	mlx->col.c = COLOR_23;
+	mlx->col.d = COLOR_24;
+	mlx->col.e = COLOR_25;
+	mlx->col.f = COLOR_26;
+	mlx->col.g = COLOR_27;
+	mlx->col.h = COLOR_28;
+	mlx->col.i = COLOR_29;
+	mlx->col.w = COLOR_white;
 }
 
 void	mandle_black(t_mlx *mlx)
 {
-	mlx->col.clr_black = COLOR_black;
-	mlx->col.clr_10 = COLOR_31;
-	mlx->col.clr_20 = COLOR_32;
-	mlx->col.clr_30 = COLOR_33;
-	mlx->col.clr_40 = COLOR_34;
-	mlx->col.clr_50 = COLOR_35;
-	mlx->col.clr_60 = COLOR_36;
-	mlx->col.clr_70 = COLOR_37;
-	mlx->col.clr_80 = COLOR_38;
-	mlx->col.clr_90 = COLOR_39;
-	mlx->col.clr_wh = COLOR_white;
+	mlx->col.black = COLOR_black;
+	mlx->col.a = COLOR_31;
+	mlx->col.b = COLOR_32;
+	mlx->col.c = COLOR_33;
+	mlx->col.d = COLOR_34;
+	mlx->col.e = COLOR_35;
+	mlx->col.f = COLOR_36;
+	mlx->col.g = COLOR_37;
+	mlx->col.h = COLOR_38;
+	mlx->col.i = COLOR_39;
+	mlx->col.w = COLOR_white;
 }
 
 void	mandle_funk(t_mlx *mlx)
 {
-	mlx->col.clr_black = NEON_LT_PUR;
-	mlx->col.clr_10 = NEON_RE;
-	mlx->col.clr_20 = NEON_OR;
-	mlx->col.clr_30 = NEON_YE;
-	mlx->col.clr_40 = NEON_GR;
-	mlx->col.clr_50 = NEON_LT_GR;
-	mlx->col.clr_60 = NEON_BL;
-	mlx->col.clr_70 = NEON_LT_BL;
-	mlx->col.clr_80 = NEON_LT_PUR;
-	mlx->col.clr_90 = NEON_PUR;
-	mlx->col.clr_wh = NEON_LT_PUR;
+	mlx->col.black = NEON_LT_PUR;
+	mlx->col.a = NEON_RE;
+	mlx->col.b = NEON_OR;
+	mlx->col.c = NEON_YE;
+	mlx->col.d = NEON_GR;
+	mlx->col.e = NEON_LT_GR;
+	mlx->col.f = NEON_BL;
+	mlx->col.g = NEON_LT_BL;
+	mlx->col.h = NEON_LT_PUR;
+	mlx->col.i = NEON_PUR;
+	mlx->col.w = NEON_LT_PUR;
 }

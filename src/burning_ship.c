@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 09:26:15 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/22 17:34:15 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/23 10:37:53 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ for (i=0;i<N;i++) {
 	MID POINT.x IS = -c 0.45 
 	MID POINT.y IS = 0.5
 	range is = -w 1.7 */
-	
+
 void	print_info_ship(t_mlx *mlx)
 {
 	printf("Burning Ship\nThis is min_val %f\n and this is max_val %f\n",
@@ -65,7 +65,8 @@ void	print_info_ship(t_mlx *mlx)
 	printf("This is win_x %d\nThis is win_y %d\n", mlx->win_x, mlx->win_y);
 	printf("This is base %d\nThis is mlx f_state %c\n", mlx->zoom_base,
 		mlx->f_state);
-	printf("This is midpoint.x %f\n This is midpoint.y %f\n", mlx->midpoint_x, mlx->midpoint_y);
+	printf("This is midpoint.x %f\n This is midpoint.y %f\n",
+		mlx->midpoint_x, mlx->midpoint_y);
 	printf("This is z_state %c\nThis is n%f\n", mlx->z_state, mlx->n);
 }
 
@@ -73,9 +74,8 @@ static int	calculate_ship(t_mlx *mlx)
 {
 	long double	x;
 	long double	y;
-	int		i;
+	int			i;
 	// int		t;
-
 	x = 0;
 	y = 0;
 	i = 0;
@@ -97,25 +97,21 @@ int	burningship(t_mlx *mlx)
 	int	b;
 	int	i;
 
-
 	clearscreen(mlx);
 	b = 0;
 	while (b++ < mlx->win_y)
 	{
-		// mlx->b = mlx->midpoint_y + (2 * mlx->range * (b /(double)mlx->n - 0.5));
 		mlx->b = mlx->max_val - (b / mlx->n);
 		a = 0;
 		while (a++ < mlx->win_x)
 		{
-			// mlx->a = mlx->midpoint_x + (2 * mlx->range * (a /(double)mlx->n - 0.5));
 			mlx->a = mlx->min_val + (a / mlx->n);
 			i = calculate_ship(mlx);
 			// print_mandle(i, a, b, mlx);
 			if (i == mlx->max_i)
-				my_mlx_pixel_put(&mlx->img, a, b, mlx->col.clr_black);
+				my_mlx_pixel_put(&mlx->img, a, b, mlx->col.black);
 			else
-				my_mlx_pixel_put(&mlx->img, a, b, mlx->col.clr_wh);
-
+				my_mlx_pixel_put(&mlx->img, a, b, mlx->col.w);
 		}
 	}
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img.img, 0, 0);
@@ -123,16 +119,13 @@ int	burningship(t_mlx *mlx)
 	return (0);
 }
 
-
 void	init_ship(t_mlx *mlx)
 {
 	mlx->z_state = 'o';
-	// mlx->range = 0.4;
 	mlx->midpoint_x = 1.75;
 	mlx->midpoint_y = 0.03;
 	mlx->min_val = -1.179828;
 	mlx->max_val = 1.375875;
-	// mlx->n = mlx->win_x / 2;
 	mlx->n = 378;
 	mlx->zoom_base = 10;
 	mlx->f_state = 'b';

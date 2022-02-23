@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 09:26:15 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/23 09:23:54 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/23 10:50:14 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ void	print_info_mandle(t_mlx *mlx)
 	printf("This is max iteration %d\nThis is n %f\n", mlx->max_i, mlx->n);
 	printf("This is win_x %d\nThis is win_y %d\n", mlx->win_x, mlx->win_y);
 	printf("This is mlx->a %f\nThis is mlx->b %f\n", mlx->a, mlx->b);
-	printf("This is mouse_x %d\n This is mouse_y%d\n", mlx->mouse.x_pos, mlx->mouse.y_pos);
+	printf("This is mouse_x %d\n This is mouse_y%d\n",
+		mlx->mouse.x_pos, mlx->mouse.y_pos);
 	printf("This is base %d\nThis is mlx state %c\n", mlx->zoom_base,
 		mlx->f_state);
 	printf("This is z_state %c\n", mlx->z_state);
@@ -44,7 +45,7 @@ static int	calculate_mandle(t_mlx *mlx)
 	double	y;
 	double	t;
 	int		i;
-	
+
 	i = 0;
 	x = 0;
 	y = 0;
@@ -114,4 +115,3 @@ void	init_mandle_param(t_mlx *mlx)
 	mlx->mouse.y_pos = mlx->win_y / 2 ;
 	mandle_black(mlx);
 }
-

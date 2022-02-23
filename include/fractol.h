@@ -8,17 +8,17 @@
 
 typedef struct s_color_pal
 {
-	int	clr_black;
-	int clr_10;
-	int clr_20;
-	int clr_30;
-	int clr_40;
-	int clr_50;
-	int clr_60;
-	int clr_70;
-	int clr_80;
-	int clr_90;
-	int clr_wh;
+	int	black;
+	int a;
+	int b;
+	int c;
+	int d;
+	int e;
+	int f;
+	int g;
+	int h;
+	int i;
+	int w;
 }			t_color_pal;
 
 typedef struct	s_data 
@@ -42,6 +42,7 @@ typedef struct s_mlx
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
+	char 	*s;
 	int		win_x;
 	int		win_y;
 	char	f_state;

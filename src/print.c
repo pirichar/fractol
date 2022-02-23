@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 10:47:58 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/22 10:16:23 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/23 10:30:04 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,67 +25,50 @@ void	print_mandle_small(int i, int a, int b, t_mlx *mlx)
 	if (a <= mlx->win_x && b <= mlx->win_y)
 	{
 		if (i > 0 && i <= (float)mlx->max_i * 0.01)
-			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.clr_black);
+			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.black);
 		if (i > (float)mlx->max_i * 0.01 && i <= (float)mlx->max_i * 0.02)
-			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.clr_10);
+			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.a);
 		if (i > (float)mlx->max_i * 0.02 && i <= (float)mlx->max_i * 0.03)
-			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.clr_20);
+			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.b);
 		if (i > (float)mlx->max_i * 0.03 && i <= (float)mlx->max_i * 0.04)
-			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.clr_30);
+			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.c);
 		if (i > (float)mlx->max_i * 0.04 && i <= (float)mlx->max_i * 0.05)
-			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.clr_40);
+			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.d);
 		if (i > (float)mlx->max_i * 0.06 && i <= (float)mlx->max_i * 0.07)
-			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.clr_50);
+			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.e);
 		if (i > (float)mlx->max_i * 0.07 && i <= (float)mlx->max_i * 0.08)
-			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.clr_60);
+			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.f);
 		if (i > (float)mlx->max_i * 0.08 && i <= (float)mlx->max_i * 0.09)
-			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.clr_70);
+			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.g);
 		if (i > (float)mlx->max_i * 0.09 && i <= (float)mlx->max_i * 0.10)
-			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.clr_80);
+			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.h);
 	}
 }
+
 void	print_mandle(int i, int a, int b, t_mlx *mlx)
 {
 	if (a <= mlx->win_x && b <= mlx->win_y)
 	{
-		print_mandle_small(i,a,b,mlx);
+		print_mandle_small(i, a, b, mlx);
 		if (i > (float)mlx->max_i * 0.1 && i <= (float)mlx->max_i * 0.2)
-			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.clr_20);
+			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.b);
 		if (i > (float)mlx->max_i * 0.2 && i <= (float)mlx->max_i * 0.3)
-			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.clr_30);
+			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.c);
 		if (i > (float)mlx->max_i * 0.3 && i <= (float)mlx->max_i * 0.4)
-			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.clr_40);
+			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.d);
 		if (i > (float)mlx->max_i * 0.4 && i <= (float)mlx->max_i * 0.6)
-			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.clr_50);
+			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.e);
 		if (i > (float)mlx->max_i * 0.6 && i <= (float)mlx->max_i * 0.7)
-			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.clr_60);
+			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.f);
 		if (i > (float)mlx->max_i * 0.7 && i <= (float)mlx->max_i * 0.8)
-			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.clr_70);
+			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.g);
 		if (i > (float)mlx->max_i * 0.8 && i <= (float)mlx->max_i * 0.9)
-			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.clr_80);
+			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.h);
 		if (i > (float)mlx->max_i * 0.9 && i <= (float)mlx->max_i * 1)
-			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.clr_90);
+			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.i);
 		if (i == mlx->max_i)
-			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.clr_black);
+			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.black);
 	}
-}
-
-void	shift_palet(t_mlx *mlx)
-{
-	int	tmp;
-
-	tmp = mlx->col.clr_10;
-	// mlx->col.clr_black = mlx->col.clr_10;
-	mlx->col.clr_10 = mlx->col.clr_20;
-	mlx->col.clr_20 = mlx->col.clr_30;
-	mlx->col.clr_30 = mlx->col.clr_40;
-	mlx->col.clr_40 = mlx->col.clr_50;
-	mlx->col.clr_50 = mlx->col.clr_60;
-	mlx->col.clr_60 = mlx->col.clr_70;
-	mlx->col.clr_70 = mlx->col.clr_80;
-	mlx->col.clr_80 = mlx->col.clr_90;
-	mlx->col.clr_90 = mlx->col.clr_wh;
-	mlx->col.clr_wh = tmp;
 }
 
 void	clearscreen(t_mlx *mlx)
@@ -99,7 +82,7 @@ void	clearscreen(t_mlx *mlx)
 		j = 0;
 		while (j < mlx->win_y)
 		{
-			my_mlx_pixel_put(&mlx->img, i, j, mlx->col.clr_black);
+			my_mlx_pixel_put(&mlx->img, i, j, mlx->col.black);
 			j++;
 		}
 		i++;

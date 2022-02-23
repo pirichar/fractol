@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mouse.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/23 10:10:00 by pirichar          #+#    #+#             */
+/*   Updated: 2022/02/23 10:13:23 by pirichar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../include/fractol.h"
 
@@ -20,20 +31,20 @@ int	mouse_mover(int x, int y, t_mlx *mlx)
 	return (0);
 }
 
-int		mousehook(int key,int x, int y, t_mlx *mlx)
+int	mousehook(int key, int x, int y, t_mlx *mlx)
 {
 	if (mlx->mouse.move == 1)
-		mouse_mover(x, y , mlx);
-	if (mlx->f_state == 'j' || mlx->f_state == 'm' || mlx->f_state == 's') 
+		mouse_mover(x, y, mlx);
+	if (mlx->f_state == 'j' || mlx->f_state == 'm' || mlx->f_state == 's')
 	{
-		if(key == MOUSE_UP)
+		if (key == MOUSE_UP)
 		{
 			mlx->n = mlx->n * 1.3;
 			mlx->max_val = mlx->max_val / 1.3;
 			mlx->min_val = mlx->min_val / 1.02;
 			mlx->zoom_base = mlx->zoom_base * 1.3;
 		}
-		if(key == MOUSE_DOWN)
+		if (key == MOUSE_DOWN)
 		{
 			mlx->n = mlx->n / 1.3;
 			mlx->max_val = mlx->max_val * 1.3;
