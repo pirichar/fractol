@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 09:26:15 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/17 12:20:17 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/23 09:23:54 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	print_info_mandle(t_mlx *mlx)
 		mlx->f_state);
 	printf("This is z_state %c\n", mlx->z_state);
 	printf("THis is mouse.move %d\n", mlx->mouse.move);
+	printf("This is m_state %c\n", mlx->m_state);
 }
 
 static int	calculate_mandle(t_mlx *mlx)
@@ -45,8 +46,6 @@ static int	calculate_mandle(t_mlx *mlx)
 	int		i;
 	
 	i = 0;
-	// x = (mlx->mouse.x_pos - mlx->win_x) / ((long double)mlx->win_y * 2) + 0.25;
-	// y = (mlx->mouse.y_pos - mlx->win_y) / ((long double)mlx->win_x) + 0.5;
 	x = 0;
 	y = 0;
 	while (i++ < mlx->max_i)
@@ -80,11 +79,28 @@ int	mandlebroth(t_mlx *mlx)
 		}
 	}
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img.img, 0, 0);
+	show_menu(mlx);
 	print_info_mandle(mlx);
 	return (0);
 }
 
 void	init_mandle(t_mlx *mlx)
+{
+	mlx->z_state = 'o';
+	mlx->min_val = -2.45;
+	mlx->max_val = 1.05;
+	mlx->mouse.x_pos = mlx->win_x / 2;
+	mlx->mouse.y_pos = mlx->win_y / 2 ;
+	mlx->n = mlx->win_y / 2;
+	mlx->zoom_base = 10;
+	mlx->f_state = 'm';
+	mlx->max_i = 60;
+	mlx->mouse.move = 0;
+	mandle_black(mlx);
+	mandlebroth(mlx);
+}
+
+void	init_mandle_param(t_mlx *mlx)
 {
 	mlx->z_state = 'o';
 	mlx->min_val = -2.45;
@@ -97,6 +113,5 @@ void	init_mandle(t_mlx *mlx)
 	mlx->mouse.x_pos = mlx->win_x / 2;
 	mlx->mouse.y_pos = mlx->win_y / 2 ;
 	mandle_black(mlx);
-	mandlebroth(mlx);
 }
 

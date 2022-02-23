@@ -38,6 +38,7 @@
 # define KEY_RIGHT 0x7c
 # define KEY_MINUS 0x1b
 # define KEY_PLUS 0x18
+# define KEY_RTN 0x24
 
 # define KEY_0 0x10
 # define KEY_1 0x12

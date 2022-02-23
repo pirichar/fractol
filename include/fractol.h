@@ -18,7 +18,7 @@ typedef struct s_color_pal
 	int clr_70;
 	int clr_80;
 	int clr_90;
-	int clr_white;
+	int clr_wh;
 }			t_color_pal;
 
 typedef struct	s_data 
@@ -47,6 +47,7 @@ typedef struct s_mlx
 	char	f_state;
 	char	c_state;
 	char	z_state;
+	char	m_state;
 	double	min_val;
 	double	max_val;
 	double	c1;
@@ -66,13 +67,18 @@ typedef struct s_mlx
 
 
 
-void	ft_putchar(char c);
-void    ft_putstring(char *str);
+
 void    clearscreen(t_mlx *mlx);
 void    reset_screen(t_mlx *mlx);
 void    print_mandle(int i, int a, int b, t_mlx *mlx);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int		ft_strcmp(char *s1, char*s2);
+char	*ft_strjoin(const char *s1, const char *s2);
+void	show_menu(t_mlx *mlx);
+char	*ft_itoa(int n);
+int 	ft_strlen(const char *str);
+void	*ft_calloc(size_t count, size_t size);
+void	ft_bzero(void *s, size_t n);
 
 //mandle.c
 int		mandlebroth(t_mlx *mlx);
@@ -83,6 +89,7 @@ void	init_mandle(t_mlx *mlx);
 void	mandle_black(t_mlx *mlx);
 void	mandle_funk(t_mlx *mlx);
 void	shift_palet(t_mlx *mlx);
+void	init_mandle_param(t_mlx *mlx);
 
 //keypress functions
 void	zoom_in_out(int key, t_mlx *mlx);
@@ -98,10 +105,12 @@ int		mousehook(int key,int x, int y, t_mlx *mlx);
 int		keypress(int key, t_mlx *mlx);
 void	init_fractals(int key, t_mlx *mlx);
 void	modif_fractals(int key, t_mlx *mlx);
+void	init_first_fractal(t_mlx *mlx);
 
 //julia.c
 int		julia_set(t_mlx *mlx);
 void	init_julia(t_mlx *mlx);
+void	init_julia_param(t_mlx *mlx);
 
 //burning ship
 int		burningship(t_mlx *mlx);

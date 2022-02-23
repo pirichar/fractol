@@ -6,7 +6,7 @@
 #    By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 11:00:22 by pirichar          #+#    #+#              #
-#    Updated: 2022/02/17 08:47:49 by pirichar         ###   ########.fr        #
+#    Updated: 2022/02/21 14:36:27 by pirichar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ NAME = fractol
 SRC			= src
 INC			= include
 OBJ			= obj
-CFILES		= main.c print.c mandle.c julia.c clr_pallet.c keypress.c keypress2.c zoom.c burning_ship.c sierpinski.c mouse.c
+CFILES		= main.c print.c mandle.c julia.c clr_pallet.c keypress.c keypress2.c zoom.c\
+			burning_ship.c sierpinski.c mouse.c ft_strcmp.c ft_strjoin.c menu.c ft_itoa.c
 HFILES		= colors.h fractol.h keys.h
 OFILES		= $(CFILES:.c=.o)
 SRCS		= $(addprefix $(SRC)/, $(CFILES))

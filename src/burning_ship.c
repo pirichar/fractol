@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 09:26:15 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/17 13:26:52 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/22 17:34:15 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ Complexe Squaring:
 * =(AA-BB)+(2AB)i
 
  http://paulbourke.net/fractals/burnship/burningship.c 
+ https://spanishplus.tripod.com/maths/FractalBurningShip.htm
 
 	Create the burning ship fractal
 	Whole ship        -w 1.7 -c 0.45 0.5
@@ -70,19 +71,19 @@ void	print_info_ship(t_mlx *mlx)
 
 static int	calculate_ship(t_mlx *mlx)
 {
-	double	x;
-	double	y;
+	long double	x;
+	long double	y;
 	int		i;
-	int		t;
+	// int		t;
 
 	x = 0;
 	y = 0;
-	i = 1;
+	i = 0;
 	while (i < mlx->max_i)
 	{
-		t = x;
-		x = (x * x) - (y * y) + mlx->a;
-		y = (2 * fabs(t * y)) + mlx->b;
+		//  t = x;
+		x = (x * x) - (y * y) - mlx->a;
+		y = fabs(2 * (x * y)) - mlx->b;
 		if ((x * x) + (y * y) > 4)
 			break ;
 		i++;
@@ -101,15 +102,20 @@ int	burningship(t_mlx *mlx)
 	b = 0;
 	while (b++ < mlx->win_y)
 	{
-		// mlx->b = (mlx->midpoint_y + 2) * mlx->range * (b /(double)mlx->n - 0.5);
+		// mlx->b = mlx->midpoint_y + (2 * mlx->range * (b /(double)mlx->n - 0.5));
 		mlx->b = mlx->max_val - (b / mlx->n);
 		a = 0;
 		while (a++ < mlx->win_x)
 		{
-			// mlx->a = (mlx->midpoint_x + 2) * mlx->range * (a /(double)mlx->n - 0.5);
+			// mlx->a = mlx->midpoint_x + (2 * mlx->range * (a /(double)mlx->n - 0.5));
 			mlx->a = mlx->min_val + (a / mlx->n);
 			i = calculate_ship(mlx);
-			print_mandle(i, a, b, mlx);
+			// print_mandle(i, a, b, mlx);
+			if (i == mlx->max_i)
+				my_mlx_pixel_put(&mlx->img, a, b, mlx->col.clr_black);
+			else
+				my_mlx_pixel_put(&mlx->img, a, b, mlx->col.clr_wh);
+
 		}
 	}
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img.img, 0, 0);
@@ -121,16 +127,16 @@ int	burningship(t_mlx *mlx)
 void	init_ship(t_mlx *mlx)
 {
 	mlx->z_state = 'o';
-	mlx->range = 0.4;
+	// mlx->range = 0.4;
 	mlx->midpoint_x = 1.75;
 	mlx->midpoint_y = 0.03;
-	mlx->min_val = -2.45;
-	mlx->max_val = 1.05;
-	mlx->n = mlx->win_x / 2;
-	// mlx->n = 4000;
+	mlx->min_val = -1.179828;
+	mlx->max_val = 1.375875;
+	// mlx->n = mlx->win_x / 2;
+	mlx->n = 378;
 	mlx->zoom_base = 10;
 	mlx->f_state = 'b';
-	mlx->max_i = 64;
+	mlx->max_i = 60;
 	mandle_black(mlx);
 	burningship(mlx);
 }

@@ -57,7 +57,7 @@ void	mandle_green(t_mlx *mlx)
 	mlx->col.clr_70 = COLOR_7;
 	mlx->col.clr_80 = COLOR_8;
 	mlx->col.clr_90 = COLOR_9;
-	mlx->col.clr_white = COLOR_white;
+	mlx->col.clr_wh = COLOR_white;
 }
 void	mandle_blue(t_mlx *mlx)
 {
@@ -71,7 +71,7 @@ void	mandle_blue(t_mlx *mlx)
 	mlx->col.clr_70 = COLOR_17;
 	mlx->col.clr_80 = COLOR_18;
 	mlx->col.clr_90 = COLOR_19;
-	mlx->col.clr_white = COLOR_white;
+	mlx->col.clr_wh = COLOR_white;
 }
 void	mandle_red(t_mlx *mlx)
 {
@@ -85,7 +85,7 @@ void	mandle_red(t_mlx *mlx)
 	mlx->col.clr_70 = COLOR_27;
 	mlx->col.clr_80 = COLOR_28;
 	mlx->col.clr_90 = COLOR_29;
-	mlx->col.clr_white = COLOR_white;
+	mlx->col.clr_wh = COLOR_white;
 }
 void	mandle_black(t_mlx *mlx)
 {
@@ -99,7 +99,7 @@ void	mandle_black(t_mlx *mlx)
 	mlx->col.clr_70 = COLOR_37;
 	mlx->col.clr_80 = COLOR_38;
 	mlx->col.clr_90 = COLOR_39;
-	mlx->col.clr_white = COLOR_white;
+	mlx->col.clr_wh = COLOR_white;
 }
 
 void	init_mandle(t_mlx *mlx)

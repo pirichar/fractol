@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 08:13:29 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/15 11:24:56 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/21 14:35:39 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	mandle_green(t_mlx *mlx)
 	mlx->col.clr_70 = COLOR_7;
 	mlx->col.clr_80 = COLOR_8;
 	mlx->col.clr_90 = COLOR_9;
-	mlx->col.clr_white = COLOR_white;
+	mlx->col.clr_wh = COLOR_white;
 }
 
 void	mandle_blue(t_mlx *mlx)
@@ -40,7 +40,7 @@ void	mandle_blue(t_mlx *mlx)
 	mlx->col.clr_70 = COLOR_17;
 	mlx->col.clr_80 = COLOR_18;
 	mlx->col.clr_90 = COLOR_19;
-	mlx->col.clr_white = COLOR_white;
+	mlx->col.clr_wh = COLOR_white;
 }
 
 void	mandle_red(t_mlx *mlx)
@@ -55,7 +55,7 @@ void	mandle_red(t_mlx *mlx)
 	mlx->col.clr_70 = COLOR_27;
 	mlx->col.clr_80 = COLOR_28;
 	mlx->col.clr_90 = COLOR_29;
-	mlx->col.clr_white = COLOR_white;
+	mlx->col.clr_wh = COLOR_white;
 }
 
 void	mandle_black(t_mlx *mlx)
@@ -70,7 +70,7 @@ void	mandle_black(t_mlx *mlx)
 	mlx->col.clr_70 = COLOR_37;
 	mlx->col.clr_80 = COLOR_38;
 	mlx->col.clr_90 = COLOR_39;
-	mlx->col.clr_white = COLOR_white;
+	mlx->col.clr_wh = COLOR_white;
 }
 
 void	mandle_funk(t_mlx *mlx)
@@ -85,5 +85,5 @@ void	mandle_funk(t_mlx *mlx)
 	mlx->col.clr_70 = NEON_LT_BL;
 	mlx->col.clr_80 = NEON_LT_PUR;
 	mlx->col.clr_90 = NEON_PUR;
-	mlx->col.clr_white = NEON_LT_PUR;
+	mlx->col.clr_wh = NEON_LT_PUR;
 }

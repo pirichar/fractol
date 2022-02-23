@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 08:31:26 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/17 08:14:26 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/21 14:24:43 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ int	julia_set(t_mlx *mlx)
 		}
 	}
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img.img, 0, 0);
+	show_menu(mlx);
 	print_info_julia(mlx);
 	return (0);
 }
@@ -83,4 +84,18 @@ void	init_julia(t_mlx *mlx)
 	mlx->mouse.move = 0;
 	mandle_black(mlx);
 	julia_set(mlx);
+}
+
+void	init_julia_param(t_mlx *mlx)
+{
+	mlx->min_val = -1.882566;
+	mlx->max_val = 1.094675;
+	mlx->n = mlx->win_y / 2;
+	mlx->zoom_base = 16;
+	mlx->f_state = 'j';
+	mlx->c1 = -0.787545;
+	mlx->c2 = -0.134741;
+	mlx->max_i = 60;
+	mlx->mouse.move = 0;
+	mandle_black(mlx);
 }

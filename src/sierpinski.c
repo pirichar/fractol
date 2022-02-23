@@ -42,7 +42,7 @@ int sierpinski(t_mlx *mlx)
 			}
         	else
 			{
-				mlx_pixel_put(mlx->mlx_ptr,mlx->win_ptr,x,y,mlx->col.clr_white);
+				mlx_pixel_put(mlx->mlx_ptr,mlx->win_ptr,x,y,mlx->col.clr_wh);
 				mlx_pixel_put(mlx->mlx_ptr,mlx->win_ptr,x+1,y,mlx->col.clr_black);
             	// printf("* ");
 			}

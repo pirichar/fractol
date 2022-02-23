@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 10:47:58 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/16 12:22:04 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/22 10:16:23 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,26 +20,47 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	*(unsigned int *)dst = color;
 }
 
+void	print_mandle_small(int i, int a, int b, t_mlx *mlx)
+{
+	if (a <= mlx->win_x && b <= mlx->win_y)
+	{
+		if (i > 0 && i <= (float)mlx->max_i * 0.01)
+			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.clr_black);
+		if (i > (float)mlx->max_i * 0.01 && i <= (float)mlx->max_i * 0.02)
+			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.clr_10);
+		if (i > (float)mlx->max_i * 0.02 && i <= (float)mlx->max_i * 0.03)
+			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.clr_20);
+		if (i > (float)mlx->max_i * 0.03 && i <= (float)mlx->max_i * 0.04)
+			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.clr_30);
+		if (i > (float)mlx->max_i * 0.04 && i <= (float)mlx->max_i * 0.05)
+			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.clr_40);
+		if (i > (float)mlx->max_i * 0.06 && i <= (float)mlx->max_i * 0.07)
+			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.clr_50);
+		if (i > (float)mlx->max_i * 0.07 && i <= (float)mlx->max_i * 0.08)
+			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.clr_60);
+		if (i > (float)mlx->max_i * 0.08 && i <= (float)mlx->max_i * 0.09)
+			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.clr_70);
+		if (i > (float)mlx->max_i * 0.09 && i <= (float)mlx->max_i * 0.10)
+			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.clr_80);
+	}
+}
 void	print_mandle(int i, int a, int b, t_mlx *mlx)
 {
 	if (a <= mlx->win_x && b <= mlx->win_y)
 	{
-		if (i > 0 && i <= (float)mlx->max_i * 0.06)
-			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.clr_black);
-		if (i > (float)mlx->max_i * 0.06 && i <= (float)mlx->max_i * 0.08)
-			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.clr_30);
-		if (i > (float)mlx->max_i * 0.08 && i <= (float)mlx->max_i * 0.1)
-			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.clr_40);
+		print_mandle_small(i,a,b,mlx);
 		if (i > (float)mlx->max_i * 0.1 && i <= (float)mlx->max_i * 0.2)
-			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.clr_10);
-		if (i > (float)mlx->max_i * 0.2 && i <= (float)mlx->max_i * 0.3)
 			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.clr_20);
-		if (i > (float)mlx->max_i * 0.3 && i <= (float)mlx->max_i * 0.4)
+		if (i > (float)mlx->max_i * 0.2 && i <= (float)mlx->max_i * 0.3)
 			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.clr_30);
+		if (i > (float)mlx->max_i * 0.3 && i <= (float)mlx->max_i * 0.4)
+			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.clr_40);
 		if (i > (float)mlx->max_i * 0.4 && i <= (float)mlx->max_i * 0.6)
 			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.clr_50);
-		if (i > (float)mlx->max_i * 0.6 && i <= (float)mlx->max_i * 0.8)
+		if (i > (float)mlx->max_i * 0.6 && i <= (float)mlx->max_i * 0.7)
 			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.clr_60);
+		if (i > (float)mlx->max_i * 0.7 && i <= (float)mlx->max_i * 0.8)
+			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.clr_70);
 		if (i > (float)mlx->max_i * 0.8 && i <= (float)mlx->max_i * 0.9)
 			my_mlx_pixel_put(&mlx->img, a, b, mlx->col.clr_80);
 		if (i > (float)mlx->max_i * 0.9 && i <= (float)mlx->max_i * 1)
@@ -53,8 +74,8 @@ void	shift_palet(t_mlx *mlx)
 {
 	int	tmp;
 
-	tmp = mlx->col.clr_black;
-	mlx->col.clr_black = mlx->col.clr_10;
+	tmp = mlx->col.clr_10;
+	// mlx->col.clr_black = mlx->col.clr_10;
 	mlx->col.clr_10 = mlx->col.clr_20;
 	mlx->col.clr_20 = mlx->col.clr_30;
 	mlx->col.clr_30 = mlx->col.clr_40;
@@ -63,8 +84,8 @@ void	shift_palet(t_mlx *mlx)
 	mlx->col.clr_60 = mlx->col.clr_70;
 	mlx->col.clr_70 = mlx->col.clr_80;
 	mlx->col.clr_80 = mlx->col.clr_90;
-	mlx->col.clr_90 = mlx->col.clr_white;
-	mlx->col.clr_white = tmp;
+	mlx->col.clr_90 = mlx->col.clr_wh;
+	mlx->col.clr_wh = tmp;
 }
 
 void	clearscreen(t_mlx *mlx)

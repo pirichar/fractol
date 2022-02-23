@@ -6,15 +6,25 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 10:05:08 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/17 11:40:09 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/23 09:28:27 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
 
-int	keypress(int key, t_mlx *mlx)
+int		keypress(int key, t_mlx *mlx)
 {
-	printf("%x\n", key);
+	printf("THIS IS KEY %x\n", key);
+	if (key == KEY_RTN)
+		init_first_fractal(mlx);		
+	if (key == KEY_H)
+	{
+		if (mlx->m_state == 'n')
+			mlx->m_state = 'o';
+		else
+			mlx->m_state = 'n';
+		refresh_mandle(mlx);
+	}
 	if (key == KEY_M || key == KEY_J || key == KEY_B || key == KEY_T)
 		init_fractals(key, mlx);
 	if (key == KEY_ESC)
@@ -32,8 +42,6 @@ int	keypress(int key, t_mlx *mlx)
 
 void	modif_fractals(int key, t_mlx *mlx)
 {
-	if (key == KEY_C)
-		reset_screen(mlx);
 	if (key == KEY_Z || key == KEY_X || key == KEY_MINUS
 		|| key == KEY_PLUS || key == KEY_L)
 		chose_zoom(key, mlx);
