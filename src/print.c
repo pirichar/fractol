@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 10:47:58 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/23 10:30:04 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/27 13:11:55 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ void	reset_screen(t_mlx *mlx)
 		j = 0;
 		while (j < mlx->win_y)
 		{
-			my_mlx_pixel_put(&mlx->img, i, j, COLOR_black);
+			my_mlx_pixel_put(&mlx->img, i, j, COLOR_BLACK);
 			j++;
 		}
 		i++;

@@ -1,27 +1,42 @@
-#include "../mlx/mlx.h"
-#include <unistd.h>
-#include <math.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include "keys.h"
-#include "colors.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractol.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/27 13:00:27 by pirichar          #+#    #+#             */
+/*   Updated: 2022/02/27 13:11:35 by pirichar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef FRACTOL_H
+# define FRACTOL_H
+
+# include "../mlx/mlx.h"
+# include <unistd.h>
+# include <math.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include "keys.h"
+# include "colors.h"
 
 typedef struct s_color_pal
 {
 	int	black;
-	int a;
-	int b;
-	int c;
-	int d;
-	int e;
-	int f;
-	int g;
-	int h;
-	int i;
-	int w;
+	int	a;
+	int	b;
+	int	c;
+	int	d;
+	int	e;
+	int	f;
+	int	g;
+	int	h;
+	int	i;
+	int	w;
 }			t_color_pal;
 
-typedef struct	s_data 
+typedef struct s_data
 {
 	void	*img;
 	char	*addr;
@@ -32,52 +47,49 @@ typedef struct	s_data
 
 typedef struct s_mouse
 {
-	double x;
-	double y;
-	int move;
-	int x_pos;
-	int y_pos;
-} t_mouse;
+	double	x;
+	double	y;
+	int		move;
+	int		x_pos;
+	int		y_pos;
+}				t_mouse;
 typedef struct s_mlx
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
-	char 	*s;
-	int		win_x;
-	int		win_y;
-	char	f_state;
-	char	c_state;
-	char	z_state;
-	char	m_state;
-	double	min_val;
-	double	max_val;
-	double	c1;
-	double	c2;
-	int		max_i;
-	double	n;
-	int		zoom_base;
-	double	a;
-	double	b;
-	t_data	img;
+	void		*mlx_ptr;
+	void		*win_ptr;
+	char		*s;
+	int			win_x;
+	int			win_y;
+	char		f_state;
+	char		c_state;
+	char		z_state;
+	char		m_state;
+	double		min_val;
+	double		max_val;
+	double		c1;
+	double		c2;
+	int			max_i;
+	double		n;
+	int			zoom_base;
+	double		a;
+	double		b;
+	t_data		img;
 	t_color_pal	col;
-	double	range;
-	double	midpoint_x;
-	double	midpoint_y;
-	t_mouse mouse;
-}			t_mlx;
+	double		range;
+	double		midpoint_x;
+	double		midpoint_y;
+	t_mouse		mouse;
+}				t_mlx;
 
-
-
-
-void    clearscreen(t_mlx *mlx);
-void    reset_screen(t_mlx *mlx);
-void    print_mandle(int i, int a, int b, t_mlx *mlx);
+void	clearscreen(t_mlx *mlx);
+void	reset_screen(t_mlx *mlx);
+void	print_mandle(int i, int a, int b, t_mlx *mlx);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int		ft_strcmp(char *s1, char*s2);
 char	*ft_strjoin(const char *s1, const char *s2);
 void	show_menu(t_mlx *mlx);
 char	*ft_itoa(int n);
-int 	ft_strlen(const char *str);
+int		ft_strlen(const char *str);
 void	*ft_calloc(size_t count, size_t size);
 void	ft_bzero(void *s, size_t n);
 
@@ -102,7 +114,7 @@ void	chose_zoom(int key, t_mlx *mlx);
 void	zoom_locked(int key, t_mlx *mlx);
 void	refresh_mandle(t_mlx *mlx);
 int		mouse_mover(int x, int y, t_mlx *mlx);
-int		mousehook(int key,int x, int y, t_mlx *mlx);
+int		mousehook(int key, int x, int y, t_mlx *mlx);
 int		keypress(int key, t_mlx *mlx);
 void	init_fractals(int key, t_mlx *mlx);
 void	modif_fractals(int key, t_mlx *mlx);
@@ -120,3 +132,5 @@ void	init_ship(t_mlx *mlx);
 //Sierpinski 
 void	init_sierpinski(t_mlx *mlx);
 int		sierpinski(t_mlx *mlx);
+
+#endif

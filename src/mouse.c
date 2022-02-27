@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 10:10:00 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/23 10:13:23 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/27 13:13:14 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,18 @@ int	mousehook(int key, int x, int y, t_mlx *mlx)
 	{
 		if (key == MOUSE_UP)
 		{
-			mlx->n = mlx->n * 1.3;
-			mlx->max_val = mlx->max_val / 1.3;
-			mlx->min_val = mlx->min_val / 1.02;
-			mlx->zoom_base = mlx->zoom_base * 1.3;
+			mlx->n = mlx->n * 1.1;
+			mlx->max_val = mlx->max_val / 1.01;
+			mlx->min_val = mlx->min_val / 1.2;
+			mlx->zoom_base = mlx->zoom_base * 1.1;
 		}
 		if (key == MOUSE_DOWN)
 		{
-			mlx->n = mlx->n / 1.3;
-			mlx->max_val = mlx->max_val * 1.3;
-			mlx->min_val = mlx->min_val * 1.02;
-			mlx->zoom_base = mlx->zoom_base / 1.3;
+			mlx->n = mlx->n / 1.1;
+			mlx->max_val = mlx->max_val * 1.01;
+			mlx->min_val = mlx->min_val * 1.2;
+			if (mlx->zoom_base > 4)
+				mlx->zoom_base = mlx->zoom_base * 0.9;
 		}
 		refresh_mandle(mlx);
 	}

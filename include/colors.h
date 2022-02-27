@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 13:04:58 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/14 17:16:26 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/27 13:12:31 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@
 
 //GREEN FROM BLACK TO WHITE
 //FFFFFF IS WHITE 00000000 IS BLACK
-# define COLOR_white 0xFFFFFF
+# define COLOR_WHITE 0xFFFFFF
 # define COLOR_9 0xd9ffcc
 # define COLOR_8 0xb3ff99
 # define COLOR_7 0x8cff66
@@ -100,7 +100,7 @@
 # define COLOR_3 0x269900
 # define COLOR_2 0x1a6600
 # define COLOR_1 0x0d3300
-# define COLOR_black 0x000000
+# define COLOR_BLACK 0x000000
 
 //BLUE PALET
 # define COLOR_20 0xFFFFFF
@@ -141,7 +141,6 @@
 # define COLOR_31 0x1A1A1A
 # define COLOR_0000 0x000000
 
-
 //NEON PALET
 # define NEON_WHITE	0xFFFFFF
 # define NEON_RE 0xfe0000
@@ -154,6 +153,5 @@
 # define NEON_PUR 0xfe00f6
 # define NEON_LT_PUR 0xf000ff
 # define NEON_BLACK 0x000000
-
 
 #endif

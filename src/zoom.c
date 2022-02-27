@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 08:43:13 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/23 10:43:03 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/27 12:55:12 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,12 @@ void	zoom_locked(int key, t_mlx *mlx)
 		mlx->n = mlx->n * 1.1;
 		mlx->max_val = mlx->max_val / 1.01;
 		mlx->min_val = mlx->min_val / 1.2;
-		mlx->zoom_base = mlx->zoom_base * 1.3;
+		mlx->zoom_base = mlx->zoom_base * 1.1;
 	}
 	if (key == KEY_X)
 	{
 		mlx->n = mlx->n / 1.1;
 		if (mlx->zoom_base > 4)
-			mlx->zoom_base = mlx->zoom_base * 0.1;
+			mlx->zoom_base = mlx->zoom_base * 0.9;
 	}
 }

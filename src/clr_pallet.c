@@ -15,7 +15,7 @@
 //maybe create a state for the color in the struct so I know how to init itppp
 void	mandle_green(t_mlx *mlx)
 {
-	mlx->col.black = COLOR_black;
+	mlx->col.black = COLOR_BLACK;
 	mlx->col.a = COLOR_1;
 	mlx->col.b = COLOR_2;
 	mlx->col.c = COLOR_3;
@@ -25,12 +25,12 @@ void	mandle_green(t_mlx *mlx)
 	mlx->col.g = COLOR_7;
 	mlx->col.h = COLOR_8;
 	mlx->col.i = COLOR_9;
-	mlx->col.w = COLOR_white;
+	mlx->col.w = COLOR_WHITE;
 }
 
 void	mandle_blue(t_mlx *mlx)
 {
-	mlx->col.black = COLOR_black;
+	mlx->col.black = COLOR_BLACK;
 	mlx->col.a = COLOR_11;
 	mlx->col.b = COLOR_12;
 	mlx->col.c = COLOR_13;
@@ -40,12 +40,12 @@ void	mandle_blue(t_mlx *mlx)
 	mlx->col.g = COLOR_17;
 	mlx->col.h = COLOR_18;
 	mlx->col.i = COLOR_19;
-	mlx->col.w = COLOR_white;
+	mlx->col.w = COLOR_WHITE;
 }
 
 void	mandle_red(t_mlx *mlx)
 {
-	mlx->col.black = COLOR_black;
+	mlx->col.black = COLOR_BLACK;
 	mlx->col.a = COLOR_21;
 	mlx->col.b = COLOR_22;
 	mlx->col.c = COLOR_23;
@@ -55,12 +55,12 @@ void	mandle_red(t_mlx *mlx)
 	mlx->col.g = COLOR_27;
 	mlx->col.h = COLOR_28;
 	mlx->col.i = COLOR_29;
-	mlx->col.w = COLOR_white;
+	mlx->col.w = COLOR_WHITE;
 }
 
 void	mandle_black(t_mlx *mlx)
 {
-	mlx->col.black = COLOR_black;
+	mlx->col.black = COLOR_BLACK;
 	mlx->col.a = COLOR_31;
 	mlx->col.b = COLOR_32;
 	mlx->col.c = COLOR_33;
@@ -70,7 +70,7 @@ void	mandle_black(t_mlx *mlx)
 	mlx->col.g = COLOR_37;
 	mlx->col.h = COLOR_38;
 	mlx->col.i = COLOR_39;
-	mlx->col.w = COLOR_white;
+	mlx->col.w = COLOR_WHITE;
 }
 
 void	mandle_funk(t_mlx *mlx)
