@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 09:26:15 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/23 10:50:14 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/28 07:52:17 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ void	init_mandle(t_mlx *mlx)
 	mlx->n = mlx->win_y / 2;
 	mlx->zoom_base = 10;
 	mlx->f_state = 'm';
+	mlx->is_active = 'y';
 	mlx->max_i = 60;
 	mlx->mouse.move = 0;
 	mandle_black(mlx);
@@ -109,6 +110,7 @@ void	init_mandle_param(t_mlx *mlx)
 	mlx->n = mlx->win_y / 2;
 	mlx->zoom_base = 10;
 	mlx->f_state = 'm';
+	mlx->is_active = 'n';
 	mlx->max_i = 60;
 	mlx->mouse.move = 0;
 	mlx->mouse.x_pos = mlx->win_x / 2;

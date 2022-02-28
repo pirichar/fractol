@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 10:05:08 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/23 10:51:38 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/28 07:55:20 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	keypress(int key, t_mlx *mlx)
 {
-	printf("THIS IS KEY %x\n", key);
 	if (key == KEY_RTN)
 		init_first_fractal(mlx);
 	if (key == KEY_H)
@@ -34,9 +33,7 @@ int	keypress(int key, t_mlx *mlx)
 	}	
 	if (mlx->f_state == 'j' || mlx->f_state == 'm'
 		|| mlx->f_state == 's' || mlx->f_state == 'b')
-	{
 		modif_fractals(key, mlx);
-	}
 	return (0);
 }
 

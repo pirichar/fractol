@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 12:58:38 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/23 10:52:23 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/28 07:52:49 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,22 @@ void	refresh_mandle(t_mlx *mlx)
 
 void	chose_color(int key, t_mlx *mlx)
 {
-	if (key == KEY_1)
-		mandle_blue(mlx);
-	if (key == KEY_2)
-		mandle_red(mlx);
-	if (key == KEY_3)
-		mandle_green(mlx);
-	if (key == KEY_4)
-		mandle_funk(mlx);
-	if (key == KEY_5)
-		mandle_black(mlx);
-	if (key == KEY_P)
-		shift_palet(mlx);
-	refresh_mandle(mlx);
+	if (mlx->is_active == 'y')
+	{
+		if (key == KEY_1)
+			mandle_blue(mlx);
+		if (key == KEY_2)
+			mandle_red(mlx);
+		if (key == KEY_3)
+			mandle_green(mlx);
+		if (key == KEY_4)
+			mandle_funk(mlx);
+		if (key == KEY_5)
+			mandle_black(mlx);
+		if (key == KEY_P)
+			shift_palet(mlx);
+		refresh_mandle(mlx);
+	}
 }
 
 void	change_iterations(int key, t_mlx *mlx)
