@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 08:31:26 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/28 07:53:41 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/28 08:11:27 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ void	init_julia(t_mlx *mlx)
 	mlx->max_i = 60;
 	mlx->mouse.move = 0;
 	mlx->is_active = 'y';
+	mlx->is_looping = 'n';
 	mandle_black(mlx);
 	julia_set(mlx);
 }

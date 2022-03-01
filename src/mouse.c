@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 10:10:00 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/27 13:13:14 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/28 07:58:04 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	mousehook(int key, int x, int y, t_mlx *mlx)
 {
 	if (mlx->mouse.move == 1)
 		mouse_mover(x, y, mlx);
-	if (mlx->f_state == 'j' || mlx->f_state == 'm' || mlx->f_state == 's')
+	if (mlx->is_active == 'y')
 	{
 		if (key == MOUSE_UP)
 		{

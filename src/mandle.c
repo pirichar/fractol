@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 09:26:15 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/28 07:52:17 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/28 08:12:56 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	print_info_mandle(t_mlx *mlx)
 	printf("This is z_state %c\n", mlx->z_state);
 	printf("THis is mouse.move %d\n", mlx->mouse.move);
 	printf("This is m_state %c\n", mlx->m_state);
+	printf("This is_looping %c\n", mlx->is_looping);
 }
 
 static int	calculate_mandle(t_mlx *mlx)
@@ -96,6 +97,7 @@ void	init_mandle(t_mlx *mlx)
 	mlx->zoom_base = 10;
 	mlx->f_state = 'm';
 	mlx->is_active = 'y';
+	mlx->is_looping = 'n';
 	mlx->max_i = 60;
 	mlx->mouse.move = 0;
 	mandle_black(mlx);

@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 10:05:08 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/28 07:55:20 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/02/28 08:21:57 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,31 @@ int	keypress(int key, t_mlx *mlx)
 		mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
 		exit (0);
 	}	
-	if (mlx->f_state == 'j' || mlx->f_state == 'm'
-		|| mlx->f_state == 's' || mlx->f_state == 'b')
+	if (mlx->is_active == 'y')
 		modif_fractals(key, mlx);
 	return (0);
+}
+
+void	loop_palet(int key, t_mlx *mlx)
+{
+	int i;
+
+	i = 0;
+	if (key == KEY_6)
+	{
+		if (mlx->is_looping == 'n')
+			mlx->is_looping = 'y';
+		else
+			mlx->is_looping = 'n';
+	}
+	while (i++ < 10000)
+	{
+		if (i % 10 == 0)
+		{
+			shift_palet(mlx);
+			refresh_mandle(mlx);
+		}
+	}
 }
 
 void	modif_fractals(int key, t_mlx *mlx)
@@ -53,6 +74,8 @@ void	modif_fractals(int key, t_mlx *mlx)
 	if (key == KEY_W || key == KEY_S || key == KEY_A
 		|| key == KEY_D || key == KEY_N)
 		param_modif(key, mlx);
+	if (key == KEY_6)
+		loop_palet(key, mlx);
 }
 
 void	init_fractals(int key, t_mlx *mlx)
