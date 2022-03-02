@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 09:26:15 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/23 10:37:53 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/03/02 14:08:27 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ for (i=0;i<N;i++) {
 
 void	print_info_ship(t_mlx *mlx)
 {
-	printf("Burning Ship\nThis is min_val %f\n and this is max_val %f\n",
+	printf(RED"Burning Ship\nThis is min_val %f\n and this is max_val %f\n"RESET,
 		mlx->min_val, mlx->max_val);
 	printf("This is max iteration %d\nThis is n %f\n", mlx->max_i, mlx->n);
 	printf("This is win_x %d\nThis is win_y %d\n", mlx->win_x, mlx->win_y);
@@ -72,19 +72,19 @@ void	print_info_ship(t_mlx *mlx)
 
 static int	calculate_ship(t_mlx *mlx)
 {
-	long double	x;
-	long double	y;
+
 	int			i;
-	// int		t;
-	x = 0;
-	y = 0;
+	long double	t;
+	
+	mlx->x = 0;
+	mlx->y = 0;
 	i = 0;
 	while (i < mlx->max_i)
 	{
-		//  t = x;
-		x = (x * x) - (y * y) - mlx->a;
-		y = fabs(2 * (x * y)) - mlx->b;
-		if ((x * x) + (y * y) > 4)
+		t = ((mlx->x * mlx->x) - (mlx->y * mlx->y)) + mlx->a;
+		mlx->y = fabsl(2 * mlx->x * mlx->y - mlx->b);
+		mlx->x = fabsl(t);
+		if ((mlx->x * mlx->x) + (mlx->y * mlx->y) > 4)
 			break ;
 		i++;
 	}
@@ -107,14 +107,11 @@ int	burningship(t_mlx *mlx)
 		{
 			mlx->a = mlx->min_val + (a / mlx->n);
 			i = calculate_ship(mlx);
-			// print_mandle(i, a, b, mlx);
-			if (i == mlx->max_i)
-				my_mlx_pixel_put(&mlx->img, a, b, mlx->col.black);
-			else
-				my_mlx_pixel_put(&mlx->img, a, b, mlx->col.w);
+			print_mandle(i, a, b, mlx);
 		}
 	}
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img.img, 0, 0);
+	show_menu(mlx);
 	print_info_ship(mlx);
 	return (0);
 }
@@ -122,14 +119,31 @@ int	burningship(t_mlx *mlx)
 void	init_ship(t_mlx *mlx)
 {
 	mlx->z_state = 'o';
-	mlx->midpoint_x = 1.75;
-	mlx->midpoint_y = 0.03;
+	mlx->min_val = -2.578728;
+	mlx->max_val = 2.175875;
+	mlx->n = 223;
+	mlx->zoom_base = 4;
+	mlx->f_state = 'b';
+	mlx->is_active = 'y';
+	mlx->is_looping = 'n';
+	mlx->max_i = 60;
+	mandle_black(mlx);
+	burningship(mlx);
+}
+
+void	init_ship_param(t_mlx *mlx)
+{
+	mlx->z_state = 'o';
 	mlx->min_val = -1.179828;
 	mlx->max_val = 1.375875;
 	mlx->n = 378;
 	mlx->zoom_base = 10;
 	mlx->f_state = 'b';
+	mlx->is_active = 'n';
+	mlx->is_looping = 'n';
 	mlx->max_i = 60;
+	mlx->mouse.x_pos = mlx->win_x / 2;
+	mlx->mouse.y_pos = mlx->win_y / 2 ;
 	mandle_black(mlx);
-	burningship(mlx);
 }
+

@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 08:43:13 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/27 12:55:12 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/03/02 09:53:36 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,11 @@ void	chose_zoom(int key, t_mlx *mlx)
 		else
 			mlx->z_state = 'o';
 	}
-	if (mlx->z_state == 'l')
+	// if (mlx->f_state == 'b')
+	// 	zoom_burning(key, mlx);
+	else if (mlx->z_state == 'l')
 		zoom_locked(key, mlx);
-	else
+	else if (mlx->z_state == 'o')
 		zoom_in_out(key, mlx);
 	if (key == KEY_MINUS)
 		mlx->zoom_base = mlx->zoom_base * 2;
@@ -32,22 +34,51 @@ void	chose_zoom(int key, t_mlx *mlx)
 	refresh_mandle(mlx);
 }
 
-void	zoom_in_out(int key, t_mlx *mlx)
+void	zoom_burning(int key, t_mlx *mlx)
 {
 	if (key == KEY_Z)
 	{
 		mlx->n = mlx->n * 1.3;
-		mlx->max_val = mlx->max_val * 0.77;
-		mlx->min_val = mlx->min_val * 0.98;
+		if (mlx->min_val < 1)
+			mlx->min_val = mlx->min_val + 0.7;
+		if (mlx->max_val > 0.05)
+			mlx->max_val = mlx->max_val * 0.7;
 		mlx->zoom_base = mlx->zoom_base * 1.3;
 	}
 	if (key == KEY_X)
 	{
 		mlx->n = mlx->n / 1.3;
-		mlx->max_val = mlx->max_val * 1.3;
-		mlx->min_val = mlx->min_val * 1.02;
-		if (mlx->zoom_base > 4)
-			mlx->zoom_base = mlx->zoom_base * 0.5;
+		if (mlx->min_val < 1)
+			mlx->max_val = mlx->max_val / 0.7;
+		if (mlx->max_val > 0.05)
+			mlx->min_val = mlx->min_val / 0.7;
+		if (mlx->zoom_base > 5)
+			mlx->zoom_base = mlx->zoom_base / 1.3;
+	}
+}
+
+void	zoom_in_out(int key, t_mlx *mlx)
+{
+	if (key == KEY_Z)
+	{
+		mlx->n = mlx->n * 1.3;
+		if (mlx->min_val < -1.809494)
+		{
+			mlx->max_val = mlx->max_val * 0.77;
+			mlx->min_val = mlx->min_val * 0.98;
+		}
+		mlx->zoom_base = mlx->zoom_base * 1.3;
+	}
+	if (key == KEY_X)
+	{
+		mlx->n = mlx->n / 1.3;
+		if (mlx->min_val < -1.809494)
+		{
+			mlx->max_val = mlx->max_val / 0.77;
+			mlx->min_val = mlx->min_val / 0.98;
+		}
+		if (mlx->zoom_base > 5)
+			mlx->zoom_base = mlx->zoom_base / 1.3;
 	}
 }
 
@@ -56,14 +87,12 @@ void	zoom_locked(int key, t_mlx *mlx)
 	if (key == KEY_Z)
 	{
 		mlx->n = mlx->n * 1.1;
-		mlx->max_val = mlx->max_val / 1.01;
-		mlx->min_val = mlx->min_val / 1.2;
 		mlx->zoom_base = mlx->zoom_base * 1.1;
 	}
 	if (key == KEY_X)
 	{
 		mlx->n = mlx->n / 1.1;
-		if (mlx->zoom_base > 4)
+		if (mlx->zoom_base > 5)
 			mlx->zoom_base = mlx->zoom_base * 0.9;
 	}
 }

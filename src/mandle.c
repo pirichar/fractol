@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 09:26:15 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/28 08:12:56 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/03/02 14:06:34 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ https://www.geeksforgeeks.org/fractals-in-cc/
 */
 void	print_info_mandle(t_mlx *mlx)
 {
-	printf("Mandelbrot\nThis is min_val %f\n and this is max_val %f\n",
+	printf(RED"Mandelbrot\nThis is min_val %f\n and this is max_val %f\n"RESET,
 		mlx->min_val, mlx->max_val);
 	printf("This is max iteration %d\nThis is n %f\n", mlx->max_i, mlx->n);
 	printf("This is win_x %d\nThis is win_y %d\n", mlx->win_x, mlx->win_y);
-	printf("This is mlx->a %f\nThis is mlx->b %f\n", mlx->a, mlx->b);
+	printf("This is mlx->a %Lf\nThis is mlx->b %Lf\n", mlx->a, mlx->b);
 	printf("This is mouse_x %d\n This is mouse_y%d\n",
 		mlx->mouse.x_pos, mlx->mouse.y_pos);
 	printf("This is base %d\nThis is mlx state %c\n", mlx->zoom_base,
@@ -39,23 +39,27 @@ void	print_info_mandle(t_mlx *mlx)
 	printf("This is m_state %c\n", mlx->m_state);
 	printf("This is_looping %c\n", mlx->is_looping);
 }
-
+/*
+	x represent z_real
+	y represent z_im
+	mlx->a represent c_real 
+	mlx->b represent z_real
+	
+*/
 static int	calculate_mandle(t_mlx *mlx)
 {
-	double	x;
-	double	y;
-	double	t;
+	long double	t;
 	int		i;
 
 	i = 0;
-	x = 0;
-	y = 0;
+	mlx->x = 0;
+	mlx->y = 0;
 	while (i++ < mlx->max_i)
 	{
-		t = x;
-		x = (x * x) - (y * y) + mlx->a;
-		y = (2 * t * y) + mlx->b;
-		if ((x * x) + (y * y) > 4.0)
+		t = mlx->x;
+		mlx->x = (mlx->x * mlx->x) - (mlx->y * mlx->y) + mlx->a;
+		mlx->y = (2 * t * mlx->y) + mlx->b;
+		if ((mlx->x * mlx->x) + (mlx->y * mlx->y) > 4.0)
 			break ;
 	}
 	return (i);

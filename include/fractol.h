@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 13:00:27 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/28 08:11:29 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/03/02 14:14:07 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,10 @@ typedef struct s_mlx
 	int			max_i;
 	double		n;
 	int			zoom_base;
-	double		a;
-	double		b;
+	long double		a;
+	long double		b;
+	long double		x;
+	long double		y;
 	t_data		img;
 	t_color_pal	col;
 	double		range;
@@ -114,6 +116,7 @@ void	fractal_movement(int key, t_mlx *mlx);
 void	param_modif(int key, t_mlx *mlx);
 void	chose_zoom(int key, t_mlx *mlx);
 void	zoom_locked(int key, t_mlx *mlx);
+void	zoom_burning(int key, t_mlx *mlx);
 void	refresh_mandle(t_mlx *mlx);
 int		mouse_mover(int x, int y, t_mlx *mlx);
 int		mousehook(int key, int x, int y, t_mlx *mlx);
@@ -130,6 +133,7 @@ void	init_julia_param(t_mlx *mlx);
 //burning ship
 int		burningship(t_mlx *mlx);
 void	init_ship(t_mlx *mlx);
+void	init_ship_param(t_mlx *mlx);
 
 //Sierpinski 
 void	init_sierpinski(t_mlx *mlx);

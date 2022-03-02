@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 10:05:08 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/28 08:21:57 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/03/02 09:48:58 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ void	loop_palet(int key, t_mlx *mlx)
 		else
 			mlx->is_looping = 'n';
 	}
-	while (i++ < 10000)
+	while (i++ < 1000)
 	{
-		if (i % 10 == 0)
+		if (i % 4 == 0)
 		{
 			shift_palet(mlx);
 			refresh_mandle(mlx);
@@ -110,9 +110,9 @@ void	param_modif(int key, t_mlx *mlx)
 		if (key == KEY_S)
 			mlx->c1 = mlx->c1 * 0.9;
 		if (key == KEY_A)
-			mlx->c2 = mlx->c2 * 1.1;
+			mlx->c2 = mlx->c2 * 1.5;
 		if (key == KEY_D)
-			mlx->c2 = mlx->c2 * 0.9;
+			mlx->c2 = mlx->c2 * 0.5;
 		if (key == KEY_N)
 		{
 			if (mlx->mouse.move == 0)

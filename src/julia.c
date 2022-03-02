@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 08:31:26 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/28 08:11:27 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/03/02 14:07:54 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,18 @@ static void	print_info_julia(t_mlx *mlx)
 
 static int	calculate_julia(t_mlx *mlx)
 {
-	double	x;
-	double	y;
-	double	t;
+	long double	t;
 	int		i;
 
 	i = 1;
-	x = mlx->a;
-	y = mlx->b;
+	mlx->x = mlx->a;
+	mlx->y = mlx->b;
 	while (i++ < mlx->max_i)
 	{
-		t = x;
-		x = (x * x) - (y * y) + mlx->c1;
-		y = (2 * t * y) + mlx->c2;
-		if ((x * x) +(y * y) > 4)
+		t = mlx->x;
+		mlx->x = (mlx->x * mlx->x) - (mlx->y * mlx->y) + mlx->c1;
+		mlx->y = (2 * t * mlx->y) + mlx->c2;
+		if ((mlx->x * mlx->x) +(mlx->y * mlx->y) > 4)
 			break ;
 	}
 	return (i);
