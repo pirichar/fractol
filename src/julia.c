@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 08:31:26 by pirichar          #+#    #+#             */
-/*   Updated: 2022/03/02 14:07:54 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/03/03 00:16:40 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,13 @@ static void	print_info_julia(t_mlx *mlx)
 	printf("This is mlx->mouse.move = %d\n", mlx->mouse.move);
 	printf("This is mlx->c1%f\nThis is mlx->c2 %f\n", mlx->c1, mlx->c2);
 	printf("This is base %d\n", mlx->zoom_base);
+	printf("This is f_state %c\n", mlx->f_state);
 }
 
 static int	calculate_julia(t_mlx *mlx)
 {
 	long double	t;
-	int		i;
+	int			i;
 
 	i = 1;
 	mlx->x = mlx->a;
@@ -86,17 +87,8 @@ void	init_julia(t_mlx *mlx)
 	julia_set(mlx);
 }
 
-void	init_julia_param(t_mlx *mlx)
+void	start_with_julia(t_mlx *mlx)
 {
-	mlx->min_val = -1.882566;
-	mlx->max_val = 1.094675;
-	mlx->n = mlx->win_y / 2;
-	mlx->zoom_base = 16;
 	mlx->f_state = 'j';
 	mlx->is_active = 'n';
-	mlx->c1 = -0.787545;
-	mlx->c2 = -0.134741;
-	mlx->max_i = 60;
-	mlx->mouse.move = 0;
-	mandle_black(mlx);
 }

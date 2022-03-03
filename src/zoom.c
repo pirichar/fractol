@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 08:43:13 by pirichar          #+#    #+#             */
-/*   Updated: 2022/03/02 09:53:36 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/03/03 00:27:59 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@ void	chose_zoom(int key, t_mlx *mlx)
 {
 	if (key == KEY_L)
 	{
-		if (mlx->z_state == 'o')
-			mlx->z_state = 'l';
+		if (mlx->zoom_state == 'o')
+			mlx->zoom_state = 'l';
 		else
-			mlx->z_state = 'o';
+			mlx->zoom_state = 'o';
 	}
 	// if (mlx->f_state == 'b')
 	// 	zoom_burning(key, mlx);
-	else if (mlx->z_state == 'l')
+	else if (mlx->zoom_state == 'l')
 		zoom_locked(key, mlx);
-	else if (mlx->z_state == 'o')
+	else if (mlx->zoom_state == 'o')
 		zoom_in_out(key, mlx);
 	if (key == KEY_MINUS)
 		mlx->zoom_base = mlx->zoom_base * 2;
@@ -62,7 +62,7 @@ void	zoom_in_out(int key, t_mlx *mlx)
 	if (key == KEY_Z)
 	{
 		mlx->n = mlx->n * 1.3;
-		if (mlx->min_val < -1.809494)
+		if (mlx->f_state == 'j' || mlx->min_val < -1.809494)
 		{
 			mlx->max_val = mlx->max_val * 0.77;
 			mlx->min_val = mlx->min_val * 0.98;

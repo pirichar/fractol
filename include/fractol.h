@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 13:00:27 by pirichar          #+#    #+#             */
-/*   Updated: 2022/03/02 14:14:07 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/03/02 16:07:03 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,34 +55,31 @@ typedef struct s_mouse
 }				t_mouse;
 typedef struct s_mlx
 {
-	void		*mlx_ptr;
-	void		*win_ptr;
-	char		*s;
-	int			win_x;
-	int			win_y;
-	char		f_state;
-	char		c_state;
-	char		z_state;
-	char		m_state;
-	char		is_looping;
-	char		is_active;
-	double		min_val;
-	double		max_val;
-	double		c1;
-	double		c2;
-	int			max_i;
-	double		n;
-	int			zoom_base;
+	void			*mlx_ptr;
+	void			*win_ptr;
+	char			*s;
+	int				win_x;
+	int				win_y;
+	char			f_state;
+	char			c_state;
+	char			zoom_state;
+	char			menu_state;
+	char			is_looping;
+	char			is_active;
+	double			min_val;
+	double			max_val;
+	double			c1;
+	double			c2;
+	int				max_i;
+	double			n;
+	int				zoom_base;
 	long double		a;
 	long double		b;
 	long double		x;
 	long double		y;
-	t_data		img;
-	t_color_pal	col;
-	double		range;
-	double		midpoint_x;
-	double		midpoint_y;
-	t_mouse		mouse;
+	t_data			img;
+	t_color_pal		col;
+	t_mouse			mouse;
 }				t_mlx;
 
 void	clearscreen(t_mlx *mlx);
@@ -106,7 +103,7 @@ void	init_mandle(t_mlx *mlx);
 void	mandle_black(t_mlx *mlx);
 void	mandle_funk(t_mlx *mlx);
 void	shift_palet(t_mlx *mlx);
-void	init_mandle_param(t_mlx *mlx);
+void	start_with_mandle(t_mlx *mlx);
 
 //keypress functions
 void	zoom_in_out(int key, t_mlx *mlx);
@@ -128,12 +125,12 @@ void	init_first_fractal(t_mlx *mlx);
 //julia.c
 int		julia_set(t_mlx *mlx);
 void	init_julia(t_mlx *mlx);
-void	init_julia_param(t_mlx *mlx);
+void	start_with_julia(t_mlx *mlx);
 
 //burning ship
 int		burningship(t_mlx *mlx);
 void	init_ship(t_mlx *mlx);
-void	init_ship_param(t_mlx *mlx);
+void	start_with_ship(t_mlx *mlx);
 
 //Sierpinski 
 void	init_sierpinski(t_mlx *mlx);

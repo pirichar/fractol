@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 12:58:38 by pirichar          #+#    #+#             */
-/*   Updated: 2022/03/01 15:51:39 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/03/03 08:07:06 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,21 @@ void	chose_color(int key, t_mlx *mlx)
 void	change_iterations(int key, t_mlx *mlx)
 {
 	if (key == KEY_I)
-		mlx->max_i = mlx->max_i * 1.3;
+	{
+		if (mlx->f_state == 'b')
+			mlx->max_i = mlx->max_i + 1;
+		else
+			mlx->max_i = mlx->max_i * 1.1;
+	}
 	if (key == KEY_O)
 	{
 		if (mlx->max_i > 4)
-			mlx->max_i = mlx->max_i / 1.3;
+		{
+			if (mlx->f_state == 'b')
+				mlx->max_i = mlx->max_i - 1;
+			else
+				mlx->max_i = mlx->max_i / 1.1;
+		}
 	}
 	refresh_mandle(mlx);
 }

@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 10:05:08 by pirichar          #+#    #+#             */
-/*   Updated: 2022/03/02 09:48:58 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/03/02 16:05:52 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ int	keypress(int key, t_mlx *mlx)
 		init_first_fractal(mlx);
 	if (key == KEY_H)
 	{
-		if (mlx->m_state == 'n')
-			mlx->m_state = 'o';
+		if (mlx->menu_state == 'n')
+			mlx->menu_state = 'o';
 		else
-			mlx->m_state = 'n';
+			mlx->menu_state = 'n';
 		refresh_mandle(mlx);
 	}
 	if (key == KEY_M || key == KEY_J || key == KEY_B || key == KEY_T)
@@ -38,7 +38,7 @@ int	keypress(int key, t_mlx *mlx)
 
 void	loop_palet(int key, t_mlx *mlx)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (key == KEY_6)

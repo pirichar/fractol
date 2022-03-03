@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 10:05:55 by pirichar          #+#    #+#             */
-/*   Updated: 2022/03/01 15:20:06 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/03/02 16:04:00 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	init_mlx(t_mlx *mlx)
 	mlx->img.img = mlx_new_image(mlx->mlx_ptr, mlx->win_x, mlx->win_y);
 	mlx->img.addr = mlx_get_data_addr(mlx->img.img, &mlx->img.bits_per_pixel,
 			&mlx->img.line_length, &mlx->img.endian);
-	mlx->m_state = 'n';
+	mlx->menu_state = 'n';
 }
 
 int	main(int argc, char **argv)
@@ -54,11 +54,11 @@ int	main(int argc, char **argv)
 		if (s_argv2(argv))
 		{
 			if (ft_strcmp(argv[1], "mandel") == 0)
-				init_mandle_param(&mlx);
+				start_with_mandle(&mlx);
 			else if (ft_strcmp(argv[1], "julia") == 0)
-				init_julia_param(&mlx);
+				start_with_julia(&mlx);
 			else if (ft_strcmp(argv[1], "ship") == 0)
-				init_ship_param(&mlx);
+				start_with_ship(&mlx);
 			else
 				return (error());
 		}

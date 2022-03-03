@@ -57,7 +57,7 @@ int sierpinski(t_mlx *mlx)
 
 void	init_sierpinski(t_mlx *mlx)
  {
-	mlx->z_state = 'o';
+	mlx->zoom_state = 'o';
 	mlx->n = mlx->win_y / 2;
 	mlx->f_state = 's';
 	sierpinski(mlx);

@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 14:32:17 by pirichar          #+#    #+#             */
-/*   Updated: 2022/02/23 10:38:32 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/03/02 16:03:03 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	display_info(t_mlx *mlx)
 void	show_menu(t_mlx *mlx)
 {
 	display_info(mlx);
-	if (mlx->m_state == 'o')
+	if (mlx->menu_state == 'o')
 	{
 		mlx->s = "ARROWS | WASD - MOVE FRACTAL";
 		mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 30, 30, mlx->col.w, mlx->s);

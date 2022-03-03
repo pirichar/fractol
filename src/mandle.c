@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 09:26:15 by pirichar          #+#    #+#             */
-/*   Updated: 2022/03/02 14:06:34 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/03/02 16:07:03 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /*
 "The" Mandelbrot set is the set obtained from the quadratic recurrence equation
- z_(n+1)=z_n^2+C 
+ z_(n+1)= z_n^2+C 
 
 Complexe Squaring:
 * (A+iB)^2
@@ -34,22 +34,23 @@ void	print_info_mandle(t_mlx *mlx)
 		mlx->mouse.x_pos, mlx->mouse.y_pos);
 	printf("This is base %d\nThis is mlx state %c\n", mlx->zoom_base,
 		mlx->f_state);
-	printf("This is z_state %c\n", mlx->z_state);
+	printf("This is zoom_state %c\n", mlx->zoom_state);
 	printf("THis is mouse.move %d\n", mlx->mouse.move);
-	printf("This is m_state %c\n", mlx->m_state);
+	printf("This is menu_state %c\n", mlx->menu_state);
 	printf("This is_looping %c\n", mlx->is_looping);
 }
 /*
+	z_n^2+C 
 	x represent z_real
 	y represent z_im
 	mlx->a represent c_real 
 	mlx->b represent z_real
-	
 */
+
 static int	calculate_mandle(t_mlx *mlx)
 {
 	long double	t;
-	int		i;
+	int			i;
 
 	i = 0;
 	mlx->x = 0;
@@ -64,6 +65,14 @@ static int	calculate_mandle(t_mlx *mlx)
 	}
 	return (i);
 }
+
+/*
+	z_n^2+C 
+	mlx->a represent c_real 
+	mlx->b represent z_real
+	min_val = --gauche ++droite
+	max_val == --bas ++haut
+*/
 
 int	mandlebroth(t_mlx *mlx)
 {
@@ -92,11 +101,9 @@ int	mandlebroth(t_mlx *mlx)
 
 void	init_mandle(t_mlx *mlx)
 {
-	mlx->z_state = 'o';
+	mlx->zoom_state = 'o';
 	mlx->min_val = -2.45;
 	mlx->max_val = 1.05;
-	mlx->mouse.x_pos = mlx->win_x / 2;
-	mlx->mouse.y_pos = mlx->win_y / 2 ;
 	mlx->n = mlx->win_y / 2;
 	mlx->zoom_base = 10;
 	mlx->f_state = 'm';
@@ -108,18 +115,8 @@ void	init_mandle(t_mlx *mlx)
 	mandlebroth(mlx);
 }
 
-void	init_mandle_param(t_mlx *mlx)
+void	start_with_mandle(t_mlx *mlx)
 {
-	mlx->z_state = 'o';
-	mlx->min_val = -2.45;
-	mlx->max_val = 1.05;
-	mlx->n = mlx->win_y / 2;
-	mlx->zoom_base = 10;
 	mlx->f_state = 'm';
 	mlx->is_active = 'n';
-	mlx->max_i = 60;
-	mlx->mouse.move = 0;
-	mlx->mouse.x_pos = mlx->win_x / 2;
-	mlx->mouse.y_pos = mlx->win_y / 2 ;
-	mandle_black(mlx);
 }
