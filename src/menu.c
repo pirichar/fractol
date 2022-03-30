@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 14:32:17 by pirichar          #+#    #+#             */
-/*   Updated: 2022/03/02 16:03:03 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/03/30 10:23:02 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,17 @@ void	show_menu(t_mlx *mlx)
 		mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 30, 70, mlx->col.w, mlx->s);
 		mlx->s = "I or O - INCREASE/DECREASE ITERATIONS";
 		mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 30, 90, mlx->col.w, mlx->s);
-		mlx->s = "N - Activate mouse movement in Julia";
+		mlx->s = "WASD OR MOUSE IF ACTIVATED - PLAY WITH JULIA";
 		mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 30, 110, mlx->col.w, mlx->s);
-		mlx->s = "WASD - PLAY WITH JULIA";
+		mlx->s = "N - Activate mouse movement in Julia";
 		mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 30, 130, mlx->col.w, mlx->s);
 		mlx->s = "1 to 5 - CHANGE COLOR";
 		mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 30, 150, mlx->col.w, mlx->s);
 		mlx->s = "P - ROTATE COLOR PALETTE";
 		mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 30, 170, mlx->col.w, mlx->s);
-		mlx->s = "PLUS OR MINUS - ARROW SENSITIVITY";
-		mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 30, 190, mlx->col.w, mlx->s);
-		mlx->s = "ESC - EXIT PROGRAM";
+		mlx->s = "+ o - - ARROW SENSITIVITY";
 		mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 30, 210, mlx->col.w, mlx->s);
+		mlx->s = "ESC - EXIT PROGRAM";
+		mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 30, 230, mlx->col.w, mlx->s);
 	}
 }

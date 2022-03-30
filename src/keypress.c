@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 10:05:08 by pirichar          #+#    #+#             */
-/*   Updated: 2022/03/02 16:05:52 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/03/30 10:21:35 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,28 +34,6 @@ int	keypress(int key, t_mlx *mlx)
 	if (mlx->is_active == 'y')
 		modif_fractals(key, mlx);
 	return (0);
-}
-
-void	loop_palet(int key, t_mlx *mlx)
-{
-	int	i;
-
-	i = 0;
-	if (key == KEY_6)
-	{
-		if (mlx->is_looping == 'n')
-			mlx->is_looping = 'y';
-		else
-			mlx->is_looping = 'n';
-	}
-	while (i++ < 1000)
-	{
-		if (i % 4 == 0)
-		{
-			shift_palet(mlx);
-			refresh_mandle(mlx);
-		}
-	}
 }
 
 void	modif_fractals(int key, t_mlx *mlx)
@@ -119,8 +97,8 @@ void	param_modif(int key, t_mlx *mlx)
 				mlx->mouse.move = 1;
 			else
 				mlx->mouse.move = 0;
-			refresh_mandle(mlx);
 		}
-		julia_set(mlx);
+		refresh_mandle(mlx);
+		shift_palet(mlx);
 	}
 }

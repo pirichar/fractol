@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 08:43:13 by pirichar          #+#    #+#             */
-/*   Updated: 2022/03/03 00:27:59 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/03/30 10:21:22 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ void	chose_zoom(int key, t_mlx *mlx)
 		else
 			mlx->zoom_state = 'o';
 	}
-	// if (mlx->f_state == 'b')
-	// 	zoom_burning(key, mlx);
 	else if (mlx->zoom_state == 'l')
 		zoom_locked(key, mlx);
 	else if (mlx->zoom_state == 'o')

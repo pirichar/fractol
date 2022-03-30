@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 12:58:38 by pirichar          #+#    #+#             */
-/*   Updated: 2022/03/03 08:07:06 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/03/30 09:49:43 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	change_iterations(int key, t_mlx *mlx)
 	if (key == KEY_I)
 	{
 		if (mlx->f_state == 'b')
-			mlx->max_i = mlx->max_i + 1;
+			mlx->max_i = mlx->max_i + 5;
 		else
 			mlx->max_i = mlx->max_i * 1.1;
 	}
@@ -58,7 +58,7 @@ void	change_iterations(int key, t_mlx *mlx)
 		if (mlx->max_i > 4)
 		{
 			if (mlx->f_state == 'b')
-				mlx->max_i = mlx->max_i - 1;
+				mlx->max_i = mlx->max_i - 5;
 			else
 				mlx->max_i = mlx->max_i / 1.1;
 		}
@@ -74,21 +74,4 @@ void	init_first_fractal(t_mlx *mlx)
 		init_julia(mlx);
 	if (mlx->f_state == 'b')
 		init_ship(mlx);
-}
-
-void	shift_palet(t_mlx *mlx)
-{
-	int	tmp;
-
-	tmp = mlx->col.a;
-	mlx->col.a = mlx->col.b;
-	mlx->col.b = mlx->col.c;
-	mlx->col.c = mlx->col.d;
-	mlx->col.d = mlx->col.e;
-	mlx->col.e = mlx->col.f;
-	mlx->col.f = mlx->col.g;
-	mlx->col.g = mlx->col.h;
-	mlx->col.h = mlx->col.i;
-	mlx->col.i = mlx->col.w;
-	mlx->col.w = tmp;
 }

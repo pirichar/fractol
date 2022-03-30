@@ -26,6 +26,7 @@ void	mandle_green(t_mlx *mlx)
 	mlx->col.h = COLOR_8;
 	mlx->col.i = COLOR_9;
 	mlx->col.w = COLOR_WHITE;
+	mlx->clr_state = 'g';
 }
 
 void	mandle_blue(t_mlx *mlx)
@@ -41,6 +42,7 @@ void	mandle_blue(t_mlx *mlx)
 	mlx->col.h = COLOR_18;
 	mlx->col.i = COLOR_19;
 	mlx->col.w = COLOR_WHITE;
+	mlx->clr_state = 'b';
 }
 
 void	mandle_red(t_mlx *mlx)
@@ -56,6 +58,7 @@ void	mandle_red(t_mlx *mlx)
 	mlx->col.h = COLOR_28;
 	mlx->col.i = COLOR_29;
 	mlx->col.w = COLOR_WHITE;
+	mlx->clr_state = 'r';
 }
 
 void	mandle_black(t_mlx *mlx)
@@ -71,6 +74,7 @@ void	mandle_black(t_mlx *mlx)
 	mlx->col.h = COLOR_38;
 	mlx->col.i = COLOR_39;
 	mlx->col.w = COLOR_WHITE;
+	mlx->clr_state = 'b';
 }
 
 void	mandle_funk(t_mlx *mlx)
@@ -86,4 +90,5 @@ void	mandle_funk(t_mlx *mlx)
 	mlx->col.h = NEON_LT_PUR;
 	mlx->col.i = NEON_PUR;
 	mlx->col.w = NEON_LT_PUR;
+	mlx->clr_state = 'f';
 }

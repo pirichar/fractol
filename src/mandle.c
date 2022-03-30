@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 09:26:15 by pirichar          #+#    #+#             */
-/*   Updated: 2022/03/02 16:07:03 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/03/18 08:45:57 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,14 @@ void	print_info_mandle(t_mlx *mlx)
 	printf("This is mlx->a %Lf\nThis is mlx->b %Lf\n", mlx->a, mlx->b);
 	printf("This is mouse_x %d\n This is mouse_y%d\n",
 		mlx->mouse.x_pos, mlx->mouse.y_pos);
-	printf("This is base %d\nThis is mlx state %c\n", mlx->zoom_base,
+	printf("This is base %Lf\nThis is mlx state %c\n", mlx->zoom_base,
 		mlx->f_state);
 	printf("This is zoom_state %c\n", mlx->zoom_state);
 	printf("THis is mouse.move %d\n", mlx->mouse.move);
 	printf("This is menu_state %c\n", mlx->menu_state);
 	printf("This is_looping %c\n", mlx->is_looping);
 }
+
 /*
 	z_n^2+C 
 	x represent z_real

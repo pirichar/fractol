@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 09:26:15 by pirichar          #+#    #+#             */
-/*   Updated: 2022/03/02 16:07:03 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/03/14 10:15:30 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	print_info_ship(t_mlx *mlx)
 		mlx->min_val, mlx->max_val);
 	printf("This is max iteration %d\nThis is n %f\n", mlx->max_i, mlx->n);
 	printf("This is win_x %d\nThis is win_y %d\n", mlx->win_x, mlx->win_y);
-	printf("This is base %d\nThis is mlx f_state %c\n", mlx->zoom_base,
+	printf("This is base %Lf\nThis is mlx f_state %c\n", mlx->zoom_base,
 		mlx->f_state);
 	printf("This is zoom_state %c\nThis is n%f\n", mlx->zoom_state, mlx->n);
 }

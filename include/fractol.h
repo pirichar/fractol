@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 13:00:27 by pirichar          #+#    #+#             */
-/*   Updated: 2022/03/02 16:07:03 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/03/30 10:23:45 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ typedef struct s_mouse
 	int		x_pos;
 	int		y_pos;
 }				t_mouse;
+
 typedef struct s_mlx
 {
 	void			*mlx_ptr;
@@ -61,7 +62,7 @@ typedef struct s_mlx
 	int				win_x;
 	int				win_y;
 	char			f_state;
-	char			c_state;
+	char			clr_state;
 	char			zoom_state;
 	char			menu_state;
 	char			is_looping;
@@ -72,7 +73,7 @@ typedef struct s_mlx
 	double			c2;
 	int				max_i;
 	double			n;
-	int				zoom_base;
+	long double		zoom_base;
 	long double		a;
 	long double		b;
 	long double		x;
@@ -121,6 +122,9 @@ int		keypress(int key, t_mlx *mlx);
 void	init_fractals(int key, t_mlx *mlx);
 void	modif_fractals(int key, t_mlx *mlx);
 void	init_first_fractal(t_mlx *mlx);
+
+//color rotation
+void	loop_palet(int key, t_mlx *mlx);
 
 //julia.c
 int		julia_set(t_mlx *mlx);
