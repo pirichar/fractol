@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 10:05:55 by pirichar          #+#    #+#             */
-/*   Updated: 2022/03/02 16:04:00 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/04/06 10:59:20 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	main(int argc, char **argv)
 	{
 		if (s_argv2(argv))
 		{
-			if (ft_strcmp(argv[1], "mandel") == 0)
+			if (ft_strcmp(argv[1], "mandle") == 0)
 				start_with_mandle(&mlx);
 			else if (ft_strcmp(argv[1], "julia") == 0)
 				start_with_julia(&mlx);
