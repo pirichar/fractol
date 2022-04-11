@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 08:31:26 by pirichar          #+#    #+#             */
-/*   Updated: 2022/03/18 10:57:46 by pirichar         ###   ########.fr       */
+/*   Updated: 2022/04/06 11:08:30 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ int	julia_set(t_mlx *mlx)
 
 void	init_julia(t_mlx *mlx)
 {
+	mlx->zoom_state = 'o';
 	mlx->min_val = -1.882566;
 	mlx->max_val = 1.094675;
 	mlx->n = 338;
