@@ -6,7 +6,7 @@
 #    By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 11:00:22 by pirichar          #+#    #+#              #
-#    Updated: 2022/04/06 08:54:38 by pirichar         ###   ########.fr        #
+#    Updated: 2022/05/08 10:16:17 by pirichar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ $(OBJ)/%.o:	$(SRC)/%.c
 
 
 $(NAME):	$(OBJ) $(OBJS)
-			$(CC) $(OBJS) -lmlx -framework OpenGL -framework AppKit  -o $(NAME)
+			$(CC) $(OBJS) -Lmlx -lmlx -framework OpenGL -framework AppKit  -o $(NAME)
 
 $(OBJ):
 			@mkdir -p $(OBJ)
