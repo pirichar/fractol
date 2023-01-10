@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 13:00:27 by pirichar          #+#    #+#             */
-/*   Updated: 2022/03/30 10:23:45 by pirichar         ###   ########.fr       */
+/*   Updated: 2023/01/09 14:06:00 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ typedef struct s_mlx
 	char			is_active;
 	double			min_val;
 	double			max_val;
+	double			im_max;
+	double			im_min;
 	double			c1;
 	double			c2;
 	int				max_i;

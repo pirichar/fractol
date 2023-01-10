@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 09:26:15 by pirichar          #+#    #+#             */
-/*   Updated: 2022/05/21 13:28:38 by pirichar         ###   ########.fr       */
+/*   Updated: 2023/01/09 14:34:33 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,24 +48,46 @@ void	print_info_mandle(t_mlx *mlx)
 	mlx->b represent z_real
 */
 
-static int	calculate_mandle(t_mlx *mlx)
-{
-	long double	t;
-	int			i;
+// static int	calculate_mandle(t_mlx *mlx)
+// {
+// 	long double	t;
+// 	int			i;
 
-	i = 0;
-	mlx->x = 0;
-	mlx->y = 0;
-	while (i++ < mlx->max_i)
-	{
-		t = mlx->x;
-		mlx->x = (mlx->x * mlx->x) - (mlx->y * mlx->y) + mlx->a;
-		mlx->y = (2 * t * mlx->y) + mlx->b;
-		if ((mlx->x * mlx->x) + (mlx->y * mlx->y) > 4.0)
-			break ;
-	}
-	return (i);
+// 	i = 0;
+// 	mlx->x = 0;
+// 	mlx->y = 0;
+// 	while (i++ < mlx->max_i)
+// 	{
+// 		t = mlx->x;
+// 		mlx->x = (mlx->x * mlx->x) - (mlx->y * mlx->y) + mlx->a;
+// 		mlx->y = (2 * t * mlx->y) + mlx->b;
+// 		if ((mlx->x * mlx->x) + (mlx->y * mlx->y) > 4.0)
+// 			break ;
+// 	}
+// 	return (i);
+// }
+
+static int calculate_mandle(t_mlx *mlx, int x, int y)
+{
+    long double t;
+    int i;
+
+    i = 0;
+    mlx->a = mlx->min_val + (x / mlx->n);
+    mlx->b = mlx->im_min + (y / mlx->n);
+    mlx->x = 0;
+    mlx->y = 0;
+    while (i++ < mlx->max_i)
+    {
+        t = mlx->x;
+        mlx->x = (mlx->x * mlx->x) - (mlx->y * mlx->y) + mlx->a;
+        mlx->y = (2 * t * mlx->y) + mlx->b;
+        if ((mlx->x * mlx->x) + (mlx->y * mlx->y) > 4.0)
+            break ;
+    }
+    return (i);
 }
+
 
 /*
 	z_n^2+C 
@@ -75,30 +97,58 @@ static int	calculate_mandle(t_mlx *mlx)
 	max_val == --bas ++haut
 */
 
-int	mandlebroth(t_mlx *mlx)
-{
-	int	a;
-	int	b;
-	int	i;
+// int	mandlebroth(t_mlx *mlx)
+// {
+// 	int	a;
+// 	int	b;
+// 	int	i;
 
-	clearscreen(mlx);
-	b = 0;
-	while (b++ < mlx->win_y)
-	{
-		mlx->b = mlx->max_val - (b / mlx->n);
-		a = 0;
-		while (a++ < mlx->win_x)
-		{
-			mlx->a = mlx->min_val + (a / mlx->n);
-			i = calculate_mandle(mlx);
-			print_mandle(i, a, b, mlx);
-		}
-	}
-	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img.img, 0, 0);
-	show_menu(mlx);
-	print_info_mandle(mlx);
-	return (0);
+// 	clearscreen(mlx);
+// 	b = 0;
+// 	while (b++ < mlx->win_y)
+// 	{
+// 		mlx->b = mlx->max_val - (b / mlx->n);
+// 		a = 0;
+// 		while (a++ < mlx->win_x)
+// 		{
+// 			mlx->a = mlx->min_val + (a / mlx->n);
+// 			i = calculate_mandle(mlx);
+// 			print_mandle(i, a, b, mlx);
+// 		}
+// 	}
+// 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img.img, 0, 0);
+// 	show_menu(mlx);
+// 	print_info_mandle(mlx);
+// 	return (0);
+// }
+
+
+int mandlebroth(t_mlx *mlx)
+{
+    int i;
+    int x;
+    int y;
+
+    clearscreen(mlx);
+    y = 0;
+    for (int b = mlx->win_y - 1; b >= 0; b--)
+    {
+        x = 0;
+        for (int a = 0; a < mlx->win_x; a++)
+        {
+            i = calculate_mandle(mlx, x, y);
+            print_mandle(i, a, b, mlx);
+            x++;
+        }
+        y++;
+    }
+    mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img.img, 0, 0);
+    show_menu(mlx);
+    print_info_mandle(mlx);
+    return (0);
 }
+
+
 
 void	init_mandle(t_mlx *mlx)
 {
