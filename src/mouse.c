@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 10:10:00 by pirichar          #+#    #+#             */
-/*   Updated: 2022/03/20 17:38:46 by pirichar         ###   ########.fr       */
+/*   Updated: 2024/01/08 13:54:36 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,25 +38,38 @@ int	mouse_mover(int x, int y, t_mlx *mlx)
 
 void	zoom_in(t_mlx *mlx)
 {
-	mlx->n = mlx->n * 1.3;
-	if (mlx->f_state == 'j' || mlx->min_val < -1.809494)
-	{
-		mlx->max_val = mlx->max_val * 0.77;
-		mlx->min_val = mlx->min_val * 0.98;
-	}
-	mlx->zoom_base = mlx->zoom_base * 1.3;
+	long double center_a, center_b;
+	mlx->n = mlx->n * 1.1;
+	mlx->zoom_base = mlx->zoom_base * 1.1;
+	
+	// Calculate the center in the complex plane
+	center_a = mlx->min_val + ((mlx->max_val - mlx->min_val) / 2);
+	center_b = mlx->im_min + ((mlx->im_max - mlx->im_min) / 2);
+
+	// Adjust min_val and max_val to keep the center fixed
+	mlx->min_val = center_a - ((mlx->win_x / 2) / mlx->n);
+	mlx->max_val = center_a + ((mlx->win_x / 2) / mlx->n);
+	mlx->im_min = center_b - ((mlx->win_y / 2) / mlx->n);
+	mlx->im_max = center_b + ((mlx->win_y / 2) / mlx->n);
 }
 
 void	zoom_out(t_mlx *mlx)
 {
-	mlx->n = mlx->n / 1.3;
-	if (mlx->f_state == 'j' || mlx->min_val < -1.809494)
-	{
-		mlx->max_val = mlx->max_val / 0.77;
-		mlx->min_val = mlx->min_val / 0.98;
-	}
+	long double center_a, center_b;
+	
+	mlx->n = mlx->n / 1.1;
 	if (mlx->zoom_base > 5)
-		mlx->zoom_base = mlx->zoom_base / 1.3;
+		mlx->zoom_base = mlx->zoom_base * 0.9;
+	
+	// Calculate the center in the complex plane
+	center_a = mlx->min_val + ((mlx->max_val - mlx->min_val) / 2);
+	center_b = mlx->im_min + ((mlx->im_max - mlx->im_min) / 2);
+
+	// Adjust min_val and max_val to keep the center fixed
+	mlx->min_val = center_a - ((mlx->win_x / 2) / mlx->n);
+	mlx->max_val = center_a + ((mlx->win_x / 2) / mlx->n);
+	mlx->im_min = center_b - ((mlx->win_y / 2) / mlx->n);
+	mlx->im_max = center_b + ((mlx->win_y / 2) / mlx->n);
 }
 
 int	mousehook(int key, int x, int y, t_mlx *mlx)

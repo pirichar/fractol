@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 08:31:26 by pirichar          #+#    #+#             */
-/*   Updated: 2022/04/06 11:08:30 by pirichar         ###   ########.fr       */
+/*   Updated: 2024/01/08 14:01:20 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,14 @@ static void	print_info_julia(t_mlx *mlx)
 	printf("This is f_state %c\n", mlx->f_state);
 }
 
-static int	calculate_julia(t_mlx *mlx)
+static int	calculate_julia(t_mlx *mlx, int x, int y)
 {
 	long double	t;
 	int			i;
 
 	i = 1;
+	mlx->a = mlx->min_val + (x / mlx->n);
+    mlx->b = mlx->im_min + (y / mlx->n);
 	mlx->x = mlx->a;
 	mlx->y = mlx->b;
 	while (i++ < mlx->max_i)
@@ -60,7 +62,7 @@ int	julia_set(t_mlx *mlx)
 		while (a++ <= mlx->win_x)
 		{
 			mlx->a = mlx->min_val + (a / mlx->n);
-			i = calculate_julia(mlx);
+			i = calculate_julia(mlx,a,b);
 			print_mandle(i, a, b, mlx);
 		}
 	}
