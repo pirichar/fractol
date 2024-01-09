@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 09:26:15 by pirichar          #+#    #+#             */
-/*   Updated: 2024/01/08 13:41:29 by pirichar         ###   ########.fr       */
+/*   Updated: 2024/01/08 17:25:02 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,16 @@ https://www.geeksforgeeks.org/fractals-in-cc/
 */
 void	print_info_mandle(t_mlx *mlx)
 {
-	printf(RED"Mandelbrot\nThis is min_val %f\n and this is max_val %f\n"RESET,
-		mlx->min_val, mlx->max_val);
+	printf(RED"Madlebrot\nThis is min_val %f\n and this is max_val %f\nThis is im_min %f\nThis is im_max %f\n"RESET,
+		mlx->min_val, mlx->max_val, mlx->im_min, mlx->im_max);
 	printf("This is max iteration %d\nThis is n %f\n", mlx->max_i, mlx->n);
 	printf("This is win_x %d\nThis is win_y %d\n", mlx->win_x, mlx->win_y);
 	printf("This is mlx->a %Lf\nThis is mlx->b %Lf\n", mlx->a, mlx->b);
+	printf("This is mlx->im_min %lf\n", mlx->im_min);
 	printf("This is mouse_x %d\n This is mouse_y%d\n",
 		mlx->mouse.x_pos, mlx->mouse.y_pos);
 	printf("This is base %Lf\nThis is mlx state %c\n", mlx->zoom_base,
 		mlx->f_state);
-	printf("This is zoom_state %c\n", mlx->zoom_state);
 	printf("THis is mouse.move %d\n", mlx->mouse.move);
 	printf("This is menu_state %c\n", mlx->menu_state);
 	printf("This is_looping %c\n", mlx->is_looping);
@@ -91,8 +91,7 @@ int mandlebroth(t_mlx *mlx)
 
 void	init_mandle(t_mlx *mlx)
 {
-	mlx->zoom_state = 'o';
-	mlx->min_val = -2.35;
+	mlx->min_val = -2.25;
 	mlx->max_val = 1.05;
 	mlx->n = 360;
 	mlx->zoom_base = 10;
@@ -100,6 +99,7 @@ void	init_mandle(t_mlx *mlx)
 	mlx->is_active = 'y';
 	mlx->is_looping = 'n';
 	mlx->max_i = 60;
+	mlx->im_min = -1.10000;
 	mlx->mouse.move = 0;
 	mandle_black(mlx);
 	mandlebroth(mlx);

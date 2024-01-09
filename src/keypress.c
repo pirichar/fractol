@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 10:05:08 by pirichar          #+#    #+#             */
-/*   Updated: 2023/01/09 14:15:37 by pirichar         ###   ########.fr       */
+/*   Updated: 2024/01/08 16:53:59 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,18 +66,6 @@ void	init_fractals(int key, t_mlx *mlx)
 		init_ship(mlx);
 }
 
-// void	fractal_movement(int key, t_mlx *mlx)
-// {
-// 	if (key == KEY_DOWN)
-// 		mlx->max_val -= (1.0 / mlx->zoom_base);
-// 	if (key == KEY_RIGHT)
-// 		mlx->min_val += (1.0 / mlx->zoom_base);
-// 	if (key == KEY_UP)
-// 		mlx->max_val += (1.0 / mlx->zoom_base);
-// 	if (key == KEY_LEFT)
-// 		mlx->min_val -= (1.0 / mlx->zoom_base);
-// 	refresh_mandle(mlx);
-// }
 
 void	fractal_movement(int key, t_mlx *mlx)
 {

@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 09:26:15 by pirichar          #+#    #+#             */
-/*   Updated: 2022/03/14 10:15:30 by pirichar         ###   ########.fr       */
+/*   Updated: 2024/01/08 17:24:44 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,27 +36,29 @@ Complexe Squaring:
 
 void	print_info_ship(t_mlx *mlx)
 {
-	printf(RED"Burning Ship\nThis is min_val %f\n and this is max_val %f\n"RESET,
-		mlx->min_val, mlx->max_val);
+	printf(RED"Burning ship\nThis is min_val %f\n and this is max_val %f\nThis is im_min %f\nThis is im_max %f\n"RESET,
+		mlx->min_val, mlx->max_val, mlx->im_min, mlx->im_max);
 	printf("This is max iteration %d\nThis is n %f\n", mlx->max_i, mlx->n);
 	printf("This is win_x %d\nThis is win_y %d\n", mlx->win_x, mlx->win_y);
 	printf("This is base %Lf\nThis is mlx f_state %c\n", mlx->zoom_base,
 		mlx->f_state);
-	printf("This is zoom_state %c\nThis is n%f\n", mlx->zoom_state, mlx->n);
 }
 
-static int	calculate_ship(t_mlx *mlx)
+static int	calculate_ship(t_mlx *mlx, int x, int y)
 {
 	int			i;
 	long double	t;
 
+
+	mlx->a = mlx->min_val + (x / mlx->n);
+    mlx->b = mlx->im_min - (y / mlx->n);
 	mlx->x = 0;
 	mlx->y = 0;
 	i = 0;
 	while (i < mlx->max_i)
 	{
 		t = ((mlx->x * mlx->x) - (mlx->y * mlx->y)) + mlx->a;
-		mlx->y = fabsl(2 * mlx->x * mlx->y - mlx->b);
+		mlx->y = fabsl((2 * mlx->x * mlx->y) - mlx->b);
 		mlx->x = fabsl(t);
 		if ((mlx->x * mlx->x) + (mlx->y * mlx->y) > 4)
 			break ;
@@ -64,6 +66,7 @@ static int	calculate_ship(t_mlx *mlx)
 	}
 	return (i);
 }
+
 
 int	burningship(t_mlx *mlx)
 {
@@ -80,7 +83,7 @@ int	burningship(t_mlx *mlx)
 		while (a++ < mlx->win_x)
 		{
 			mlx->a = mlx->min_val + (a / mlx->n);
-			i = calculate_ship(mlx);
+			i = calculate_ship(mlx, a, b);
 			print_mandle(i, a, b, mlx);
 		}
 	}
@@ -92,9 +95,9 @@ int	burningship(t_mlx *mlx)
 
 void	init_ship(t_mlx *mlx)
 {
-	mlx->zoom_state = 'o';
-	mlx->min_val = -2.578728;
+	mlx->min_val = -3.078728;
 	mlx->max_val = 2.175875;
+	mlx->im_min = 2.000;
 	mlx->n = 223;
 	mlx->zoom_base = 4;
 	mlx->f_state = 'b';

@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 08:31:26 by pirichar          #+#    #+#             */
-/*   Updated: 2024/01/08 14:01:20 by pirichar         ###   ########.fr       */
+/*   Updated: 2024/01/08 17:24:31 by pirichar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static void	print_info_julia(t_mlx *mlx)
 {
-	printf(RED"Julia's Set\nThis is min_val %f\n and this is max_val %f\n"RESET,
-		mlx->min_val, mlx->max_val);
+	printf(RED"Julia's Set\nThis is min_val %f\n and this is max_val %f\nThis is im_min %f\nThis is im_max %f\n"RESET,
+		mlx->min_val, mlx->max_val, mlx->im_min, mlx->im_max);
 	printf("This is max iteration %d\nThis is n %f\n", mlx->max_i, mlx->n);
 	printf("This is win_x %d\nThis is win_y %d\n", mlx->win_x, mlx->win_y);
 	printf("This is mouse_x %d\n This is mouse_y%d\n",
@@ -33,7 +33,7 @@ static int	calculate_julia(t_mlx *mlx, int x, int y)
 
 	i = 1;
 	mlx->a = mlx->min_val + (x / mlx->n);
-    mlx->b = mlx->im_min + (y / mlx->n);
+    mlx->b = mlx->im_min - (y / mlx->n);
 	mlx->x = mlx->a;
 	mlx->y = mlx->b;
 	while (i++ < mlx->max_i)
@@ -74,7 +74,6 @@ int	julia_set(t_mlx *mlx)
 
 void	init_julia(t_mlx *mlx)
 {
-	mlx->zoom_state = 'o';
 	mlx->min_val = -1.882566;
 	mlx->max_val = 1.094675;
 	mlx->n = 338;
@@ -83,6 +82,7 @@ void	init_julia(t_mlx *mlx)
 	mlx->c1 = -0.787545;
 	mlx->c2 = -0.134741;
 	mlx->max_i = 60;
+	mlx->im_min = 1.1250000;
 	mlx->mouse.move = 0;
 	mlx->is_active = 'y';
 	mlx->is_looping = 'n';
