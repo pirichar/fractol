@@ -35,9 +35,20 @@ int	calculate_julia(t_mlx *mlx, int x, int y)
 	return (i);
 }
 
+void	print_info_julia(t_mlx *mlx)
+{
+	printf(RED"Julia Set\n");
+	printf("min_val: %Lf, max_val: %Lf\n", mlx->min_val, mlx->max_val);
+	printf("im_min: %Lf, im_max: %Lf\n", mlx->im_min, mlx->im_max);
+	printf("c1: %Lf, c2: %Lf\n", mlx->c1, mlx->c2);
+	printf("max_i: %d\n", mlx->max_i);
+	printf(RESET);
+}
+
 int	julia_set(t_mlx *mlx)
 {
 	render_fractal(mlx);
+	print_info_julia(mlx);
 	return (0);
 }
 

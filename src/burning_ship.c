@@ -58,10 +58,21 @@ int	calculate_ship(t_mlx *mlx, int x, int y)
 	return (i);
 }
 
+void	print_info_ship(t_mlx *mlx)
+{
+	printf(RED"Burning Ship\n");
+	printf("min_val: %Lf, max_val: %Lf\n", mlx->min_val, mlx->max_val);
+	printf("im_min: %Lf, im_max: %Lf\n", mlx->im_min, mlx->im_max);
+	printf("max_i: %d\n", mlx->max_i);
+	printf(RESET);
+}
+
 int	burningship(t_mlx *mlx)
 {
 	render_fractal(mlx);
+	print_info_ship(mlx);
 	return (0);
+
 }
 
 void	init_ship(t_mlx *mlx)
