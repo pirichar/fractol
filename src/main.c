@@ -36,6 +36,7 @@ void	init_mlx(t_mlx *mlx)
 	mlx->win_x = 1280;
 	mlx->win_y = 720;
 	mlx->mouse.move = 0;
+	mlx->is_dragging = 0;
 	mlx->mlx_ptr = mlx_init();
 	mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, mlx->win_x,
 			mlx->win_y, "Fractol");
@@ -65,8 +66,9 @@ int	main(int argc, char **argv)
 		init_mlx(&mlx);
 		init_first_fractal(&mlx);
 		mlx_key_hook(mlx.win_ptr, keypress, &mlx);
-		mlx_hook(mlx.win_ptr, 6, 3, mouse_mover, &mlx);
-		mlx_mouse_hook(mlx.win_ptr, mousehook, &mlx);
+		mlx_hook(mlx.win_ptr, 4, 0, mouse_press_hook, &mlx);
+		mlx_hook(mlx.win_ptr, 5, 0, mouse_release_hook, &mlx);
+		mlx_hook(mlx.win_ptr, 6, 0, mouse_mover, &mlx);
 		show_menu(&mlx);
 		mlx_loop(mlx.mlx_ptr);
 	}

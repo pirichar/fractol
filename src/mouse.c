@@ -12,27 +12,74 @@
 
 #include "../include/fractol.h"
 
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mouse.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/23 10:10:00 by pirichar          #+#    #+#             */
+/*   Updated: 2025/07/21 18:20:00 by Gemini            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../include/fractol.h"
+
+void	zoom_in(t_mlx *mlx);
+void	zoom_out(t_mlx *mlx);
+
 int	mouse_mover(int x, int y, t_mlx *mlx)
 {
-	if (mlx->is_looping == 'y')
+	if (mlx->is_dragging)
 	{
-		shift_palet(mlx);
+		double dx = (double)(x - mlx->mouse.drag_start_x) / mlx->win_x * (mlx->max_val - mlx->min_val);
+		double dy = (double)(y - mlx->mouse.drag_start_y) / mlx->win_y * (mlx->im_max - mlx->im_min);
+		mlx->min_val -= dx;
+		mlx->max_val -= dx;
+		mlx->im_min += dy;
+		mlx->im_max += dy;
+		mlx->mouse.drag_start_x = x;
+		mlx->mouse.drag_start_y = y;
 		refresh_mandle(mlx);
 	}
-	mlx->mouse.x_pos = x;
-	mlx->mouse.y_pos = y;
-	if (mlx->f_state == 'j' && mlx->mouse.move == 1)
+	else
 	{
-		if (x > mlx->win_x * 0.333)
-			mlx->c1 = mlx->c1 + 0.05;
-		if (x < mlx->win_x * 0.666)
-			mlx->c1 = mlx->c1 - 0.05;
-		if (y > mlx->win_y * 0.333)
-			mlx->c2 = mlx->c2 + 0.05;
-		if (y < mlx->win_y * 0.666)
-			mlx->c2 = mlx->c2 - 0.05;
+		mlx->mouse.x_pos = x;
+		mlx->mouse.y_pos = y;
+		if (mlx->is_looping == 'y' || (mlx->f_state == 'j' && mlx->mouse.move == 1))
+			refresh_mandle(mlx);
+	}
+	return (0);
+}
+
+int	mouse_press_hook(int button, int x, int y, t_mlx *mlx)
+{
+	if (button == MOUSE_LEFT)
+	{
+		mlx->is_dragging = 1;
+		mlx->mouse.drag_start_x = x;
+		mlx->mouse.drag_start_y = y;
+	}
+	else if (button == MOUSE_UP)
+	{
+		zoom_in(mlx);
 		refresh_mandle(mlx);
 	}
+	else if (button == MOUSE_DOWN)
+	{
+		zoom_out(mlx);
+		refresh_mandle(mlx);
+	}
+	return (0);
+}
+
+int	mouse_release_hook(int button, int x, int y, t_mlx *mlx)
+{
+	(void)x;
+	(void)y;
+	if (button == MOUSE_LEFT)
+		mlx->is_dragging = 0;
 	return (0);
 }
 

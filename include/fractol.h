@@ -55,6 +55,8 @@ typedef struct s_mouse
 	int		move;
 	int		x_pos;
 	int		y_pos;
+	int		drag_start_x;
+	int		drag_start_y;
 } t_mouse;
 
 typedef struct s_mlx
@@ -70,6 +72,7 @@ typedef struct s_mlx
 	char			menu_state;
 	char			is_looping;
 	char			is_active;
+	char			is_dragging;
 	long double		min_val;
 	long double		max_val;
 	long double		im_max;
@@ -123,7 +126,8 @@ void	zoom_locked(int key, t_mlx *mlx);
 void	zoom_burning(int key, t_mlx *mlx);
 void	refresh_mandle(t_mlx *mlx);
 int		mouse_mover(int x, int y, t_mlx *mlx);
-int		mousehook(int key, int x, int y, t_mlx *mlx);
+int		mouse_press_hook(int button, int x, int y, t_mlx *mlx);
+int		mouse_release_hook(int button, int x, int y, t_mlx *mlx);
 int		keypress(int key, t_mlx *mlx);
 void	init_fractals(int key, t_mlx *mlx);
 void	modif_fractals(int key, t_mlx *mlx);
