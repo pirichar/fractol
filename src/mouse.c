@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 10:10:00 by pirichar          #+#    #+#             */
-/*   Updated: 2024/01/08 13:54:36 by pirichar         ###   ########.fr       */
+/*   Updated: 2025/07/21 15:10:00 by Gemini            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,38 +38,61 @@ int	mouse_mover(int x, int y, t_mlx *mlx)
 
 void	zoom_in(t_mlx *mlx)
 {
-	long double center_a, center_b;
-	mlx->n = mlx->n * 1.1;
-	mlx->zoom_base = mlx->zoom_base * 1.1;
-	
-	// Calculate the center in the complex plane
-	center_a = mlx->min_val + ((mlx->max_val - mlx->min_val) / 2);
-	center_b = mlx->im_min + ((mlx->im_max - mlx->im_min) / 2);
+	long double	mouse_re;
+	long double	mouse_im;
+	long double	zoom_factor = 1.5;
+	long double	range_re, range_im, new_range_re, new_range_im;
+	long double	rel_x, rel_y;
 
-	// Adjust min_val and max_val to keep the center fixed
-	mlx->min_val = center_a - ((mlx->win_x / 2) / mlx->n);
-	mlx->max_val = center_a + ((mlx->win_x / 2) / mlx->n);
-	mlx->im_min = center_b - ((mlx->win_y / 2) / mlx->n);
-	mlx->im_max = center_b + ((mlx->win_y / 2) / mlx->n);
+	range_re = mlx->max_val - mlx->min_val;
+	range_im = mlx->im_max - mlx->im_min;
+
+	mouse_re = mlx->min_val + ((long double)mlx->mouse.x_pos / mlx->win_x) * range_re;
+	mouse_im = mlx->im_min + ((long double)(mlx->win_y - mlx->mouse.y_pos) / mlx->win_y) * range_im;
+
+	new_range_re = range_re / zoom_factor;
+	new_range_im = range_im / zoom_factor;
+
+	rel_x = (long double)mlx->mouse.x_pos / mlx->win_x;
+	rel_y = (long double)(mlx->win_y - mlx->mouse.y_pos) / mlx->win_y;
+
+	mlx->min_val = mouse_re - rel_x * new_range_re;
+	mlx->max_val = mlx->min_val + new_range_re;
+	mlx->im_min = mouse_im - rel_y * new_range_im;
+	mlx->im_max = mlx->im_min + new_range_im;
+
+	mlx->n *= zoom_factor;
+	mlx->zoom_base *= zoom_factor;
 }
 
 void	zoom_out(t_mlx *mlx)
 {
-	long double center_a, center_b;
-	
-	mlx->n = mlx->n / 1.1;
-	if (mlx->zoom_base > 5)
-		mlx->zoom_base = mlx->zoom_base * 0.9;
-	
-	// Calculate the center in the complex plane
-	center_a = mlx->min_val + ((mlx->max_val - mlx->min_val) / 2);
-	center_b = mlx->im_min + ((mlx->im_max - mlx->im_min) / 2);
+	long double	mouse_re;
+	long double	mouse_im;
+	long double	zoom_factor = 1.5;
+	long double	range_re, range_im, new_range_re, new_range_im;
+	long double	rel_x, rel_y;
 
-	// Adjust min_val and max_val to keep the center fixed
-	mlx->min_val = center_a - ((mlx->win_x / 2) / mlx->n);
-	mlx->max_val = center_a + ((mlx->win_x / 2) / mlx->n);
-	mlx->im_min = center_b - ((mlx->win_y / 2) / mlx->n);
-	mlx->im_max = center_b + ((mlx->win_y / 2) / mlx->n);
+	range_re = mlx->max_val - mlx->min_val;
+	range_im = mlx->im_max - mlx->im_min;
+
+	mouse_re = mlx->min_val + ((long double)mlx->mouse.x_pos / mlx->win_x) * range_re;
+	mouse_im = mlx->im_min + ((long double)(mlx->win_y - mlx->mouse.y_pos) / mlx->win_y) * range_im;
+
+	new_range_re = range_re * zoom_factor;
+	new_range_im = range_im * zoom_factor;
+
+	rel_x = (long double)mlx->mouse.x_pos / mlx->win_x;
+	rel_y = (long double)(mlx->win_y - mlx->mouse.y_pos) / mlx->win_y;
+
+	mlx->min_val = mouse_re - rel_x * new_range_re;
+	mlx->max_val = mlx->min_val + new_range_re;
+	mlx->im_min = mouse_im - rel_y * new_range_im;
+	mlx->im_max = mlx->im_min + new_range_im;
+
+	mlx->n /= zoom_factor;
+	if (mlx->zoom_base > 5)
+		mlx->zoom_base /= zoom_factor;
 }
 
 int	mousehook(int key, int x, int y, t_mlx *mlx)

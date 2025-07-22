@@ -98,6 +98,7 @@ void	init_ship(t_mlx *mlx)
 	mlx->min_val = -3.078728;
 	mlx->max_val = 2.175875;
 	mlx->im_min = 2.000;
+	mlx->im_max = mlx->im_min + (mlx->max_val - mlx->min_val) * mlx->win_y / mlx->win_x;
 	mlx->n = 223;
 	mlx->zoom_base = 4;
 	mlx->f_state = 'b';

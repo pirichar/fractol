@@ -83,6 +83,7 @@ void	init_julia(t_mlx *mlx)
 	mlx->c2 = -0.134741;
 	mlx->max_i = 60;
 	mlx->im_min = 1.1250000;
+	mlx->im_max = mlx->im_min + (mlx->max_val - mlx->min_val) * mlx->win_y / mlx->win_x;
 	mlx->mouse.move = 0;
 	mlx->is_active = 'y';
 	mlx->is_looping = 'n';
