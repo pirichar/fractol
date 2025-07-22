@@ -12,36 +12,24 @@
 
 #include "../include/fractol.h"
 
-static void	print_info_julia(t_mlx *mlx)
-{
-	printf(RED"Julia's Set\nThis is min_val %f\n and this is max_val %f\nThis is im_min %f\nThis is im_max %f\n"RESET,
-		mlx->min_val, mlx->max_val, mlx->im_min, mlx->im_max);
-	printf("This is max iteration %d\nThis is n %f\n", mlx->max_i, mlx->n);
-	printf("This is win_x %d\nThis is win_y %d\n", mlx->win_x, mlx->win_y);
-	printf("This is mouse_x %d\n This is mouse_y%d\n",
-		mlx->mouse.x_pos, mlx->mouse.y_pos);
-	printf("This is mlx->mouse.move = %d\n", mlx->mouse.move);
-	printf("This is mlx->c1%f\nThis is mlx->c2 %f\n", mlx->c1, mlx->c2);
-	printf("This is base %Lf\n", mlx->zoom_base);
-	printf("This is f_state %c\n", mlx->f_state);
-}
 
-static int	calculate_julia(t_mlx *mlx, int x, int y)
+
+int	calculate_julia(t_mlx *mlx, int x, int y)
 {
-	long double	t;
+	long double	t, a, b, zx, zy;
 	int			i;
 
 	i = 1;
-	mlx->a = mlx->min_val + (x / mlx->n);
-    mlx->b = mlx->im_min - (y / mlx->n);
-	mlx->x = mlx->a;
-	mlx->y = mlx->b;
+	a = mlx->min_val + (long double)x / mlx->win_x * (mlx->max_val - mlx->min_val);
+    b = mlx->im_max - (long double)y / mlx->win_y * (mlx->im_max - mlx->im_min);
+	zx = a;
+	zy = b;
 	while (i++ < mlx->max_i)
 	{
-		t = mlx->x;
-		mlx->x = (mlx->x * mlx->x) - (mlx->y * mlx->y) + mlx->c1;
-		mlx->y = (2 * t * mlx->y) + mlx->c2;
-		if ((mlx->x * mlx->x) +(mlx->y * mlx->y) > 4)
+		t = zx;
+		zx = (zx * zx) - (zy * zy) + mlx->c1;
+		zy = (2 * t * zy) + mlx->c2;
+		if ((zx * zx) +(zy * zy) > 4)
 			break ;
 	}
 	return (i);
@@ -49,41 +37,23 @@ static int	calculate_julia(t_mlx *mlx, int x, int y)
 
 int	julia_set(t_mlx *mlx)
 {
-	int	a;
-	int	b;
-	int	i;
-
-	clearscreen(mlx);
-	b = 0;
-	while (b++ <= mlx->win_y)
-	{
-		mlx->b = mlx->max_val - (b / mlx->n);
-		a = 0;
-		while (a++ <= mlx->win_x)
-		{
-			mlx->a = mlx->min_val + (a / mlx->n);
-			i = calculate_julia(mlx,a,b);
-			print_mandle(i, a, b, mlx);
-		}
-	}
-	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img.img, 0, 0);
-	show_menu(mlx);
-	print_info_julia(mlx);
+	render_fractal(mlx);
 	return (0);
 }
 
 void	init_julia(t_mlx *mlx)
 {
-	mlx->min_val = -1.882566;
-	mlx->max_val = 1.094675;
-	mlx->n = 338;
-	mlx->zoom_base = 16;
+	long double range_re;
+
 	mlx->f_state = 'j';
+	mlx->min_val = -2.0;
+	mlx->max_val = 2.0;
+	range_re = mlx->max_val - mlx->min_val;
+	mlx->im_max = range_re * mlx->win_y / mlx->win_x / 2.0;
+	mlx->im_min = -mlx->im_max;
 	mlx->c1 = -0.787545;
 	mlx->c2 = -0.134741;
-	mlx->max_i = 60;
-	mlx->im_min = 1.1250000;
-	mlx->im_max = mlx->im_min + (mlx->max_val - mlx->min_val) * mlx->win_y / mlx->win_x;
+	mlx->max_i = 200;
 	mlx->mouse.move = 0;
 	mlx->is_active = 'y';
 	mlx->is_looping = 'n';

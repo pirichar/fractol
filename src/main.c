@@ -63,6 +63,7 @@ int	main(int argc, char **argv)
 				return (error());
 		}
 		init_mlx(&mlx);
+		init_first_fractal(&mlx);
 		mlx_key_hook(mlx.win_ptr, keypress, &mlx);
 		mlx_hook(mlx.win_ptr, 6, 3, mouse_mover, &mlx);
 		mlx_mouse_hook(mlx.win_ptr, mousehook, &mlx);

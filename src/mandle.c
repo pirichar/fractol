@@ -23,67 +23,32 @@ Complexe Squaring:
 * =(AA-BB)+(2AB)i
 https://www.geeksforgeeks.org/fractals-in-cc/ 
 */
-void	print_info_mandle(t_mlx *mlx)
-{
-	printf(RED"Madlebrot\nThis is min_val %f\n and this is max_val %f\nThis is im_min %f\nThis is im_max %f\n"RESET,
-		mlx->min_val, mlx->max_val, mlx->im_min, mlx->im_max);
-	printf("This is max iteration %d\nThis is n %f\n", mlx->max_i, mlx->n);
-	printf("This is win_x %d\nThis is win_y %d\n", mlx->win_x, mlx->win_y);
-	printf("This is mlx->a %Lf\nThis is mlx->b %Lf\n", mlx->a, mlx->b);
-	printf("This is mlx->im_min %lf\n", mlx->im_min);
-	printf("This is mouse_x %d\n This is mouse_y%d\n",
-		mlx->mouse.x_pos, mlx->mouse.y_pos);
-	printf("This is base %Lf\nThis is mlx state %c\n", mlx->zoom_base,
-		mlx->f_state);
-	printf("THis is mouse.move %d\n", mlx->mouse.move);
-	printf("This is menu_state %c\n", mlx->menu_state);
-	printf("This is_looping %c\n", mlx->is_looping);
-}
 
-static int calculate_mandle(t_mlx *mlx, int x, int y)
+
+int	calculate_mandle(t_mlx *mlx, int x, int y)
 {
-    long double t;
+    long double t, a, b, zx, zy;
     int i;
 
     i = 0;
-    mlx->a = mlx->min_val + (x / mlx->n);
-    mlx->b = mlx->im_min + (y / mlx->n);
-    mlx->x = 0;
-    mlx->y = 0;
+    a = mlx->min_val + (long double)x / mlx->win_x * (mlx->max_val - mlx->min_val);
+    b = mlx->im_max - (long double)y / mlx->win_y * (mlx->im_max - mlx->im_min);
+    zx = 0;
+    zy = 0;
     while (i++ < mlx->max_i)
     {
-        t = mlx->x;
-        mlx->x = (mlx->x * mlx->x) - (mlx->y * mlx->y) + mlx->a;
-        mlx->y = (2 * t * mlx->y) + mlx->b;
-        if ((mlx->x * mlx->x) + (mlx->y * mlx->y) > 4.0)
+        t = zx;
+        zx = (zx * zx) - (zy * zy) + a;
+        zy = (2 * t * zy) + b;
+        if ((zx * zx) + (zy * zy) > 4.0)
             break ;
     }
     return (i);
 }
 
-
 int mandlebroth(t_mlx *mlx)
 {
-    int i;
-    int x;
-    int y;
-
-    clearscreen(mlx);
-    y = 0;
-    for (int b = mlx->win_y - 1; b >= 0; b--)
-    {
-        x = 0;
-        for (int a = 0; a < mlx->win_x; a++)
-        {
-            i = calculate_mandle(mlx, x, y);
-            print_mandle(i, a, b, mlx);
-            x++;
-        }
-        y++;
-    }
-    mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img.img, 0, 0);
-    show_menu(mlx);
-    print_info_mandle(mlx);
+    render_fractal(mlx);
     return (0);
 }
 
@@ -93,12 +58,10 @@ void	init_mandle(t_mlx *mlx)
 {
 	mlx->min_val = -2.25;
 	mlx->max_val = 1.05;
-	mlx->n = 360;
-	mlx->zoom_base = 10;
 	mlx->f_state = 'm';
 	mlx->is_active = 'y';
 	mlx->is_looping = 'n';
-	mlx->max_i = 60;
+	mlx->max_i = 200;
 	mlx->im_min = -1.10000;
 	mlx->im_max = mlx->im_min + (mlx->max_val - mlx->min_val) * mlx->win_y / mlx->win_x;
 	mlx->mouse.move = 0;

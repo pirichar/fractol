@@ -15,37 +15,27 @@
 void	chose_zoom(int key, t_mlx *mlx)
 {
 	zoom_locked(key, mlx);
-	if (key == KEY_MINUS)
-		mlx->zoom_base = mlx->zoom_base * 2;
-	if (key == KEY_PLUS && mlx->zoom_base > 1)
-		mlx->zoom_base = mlx->zoom_base * 0.5;
 	refresh_mandle(mlx);
 }
 
 void	zoom_locked(int key, t_mlx *mlx)
 {
     long double center_a, center_b;
+	long double zoom_factor;
 
 	if (key == KEY_Z || key == KEY_X)
 	{
 		if (key == KEY_Z)
-		{
-			mlx->n = mlx->n * 1.1;
-			mlx->zoom_base = mlx->zoom_base * 1.2;
-		}
-		if (key == KEY_X)
-		{
-			mlx->n = mlx->n / 1.1;
-			if (mlx->zoom_base > 5)
-				mlx->zoom_base = mlx->zoom_base * 0.9;
-		}
-		// Calculate the center in the complex plane
-		center_a = mlx->min_val + ((mlx->max_val - mlx->min_val) / 2);
-		center_b = mlx->im_min + ((mlx->im_max - mlx->im_min) / 2);
-		// Adjust min_val and max_val to keep the center fixed
-		mlx->min_val = center_a - ((mlx->win_x / 2) / mlx->n);
-		mlx->max_val = center_a + ((mlx->win_x / 2) / mlx->n);
-		mlx->im_min = center_b - ((mlx->win_y / 2) / mlx->n);
-		mlx->im_max = center_b + ((mlx->win_y / 2) / mlx->n);
+			zoom_factor = 1.2;
+		else
+			zoom_factor = 1 / 1.2;
+
+		center_a = mlx->min_val + (mlx->max_val - mlx->min_val) / 2.0;
+		center_b = mlx->im_min + (mlx->im_max - mlx->im_min) / 2.0;
+
+		mlx->min_val = center_a + (mlx->min_val - center_a) / zoom_factor;
+		mlx->max_val = center_a + (mlx->max_val - center_a) / zoom_factor;
+		mlx->im_min = center_b + (mlx->im_min - center_b) / zoom_factor;
+		mlx->im_max = center_b + (mlx->im_max - center_b) / zoom_factor;
 	}
 }

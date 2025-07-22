@@ -69,17 +69,30 @@ void	init_fractals(int key, t_mlx *mlx)
 
 void	fractal_movement(int key, t_mlx *mlx)
 {
-    double movement;
+    long double movement_re, movement_im;
 
-    movement = 1.0 / mlx->zoom_base;
+    movement_re = (mlx->max_val - mlx->min_val) / 20.0;
+    movement_im = (mlx->im_max - mlx->im_min) / 20.0;
     if (key == KEY_DOWN)
-        mlx->im_min -= movement;
+    {
+        mlx->im_min -= movement_im;
+        mlx->im_max -= movement_im;
+    }
     if (key == KEY_RIGHT)
-        mlx->min_val += movement;
+    {
+        mlx->min_val += movement_re;
+        mlx->max_val += movement_re;
+    }
     if (key == KEY_UP)
-        mlx->im_min += movement;
+    {
+        mlx->im_min += movement_im;
+        mlx->im_max += movement_im;
+    }
     if (key == KEY_LEFT)
-        mlx->min_val -= movement;
+    {
+        mlx->min_val -= movement_re;
+        mlx->max_val -= movement_re;
+    }
     refresh_mandle(mlx);
 }
 

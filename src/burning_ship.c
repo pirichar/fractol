@@ -34,77 +34,49 @@ Complexe Squaring:
 	Another small one -w 0.008 -c 1.861 0.005
 	*/
 
-void	print_info_ship(t_mlx *mlx)
-{
-	printf(RED"Burning ship\nThis is min_val %f\n and this is max_val %f\nThis is im_min %f\nThis is im_max %f\n"RESET,
-		mlx->min_val, mlx->max_val, mlx->im_min, mlx->im_max);
-	printf("This is max iteration %d\nThis is n %f\n", mlx->max_i, mlx->n);
-	printf("This is win_x %d\nThis is win_y %d\n", mlx->win_x, mlx->win_y);
-	printf("This is base %Lf\nThis is mlx f_state %c\n", mlx->zoom_base,
-		mlx->f_state);
-}
 
-static int	calculate_ship(t_mlx *mlx, int x, int y)
+
+int	calculate_ship(t_mlx *mlx, int x, int y)
 {
 	int			i;
-	long double	t;
+	long double	t, a, b, zx, zy;
 
-
-	mlx->a = mlx->min_val + (x / mlx->n);
-    mlx->b = mlx->im_min - (y / mlx->n);
-	mlx->x = 0;
-	mlx->y = 0;
+	a = mlx->min_val + (long double)x / mlx->win_x * (mlx->max_val - mlx->min_val);
+    b = mlx->im_max - (long double)y / mlx->win_y * (mlx->im_max - mlx->im_min);
+	zx = 0;
+	zy = 0;
 	i = 0;
 	while (i < mlx->max_i)
 	{
-		t = ((mlx->x * mlx->x) - (mlx->y * mlx->y)) + mlx->a;
-		mlx->y = fabsl((2 * mlx->x * mlx->y) - mlx->b);
-		mlx->x = fabsl(t);
-		if ((mlx->x * mlx->x) + (mlx->y * mlx->y) > 4)
+		t = ((zx * zx) - (zy * zy)) + a;
+		zy = fabsl((2 * zx * zy) - b);
+		zx = fabsl(t);
+		if ((zx * zx) + (zy * zy) > 4)
 			break ;
 		i++;
 	}
 	return (i);
 }
 
-
 int	burningship(t_mlx *mlx)
 {
-	int	a;
-	int	b;
-	int	i;
-
-	clearscreen(mlx);
-	b = 0;
-	while (b++ < mlx->win_y)
-	{
-		mlx->b = mlx->max_val - (b / mlx->n);
-		a = 0;
-		while (a++ < mlx->win_x)
-		{
-			mlx->a = mlx->min_val + (a / mlx->n);
-			i = calculate_ship(mlx, a, b);
-			print_mandle(i, a, b, mlx);
-		}
-	}
-	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img.img, 0, 0);
-	show_menu(mlx);
-	print_info_ship(mlx);
+	render_fractal(mlx);
 	return (0);
 }
 
 void	init_ship(t_mlx *mlx)
 {
-	mlx->min_val = -3.078728;
-	mlx->max_val = 2.175875;
-	mlx->im_min = 2.000;
-	mlx->im_max = mlx->im_min + (mlx->max_val - mlx->min_val) * mlx->win_y / mlx->win_x;
-	mlx->n = 223;
-	mlx->zoom_base = 4;
+	long double range_re;
+
 	mlx->f_state = 'b';
+	mlx->min_val = -2.5;
+	mlx->max_val = 1.5;
+	range_re = mlx->max_val - mlx->min_val;
+	mlx->im_max = range_re * mlx->win_y / mlx->win_x / 2.0;
+	mlx->im_min = -mlx->im_max;
+	mlx->max_i = 200;
 	mlx->is_active = 'y';
 	mlx->is_looping = 'n';
-	mlx->max_i = 60;
 	mandle_black(mlx);
 	burningship(mlx);
 }

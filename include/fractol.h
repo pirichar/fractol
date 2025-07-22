@@ -6,7 +6,7 @@
 /*   By: pirichar <pirichar@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 13:00:27 by pirichar          #+#    #+#             */
-/*   Updated: 2023/01/09 14:06:00 by pirichar         ###   ########.fr       */
+/*   Updated: 2025/07/21 18:10:00 by Gemini            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,11 @@
 # include <math.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include <pthread.h>
 # include "keys.h"
 # include "colors.h"
+
+# define NUM_THREADS 8
 
 typedef struct s_color_pal
 {
@@ -34,7 +37,7 @@ typedef struct s_color_pal
 	int	h;
 	int	i;
 	int	w;
-}			t_color_pal;
+} t_color_pal;
 
 typedef struct s_data
 {
@@ -43,7 +46,7 @@ typedef struct s_data
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
-}			t_data;
+} t_data;
 
 typedef struct s_mouse
 {
@@ -52,7 +55,7 @@ typedef struct s_mouse
 	int		move;
 	int		x_pos;
 	int		y_pos;
-}				t_mouse;
+} t_mouse;
 
 typedef struct s_mlx
 {
@@ -67,23 +70,24 @@ typedef struct s_mlx
 	char			menu_state;
 	char			is_looping;
 	char			is_active;
-	double			min_val;
-	double			max_val;
-	double			im_max;
-	double			im_min;
-	double			c1;
-	double			c2;
+	long double		min_val;
+	long double		max_val;
+	long double		im_max;
+	long double		im_min;
+	long double		c1;
+	long double		c2;
 	int				max_i;
-	double			n;
 	long double		zoom_base;
-	long double		a;
-	long double		b;
-	long double		x;
-	long double		y;
 	t_data			img;
 	t_color_pal		col;
 	t_mouse			mouse;
-}				t_mlx;
+} t_mlx;
+
+typedef struct s_thread_data
+{
+	t_mlx	*mlx;
+	int		y_start;
+} t_thread_data;
 
 void	clearscreen(t_mlx *mlx);
 void	reset_screen(t_mlx *mlx);
@@ -141,5 +145,8 @@ void	start_with_ship(t_mlx *mlx);
 //Sierpinski 
 void	init_sierpinski(t_mlx *mlx);
 int		sierpinski(t_mlx *mlx);
+
+//render.c
+void	render_fractal(t_mlx *mlx);
 
 #endif

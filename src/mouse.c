@@ -60,9 +60,6 @@ void	zoom_in(t_mlx *mlx)
 	mlx->max_val = mlx->min_val + new_range_re;
 	mlx->im_min = mouse_im - rel_y * new_range_im;
 	mlx->im_max = mlx->im_min + new_range_im;
-
-	mlx->n *= zoom_factor;
-	mlx->zoom_base *= zoom_factor;
 }
 
 void	zoom_out(t_mlx *mlx)
@@ -89,10 +86,6 @@ void	zoom_out(t_mlx *mlx)
 	mlx->max_val = mlx->min_val + new_range_re;
 	mlx->im_min = mouse_im - rel_y * new_range_im;
 	mlx->im_max = mlx->im_min + new_range_im;
-
-	mlx->n /= zoom_factor;
-	if (mlx->zoom_base > 5)
-		mlx->zoom_base /= zoom_factor;
 }
 
 int	mousehook(int key, int x, int y, t_mlx *mlx)
